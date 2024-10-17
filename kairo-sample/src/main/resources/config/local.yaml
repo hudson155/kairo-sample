@@ -13,7 +13,7 @@ rest:
   merge:
     connector:
       merge:
-        port: 5828
+        port: 8080
     parallelism:
       replace:
         connectionGroupSize: 4

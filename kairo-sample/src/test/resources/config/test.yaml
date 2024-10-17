@@ -15,7 +15,7 @@ rest:
   merge:
     connector:
       merge:
-        port: 5829
+        port: 8081
 
 sql:
   merge:
