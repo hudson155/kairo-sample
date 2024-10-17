@@ -1,0 +1,32 @@
+auth:
+  merge:
+    leewaySec: 300 # 5 minutes.
+
+featureManager:
+  merge:
+    lifecycle:
+      merge:
+        startupDelayMs: 200 # 200 milliseconds.
+        shutdownDelayMs: 400 # 400 milliseconds.
+
+rest:
+  merge:
+    connector:
+      merge:
+        port: 5828
+    parallelism:
+      replace:
+        connectionGroupSize: 4
+        workerGroupSize: 8
+        callGroupSize: 16
+
+sql:
+  merge:
+    properties: { replace: { } }
+    connectionTimeoutMs: 1000
+    minimumIdle: 4
+    maximumPoolSize: 16
+
+sqlMigration:
+  merge:
+    run: false

@@ -1,0 +1,22 @@
+extends: "local-development"
+
+clock:
+  replace:
+    type: "Fixed"
+    instant: "2023-02-03T19:44:32.123456789Z"
+    timeZone: "UTC"
+
+id:
+  replace:
+    generator:
+      type: "Deterministic"
+
+rest:
+  merge:
+    connector:
+      merge:
+        port: 5829
+
+sql:
+  merge:
+    jdbcUrl: "jdbc:postgresql://localhost/kairo_sample_test"

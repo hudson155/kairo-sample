@@ -1,0 +1,27 @@
+extends: "common"
+
+apply:
+  - "local"
+
+auth:
+  merge:
+    jwtIssuer: "stytch.com/project-test-1939454d-eb46-4158-a38a-9a82f58dde16"
+    jwksEndpoint: "https://test.stytch.com/v1/sessions/jwks/project-test-1939454d-eb46-4158-a38a-9a82f58dde16"
+
+cors:
+  merge:
+    hosts:
+      - { host: "localhost:3000", scheme: "http" }
+
+sql:
+  merge:
+    jdbcUrl: "jdbc:postgresql://localhost/kairo_sample"
+    username: ~
+    password: ~
+
+sqlMigration:
+  merge:
+    run: true
+    cleanOnValidationError: true
+    locations:
+      - "db/kairoSample/migration/common"
