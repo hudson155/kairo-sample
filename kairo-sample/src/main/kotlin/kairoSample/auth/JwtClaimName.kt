@@ -1,8 +1,5 @@
 package kairoSample.auth
 
-/**
- * TODO: After purchasing a domain, replace "example.com" with that domain.
- */
 internal object JwtClaimName {
   const val platformRoles: String = "https://example.com/platform_roles"
 
