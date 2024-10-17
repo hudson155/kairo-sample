@@ -2,9 +2,9 @@ package kairoSample.entity.userAccount
 
 import com.google.inject.Inject
 import kairo.sql.store.isUniqueViolation
+import kairoSample.common.KairoSampleSqlStore
 import org.jdbi.v3.core.kotlin.bindKotlin
 import org.postgresql.util.ServerErrorMessage
-import kairoSample.common.KairoSampleSqlStore
 
 internal class UserAccountStore @Inject constructor() : KairoSampleSqlStore<UserAccountModel>(
   tableName = "users.user_account",
