@@ -1,0 +1,14 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Kairo Sample [local-development]" type="JetRunConfigurationType">
+    <envs>
+      <env name="KAIRO_CONFIG" value="local-development" />
+      <env name="KAIRO_CLEAN_DATABASE" value="true" />
+    </envs>
+    <option name="MAIN_CLASS_NAME" value="kairoSample.server.kairoSample.KairoSampleServerKt" />
+    <module name="kairo-sample.kairo-sample.main" />
+    <shortenClasspath name="NONE" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>
