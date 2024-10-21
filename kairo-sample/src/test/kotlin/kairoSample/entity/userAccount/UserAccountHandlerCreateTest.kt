@@ -36,15 +36,15 @@ internal class UserAccountHandlerCreateTest : UsersFeatureTest() {
 
   @Test
   fun `happy path`(): Unit = runTest {
-    test("Create Jeff") {
+    val jeff = test("Create Jeff") {
       val creator = UserAccountFixture.jeff.creator
-      client.request(UserAccountApi.Create(creator))
+      return@test client.request(UserAccountApi.Create(creator))
         .shouldBe(UserAccountFixture.jeff.rep)
     }
 
     postcondition("Jeff should exist") {
       client.request(UserAccountApi.Get(UserAccountFixture.jeff.rep.id))
-        .shouldBe(UserAccountFixture.jeff.rep)
+        .shouldBe(jeff)
     }
   }
 }
