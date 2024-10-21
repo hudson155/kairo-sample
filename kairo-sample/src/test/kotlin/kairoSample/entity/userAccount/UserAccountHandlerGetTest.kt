@@ -5,10 +5,11 @@ import io.kotest.matchers.shouldBe
 import kairo.restTesting.client
 import kairo.testing.setup
 import kairo.testing.test
+import kairoSample.feature.users.UsersFeatureTest
 import kotlinx.coroutines.test.runTest
 import org.junit.jupiter.api.Test
 
-internal class UserAccountHandlerGetTest : UserAccountHandlerTest() {
+internal class UserAccountHandlerGetTest : UsersFeatureTest() {
   @Test
   fun `does not exist`(): Unit = runTest {
     setup("Create Jeff") {

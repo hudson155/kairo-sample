@@ -6,10 +6,11 @@ import kairo.restTesting.client
 import kairo.testing.postcondition
 import kairo.testing.setup
 import kairo.testing.test
+import kairoSample.feature.users.UsersFeatureTest
 import kotlinx.coroutines.test.runTest
 import org.junit.jupiter.api.Test
 
-internal class UserAccountHandlerCreateTest : UserAccountHandlerTest() {
+internal class UserAccountHandlerCreateTest : UsersFeatureTest() {
   @Test
   fun `duplicate email address`(): Unit = runTest {
     setup("Create Jeff") {
