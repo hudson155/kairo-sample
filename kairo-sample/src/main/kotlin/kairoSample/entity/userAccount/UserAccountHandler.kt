@@ -15,7 +15,8 @@ internal class UserAccountHandler @Inject constructor(
       userAccount(endpoint.userAccountId)
 
     override suspend fun handle(endpoint: UserAccountApi.Get): UserAccountRep {
-      val userAccount = userAccountService.get(endpoint.userAccountId) ?: throw UserAccountNotFound()
+      val (userAccountId) = endpoint
+      val userAccount = userAccountService.get(userAccountId) ?: throw UserAccountNotFound()
       return userAccountMapper.map(userAccount)
     }
   }
@@ -25,8 +26,9 @@ internal class UserAccountHandler @Inject constructor(
       superuser()
 
     override suspend fun handle(endpoint: UserAccountApi.Create): UserAccountRep {
+      val (body) = endpoint
       val userAccount = userAccountService.create(
-        creator = userAccountMapper.map(endpoint.body),
+        creator = userAccountMapper.map(body),
       )
       return userAccountMapper.map(userAccount)
     }
