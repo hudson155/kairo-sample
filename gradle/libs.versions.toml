@@ -1,6 +1,6 @@
 [versions]
 gcpPostgresSocketFactory = "1.21.0" # https://github.com/GoogleCloudPlatform/cloud-sql-jdbc-socket-factory/releases
-kairo = "0.20.0" # https://github.com/hudson155/kairo/releases
+kairo = "0.22.0" # https://github.com/hudson155/kairo/releases
 
 [libraries]
 gcpPostgresSocketFactory = { module = "com.google.cloud.sql:postgres-socket-factory", version.ref = "gcpPostgresSocketFactory" }
