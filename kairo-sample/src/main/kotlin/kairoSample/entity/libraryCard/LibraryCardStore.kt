@@ -36,6 +36,7 @@ internal class LibraryCardStore @Inject constructor() : KairoSampleSqlStore<Libr
 
   suspend fun delete(id: KairoId): LibraryCardModel =
     sql { handle ->
+      logger.info { "Updating library card: $id." }
       val query = handle.createQuery(rs("store/libraryCard/delete.sql"))
       query.bind("id", id)
       return@sql query.mapToType().singleNullOrThrow() ?: throw unprocessable(LibraryCardNotFound(id))
