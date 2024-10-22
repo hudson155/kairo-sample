@@ -22,7 +22,6 @@ rest:
 
 sql:
   merge:
-    properties: { replace: { } }
     connectionTimeoutMs: 1000
     minimumIdle: 4
     maximumPoolSize: 16

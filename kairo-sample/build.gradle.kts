@@ -6,7 +6,6 @@ plugins {
 dependencies {
   implementation(project(":db:library"))
 
-  implementation(libs.gcpPostgresSocketFactory)
   api(libs.kairoClockFeature)
   api(libs.kairoConfig)
   api(libs.kairoFeature)

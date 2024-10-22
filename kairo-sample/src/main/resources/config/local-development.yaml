@@ -5,8 +5,8 @@ apply:
 
 auth:
   merge:
-    jwtIssuer: "stytch.com/project-test-1939454d-eb46-4158-a38a-9a82f58dde16"
-    jwksEndpoint: "https://test.stytch.com/v1/sessions/jwks/project-test-1939454d-eb46-4158-a38a-9a82f58dde16"
+    jwtIssuer: "example.com"
+    jwksEndpoint: "https://example.com/.well-known/jwks.json"
 
 cors:
   merge:
@@ -23,5 +23,3 @@ sqlMigration:
   merge:
     run: true
     cleanOnValidationError: true
-    locations:
-      - "db/library/migration/common"

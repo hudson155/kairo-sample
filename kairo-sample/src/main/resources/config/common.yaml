@@ -37,10 +37,7 @@ rest:
 
 sql:
   jdbcUrl: { source: "EnvironmentVariable", name: "SQL_JDBC_URL" }
-  properties:
-    socketFactory: "com.google.cloud.sql.postgres.SocketFactory"
-    cloudSqlInstance: { source: "EnvironmentVariable", name: "SQL_INSTANCE_NAME" }
-    ipTypes: "PUBLIC"
+  properties: { }
   connectionTimeoutMs: 5000 # 5 seconds.
   minimumIdle: 16
   maximumPoolSize: 64 # Matches rest.parallelism.callGroupSize.
