@@ -1,9 +1,7 @@
 [versions]
-gcpPostgresSocketFactory = "1.21.0" # https://github.com/GoogleCloudPlatform/cloud-sql-jdbc-socket-factory/releases
 kairo = "0.24.0" # https://github.com/hudson155/kairo/releases
 
 [libraries]
-gcpPostgresSocketFactory = { module = "com.google.cloud.sql:postgres-socket-factory", version.ref = "gcpPostgresSocketFactory" }
 kairoClockFeature = { module = "kairo:kairo-clock-feature", version.ref = "kairo" }
 kairoConfig = { module = "kairo:kairo-config", version.ref = "kairo" }
 kairoFeature = { module = "kairo:kairo-feature", version.ref = "kairo" }
