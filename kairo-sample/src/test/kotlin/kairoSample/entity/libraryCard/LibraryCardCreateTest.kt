@@ -11,7 +11,7 @@ import org.junit.jupiter.api.Test
 internal class LibraryCardCreateTest : LibraryFeatureTest() {
   @Test
   fun `happy path`(): Unit = runTest {
-    val jeff1 = test("Create Jeff 0") {
+    val jeff0 = test("Create Jeff 0") {
       val creator = LibraryCardFixture.jeff0.creator
       return@test client.request(LibraryCardApi.Create(creator))
         .shouldBe(LibraryCardFixture.jeff0.rep)
@@ -19,7 +19,7 @@ internal class LibraryCardCreateTest : LibraryFeatureTest() {
 
     postcondition("Get Jeff 0") {
       client.request(LibraryCardApi.Get(LibraryCardFixture.jeff0.rep.id))
-        .shouldBe(jeff1)
+        .shouldBe(jeff0)
     }
   }
 }
