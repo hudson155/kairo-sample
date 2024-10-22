@@ -33,7 +33,7 @@ rest:
   parallelism:
     connectionGroupSize: 16
     workerGroupSize: 32
-    callGroupSize: 64 # Matches Google App Engine automatic_scaling.max_concurrent_requests.
+    callGroupSize: 64
 
 sql:
   jdbcUrl: { source: "EnvironmentVariable", name: "SQL_JDBC_URL" }
