@@ -6,7 +6,6 @@ kairoClockFeature = { module = "kairo:kairo-clock-feature", version.ref = "kairo
 kairoConfig = { module = "kairo:kairo-config", version.ref = "kairo" }
 kairoFeature = { module = "kairo:kairo-feature", version.ref = "kairo" }
 kairoFeatureTesting = { module = "kairo:kairo-feature-testing", version.ref = "kairo" }
-kairoGoogleAppEngineFeature = { module = "kairo:kairo-google-app-engine-feature", version.ref = "kairo" }
 kairoHealthCheckFeature = { module = "kairo:kairo-health-check-feature", version.ref = "kairo" }
 kairoIdFeature = { module = "kairo:kairo-id-feature", version.ref = "kairo" }
 kairoIdFeatureTesting = { module = "kairo:kairo-id-feature-testing", version.ref = "kairo" }

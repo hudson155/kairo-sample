@@ -9,7 +9,6 @@ dependencies {
   api(libs.kairoClockFeature)
   api(libs.kairoConfig)
   api(libs.kairoFeature)
-  api(libs.kairoGoogleAppEngineFeature)
   api(libs.kairoHealthCheckFeature)
   api(libs.kairoIdFeature)
   api(libs.kairoLoggingFeature)
