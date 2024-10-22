@@ -2,7 +2,6 @@ package kairoSample.server.kairoSample
 
 import kairo.clock.KairoClockFeature
 import kairo.config.ConfigLoader
-import kairo.googleAppEngine.KairoGoogleAppEngineFeature
 import kairo.id.KairoIdFeature
 import kairo.logging.KairoLoggingFeature
 import kairo.server.FeatureManager
@@ -18,7 +17,6 @@ public class KairoSampleServer(
     FeatureManager(
       features = setOf(
         KairoClockFeature(config.clock),
-        KairoGoogleAppEngineFeature(),
         createKairoHealthCheckFeature(),
         KairoIdFeature(config.id),
         KairoLoggingFeature(config.logging),
