@@ -39,7 +39,7 @@ internal class LibraryBookSearchByTextTest : LibraryFeatureTest() {
     test("Search by text") {
       client.request(
         LibraryBookApi.SearchByText(
-          title = "ara",
+          title = "ARA",
           author = null,
         ),
       ).shouldContainExactlyInAnyOrder(
@@ -54,7 +54,7 @@ internal class LibraryBookSearchByTextTest : LibraryFeatureTest() {
       client.request(
         LibraryBookApi.SearchByText(
           title = null,
-          author = "a",
+          author = "A",
         ),
       ).shouldContainExactlyInAnyOrder(
         LibraryBookFixture.theNameOfTheWind.rep,
@@ -67,8 +67,8 @@ internal class LibraryBookSearchByTextTest : LibraryFeatureTest() {
     test("Search by text") {
       client.request(
         LibraryBookApi.SearchByText(
-          title = "a",
-          author = "a",
+          title = "A",
+          author = "A",
         ),
       ).shouldContainExactlyInAnyOrder(
         LibraryBookFixture.theNameOfTheWind.rep,
@@ -81,7 +81,7 @@ internal class LibraryBookSearchByTextTest : LibraryFeatureTest() {
     test("Search by text") {
       client.request(
         LibraryBookApi.SearchByText(
-          title = "a",
+          title = "A",
           author = null,
         ),
       ).shouldContainExactlyInAnyOrder(
