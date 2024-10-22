@@ -1,0 +1,54 @@
+auth:
+  leewaySec: 20 # 20 seconds.
+
+clock:
+  type: "System"
+  timeZone: "UTC"
+
+cors:
+  headers:
+    - "Authorization"
+    - "Content-Type"
+
+featureManager:
+  lifecycle:
+    startupDelayMs: 2000 # 2 seconds.
+    shutdownDelayMs: 4000 # 4 seconds.
+
+id:
+  generator:
+    type: "Random"
+    length: 22
+
+logging:
+  shutDownManually: true
+
+rest:
+  connector:
+    host: "0.0.0.0"
+    port: { source: "EnvironmentVariable", name: "PORT" }
+  lifecycle:
+    shutdownGracePeriodMs: 15_000 # 15 seconds.
+    shutdownTimeoutMs: 25_000 # 25 seconds.
+  parallelism:
+    connectionGroupSize: 16
+    workerGroupSize: 32
+    callGroupSize: 64
+
+sql:
+  jdbcUrl: { source: "EnvironmentVariable", name: "SQL_JDBC_URL" }
+  properties: { }
+  connectionTimeoutMs: 5000 # 5 seconds.
+  minimumIdle: 16
+  maximumPoolSize: 64 # Matches rest.parallelism.callGroupSize.
+
+sqlMigration:
+  run: true
+  cleanOnValidationError: false
+  locations:
+    - "db/library/migration/common"
+  defaultSchema: "public"
+  schemas:
+    - "library"
+  createSchemas: true
+  tableName: "database_migration"
