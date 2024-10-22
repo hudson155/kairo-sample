@@ -9,7 +9,6 @@ import org.junit.jupiter.api.Test
  * There are no assertions; the test passes if no exceptions are thrown.
  */
 internal class KairoSampleServerTest {
-  @Suppress("TestMethodWithoutAssertion")
   @Test
   fun test(): Unit = runTest {
     val config = ConfigLoader.createTesting().load<KairoSampleServerConfig>("test")
