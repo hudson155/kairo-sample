@@ -587,7 +587,11 @@ style:
     active: true
     # Keep these in sync with IntelliJ auto-import exclusions (codeInsightSettings.xml).
     imports:
+      - 'com.google.common.base.Optional' # Use the JDK version instead.
+
       - 'com.google.inject.TypeLiteral' # Use the Kotlin overload.
+
+      - 'com.typesafe.config.Optional' # Use the JDK version instead.
 
       - 'com.sun.security.*'
 

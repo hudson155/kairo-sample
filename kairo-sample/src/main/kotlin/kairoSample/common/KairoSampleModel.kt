@@ -8,6 +8,8 @@ internal abstract class KairoSampleModel {
     abstract val id: KairoId
   }
 
+  internal abstract class Update
+
   abstract val id: KairoId
   abstract val version: Long
   abstract val createdAt: Instant

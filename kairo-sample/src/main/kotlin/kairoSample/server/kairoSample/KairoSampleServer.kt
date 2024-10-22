@@ -9,7 +9,7 @@ import kairo.server.FeatureManager
 import kairo.server.Server
 import kairo.sql.KairoSqlFeature
 import kairo.sqlMigration.KairoSqlMigrationFeature
-import kairoSample.feature.users.UsersFeature
+import kairoSample.feature.library.LibraryFeature
 
 public class KairoSampleServer(
   config: KairoSampleServerConfig,
@@ -25,7 +25,7 @@ public class KairoSampleServer(
         createKairoRestFeature(config.rest, config.auth, config.cors),
         KairoSqlFeature(config.sql),
         KairoSqlMigrationFeature(config.sqlMigration),
-        UsersFeature(),
+        LibraryFeature(),
       ),
       config = config.featureManager,
     )

@@ -9,7 +9,7 @@ internal class KairoSampleTestKairoSqlMigrationFeature(
   KairoSqlMigrationConfig(
     run = true,
     cleanOnValidationError = true,
-    locations = listOf("db/kairoSample/migration/common"),
+    locations = listOf("db/library/migration/common"),
     defaultSchema = "public",
     schemas = schemas,
     createSchemas = true,

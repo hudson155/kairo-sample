@@ -2,6 +2,17 @@
 
 A sample implementation of [Kairo](https://github.com/hudson155/kairo).
 
+This sample project has a single Feature called `LibraryFeature`,
+which manages a public library.
+
+There are 3 entities:
+
+- `LibraryBook`
+- `LibraryMember`
+- `LibraryCard`
+
+A library member can have 0 or more library cards.
+
 ## Project information
 
 ### Major dependencies

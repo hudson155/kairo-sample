@@ -24,4 +24,4 @@ sqlMigration:
     run: true
     cleanOnValidationError: true
     locations:
-      - "db/kairoSample/migration/common"
+      - "db/library/migration/common"

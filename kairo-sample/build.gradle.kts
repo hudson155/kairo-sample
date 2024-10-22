@@ -4,7 +4,7 @@ plugins {
 }
 
 dependencies {
-  implementation(project(":db:kairo-sample"))
+  implementation(project(":db:library"))
 
   implementation(libs.gcpPostgresSocketFactory)
   api(libs.kairoClockFeature)

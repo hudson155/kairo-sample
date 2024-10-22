@@ -49,9 +49,9 @@ sqlMigration:
   run: true
   cleanOnValidationError: false
   locations:
-    - "db/kairoSample/migration/common"
+    - "db/library/migration/common"
   defaultSchema: "public"
   schemas:
-    - "users"
+    - "library"
   createSchemas: true
   tableName: "database_migration"
