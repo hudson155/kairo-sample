@@ -11,7 +11,7 @@ internal class LibraryCardAuthProvider @Inject constructor(
 ) {
   suspend fun Auth.libraryCard(libraryCardId: KairoId?): Auth.Result {
     val libraryCard = libraryCardId?.let { libraryCardService.get(libraryCardId) }
-      ?: return Auth.Result.Exception(unprocessable(LibraryCardNotFound(null)))
+      ?: return Auth.Result.Exception(unprocessable(LibraryCardNotFound(libraryCardId)))
 
     return libraryMember(libraryCard.libraryMemberId)
   }
