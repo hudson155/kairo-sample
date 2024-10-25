@@ -1,11 +1,10 @@
-package kairoSample.auth
+package kairoSample.entity.libraryCard
 
 import com.google.inject.Inject
 import kairo.exception.unprocessable
 import kairo.id.KairoId
 import kairo.rest.auth.Auth
-import kairoSample.entity.libraryCard.LibraryCardNotFound
-import kairoSample.entity.libraryCard.LibraryCardService
+import kairoSample.auth.libraryMember
 
 internal class LibraryCardAuthProvider @Inject constructor(
   private val libraryCardService: LibraryCardService,

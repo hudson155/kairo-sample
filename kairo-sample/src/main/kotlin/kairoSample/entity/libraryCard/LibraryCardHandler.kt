@@ -3,7 +3,6 @@ package kairoSample.entity.libraryCard
 import com.google.inject.Inject
 import kairo.rest.auth.Auth
 import kairo.rest.handler.RestHandler
-import kairoSample.auth.LibraryCardAuthProvider
 import kairoSample.auth.libraryMember
 import kairoSample.auth.superuser
 
