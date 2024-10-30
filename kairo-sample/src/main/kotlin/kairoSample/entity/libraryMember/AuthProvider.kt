@@ -1,20 +1,27 @@
-package kairoSample.auth
+package kairoSample.entity.libraryMember
 
+import kairo.dependencyInjection.getInstance
 import kairo.exception.unprocessable
 import kairo.id.KairoId
 import kairo.rest.auth.Auth
+import kairo.rest.auth.AuthProvider
 import kairo.rest.auth.overriddenBy
 import kairo.rest.exception.MissingJwtClaim
 import kairo.rest.exception.NoPrincipal
-import kairoSample.entity.libraryMember.LibraryMemberNotFound
+import kairoSample.auth.JwtClaimName
+import kairoSample.auth.principal
+import kairoSample.auth.superuser
 import kairoSample.exception.NoAccessToLibraryMember
 
-internal fun Auth.libraryMember(libraryMemberId: KairoId?): Auth.Result {
-  libraryMemberId ?: return Auth.Result.Exception(unprocessable(LibraryMemberNotFound(null)))
+internal suspend fun AuthProvider.libraryMember(libraryMemberId: KairoId?): Auth.Result {
+  val libraryMemberService = injector.getInstance<LibraryMemberService>()
+
+  libraryMemberId?.let { libraryMemberService.get(libraryMemberId) }
+    ?: return Auth.Result.Exception(unprocessable(LibraryMemberNotFound(libraryMemberId)))
 
   overriddenBy(superuser()) { return@libraryMember it }
 
-  val principal = principal ?: return Auth.Result.Exception(NoPrincipal())
+  val principal = auth.principal ?: return Auth.Result.Exception(NoPrincipal())
 
   return principal.principal(
     jwt = jwt@{

@@ -17,7 +17,7 @@ dependencies {
   implementation("io.gitlab.arturbosch.detekt:detekt-gradle-plugin:1.23.7")
 
   // https://plugins.gradle.org/plugin/com.gradleup.shadow
-  implementation("com.gradleup.shadow:shadow-gradle-plugin:8.3.3")
+  implementation("com.gradleup.shadow:shadow-gradle-plugin:8.3.4")
 }
 
 kotlin {

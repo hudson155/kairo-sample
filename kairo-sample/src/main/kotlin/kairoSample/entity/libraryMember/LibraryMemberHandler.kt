@@ -2,9 +2,9 @@ package kairoSample.entity.libraryMember
 
 import com.google.inject.Inject
 import kairo.rest.auth.Auth
+import kairo.rest.auth.AuthProvider
 import kairo.rest.handler.RestHandler
 import kairo.updater.update
-import kairoSample.auth.libraryMember
 import kairoSample.auth.superuser
 
 internal class LibraryMemberHandler @Inject constructor(
@@ -12,7 +12,7 @@ internal class LibraryMemberHandler @Inject constructor(
   private val libraryMemberService: LibraryMemberService,
 ) {
   internal inner class Get : RestHandler<LibraryMemberApi.Get, LibraryMemberRep>() {
-    override suspend fun Auth.auth(endpoint: LibraryMemberApi.Get): Auth.Result =
+    override suspend fun AuthProvider.auth(endpoint: LibraryMemberApi.Get): Auth.Result =
       libraryMember(endpoint.libraryMemberId)
 
     override suspend fun handle(endpoint: LibraryMemberApi.Get): LibraryMemberRep {
@@ -23,7 +23,7 @@ internal class LibraryMemberHandler @Inject constructor(
   }
 
   internal inner class GetByEmailAddress : RestHandler<LibraryMemberApi.GetByEmailAddress, LibraryMemberRep>() {
-    override suspend fun Auth.auth(endpoint: LibraryMemberApi.GetByEmailAddress): Auth.Result {
+    override suspend fun AuthProvider.auth(endpoint: LibraryMemberApi.GetByEmailAddress): Auth.Result {
       val libraryMemberId = libraryMemberService.getByEmailAddress(endpoint.emailAddress)?.id
       return libraryMember(libraryMemberId)
     }
@@ -36,7 +36,7 @@ internal class LibraryMemberHandler @Inject constructor(
   }
 
   internal inner class ListAll : RestHandler<LibraryMemberApi.ListAll, List<LibraryMemberRep>>() {
-    override suspend fun Auth.auth(endpoint: LibraryMemberApi.ListAll): Auth.Result =
+    override suspend fun AuthProvider.auth(endpoint: LibraryMemberApi.ListAll): Auth.Result =
       superuser()
 
     override suspend fun handle(endpoint: LibraryMemberApi.ListAll): List<LibraryMemberRep> {
@@ -46,7 +46,7 @@ internal class LibraryMemberHandler @Inject constructor(
   }
 
   internal inner class Create : RestHandler<LibraryMemberApi.Create, LibraryMemberRep>() {
-    override suspend fun Auth.auth(endpoint: LibraryMemberApi.Create): Auth.Result =
+    override suspend fun AuthProvider.auth(endpoint: LibraryMemberApi.Create): Auth.Result =
       superuser()
 
     override suspend fun handle(endpoint: LibraryMemberApi.Create): LibraryMemberRep {
@@ -59,7 +59,7 @@ internal class LibraryMemberHandler @Inject constructor(
   }
 
   internal inner class Update : RestHandler<LibraryMemberApi.Update, LibraryMemberRep>() {
-    override suspend fun Auth.auth(endpoint: LibraryMemberApi.Update): Auth.Result =
+    override suspend fun AuthProvider.auth(endpoint: LibraryMemberApi.Update): Auth.Result =
       libraryMember(endpoint.libraryMemberId)
 
     override suspend fun handle(endpoint: LibraryMemberApi.Update): LibraryMemberRep {
@@ -77,7 +77,7 @@ internal class LibraryMemberHandler @Inject constructor(
   }
 
   internal inner class Delete : RestHandler<LibraryMemberApi.Delete, LibraryMemberRep>() {
-    override suspend fun Auth.auth(endpoint: LibraryMemberApi.Delete): Auth.Result =
+    override suspend fun AuthProvider.auth(endpoint: LibraryMemberApi.Delete): Auth.Result =
       superuser()
 
     override suspend fun handle(endpoint: LibraryMemberApi.Delete): LibraryMemberRep {

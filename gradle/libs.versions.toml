@@ -1,5 +1,5 @@
 [versions]
-kairo = "0.24.0" # https://github.com/hudson155/kairo/releases
+kairo = "0.30.0" # https://github.com/hudson155/kairo/releases
 
 [libraries]
 kairoClockFeature = { module = "kairo:kairo-clock-feature", version.ref = "kairo" }

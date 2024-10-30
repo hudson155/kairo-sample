@@ -2,7 +2,7 @@ Configuration:
   status: info # For internal Log4j2 logs.
   shutdownHook: disable
   Appenders:
-    Routing:
+    Console:
       name: Plaintext
       target: SYSTEM_OUT
       PatternLayout:
