@@ -19,12 +19,15 @@
       <name>jakarta.inject.*</name>
       <name>jakarta.validation.constraints.*</name>
       <name>java.awt.*</name>
+      <name>java.security.AuthProvider</name>
+      <name>java.security.Permission</name>
       <name>java.util.UUID</name>
       <name>javax.inject.*</name>
       <name>kotlin.time.Duration</name>
       <name>org.junit.jupiter.api.Assertions.*</name>
       <name>org.slf4j.Logger</name>
       <name>org.slf4j.LoggerFactory</name>
+      <name>sun.net.ftp.FtpDirEntry</name>
     </excluded-names>
   </component>
 </project>
