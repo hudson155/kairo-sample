@@ -594,9 +594,9 @@ style:
 
       - 'com.google.inject.TypeLiteral' # Use the Kotlin overload.
 
-      - 'com.typesafe.config.Optional' # Use the JDK version instead.
-
       - 'com.sun.security.*'
+
+      - 'com.typesafe.config.Optional' # Use the JDK version instead.
 
       - 'io.kotest.core.spec.*' # Use JUnit test annotations.
 
@@ -615,6 +615,9 @@ style:
 
       - 'java.awt.*'
 
+      - 'java.security.AuthProvider'
+      - 'java.security.Permission'
+
       - 'java.util.UUID' # Use kotlin.uuid.Uuid.
 
       - 'javax.inject.*' # Use Google's injection annotations.
@@ -625,6 +628,8 @@ style:
 
       - 'org.slf4j.Logger' # Use KLogger.
       - 'org.slf4j.LoggerFactory' # Use KotlinLogging.
+
+      - 'sun.net.ftp.FtpDirEntry'
   ForbiddenMethodCall:
     active: true
     methods:
