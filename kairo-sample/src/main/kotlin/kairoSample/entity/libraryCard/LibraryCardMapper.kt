@@ -1,6 +1,7 @@
 package kairoSample.entity.libraryCard
 
 import com.google.inject.Inject
+import kairo.id.KairoId
 import kairo.id.KairoIdGenerator
 
 internal class LibraryCardMapper @Inject constructor(
@@ -8,15 +9,18 @@ internal class LibraryCardMapper @Inject constructor(
 ) {
   private val idGenerator: KairoIdGenerator = idGenerator.withPrefix("library_card")
 
-  internal fun map(model: LibraryCardModel): LibraryCardRep =
+  fun generateId(): KairoId =
+    idGenerator.generate()
+
+  fun map(model: LibraryCardModel): LibraryCardRep =
     LibraryCardRep(
       id = model.id,
       libraryMemberId = model.libraryMemberId,
     )
 
-  internal fun map(creator: LibraryCardRep.Creator): LibraryCardModel.Creator =
+  fun map(creator: LibraryCardRep.Creator): LibraryCardModel.Creator =
     LibraryCardModel.Creator(
-      id = idGenerator.generate(),
+      id = generateId(),
       libraryMemberId = creator.libraryMemberId,
     )
 }
