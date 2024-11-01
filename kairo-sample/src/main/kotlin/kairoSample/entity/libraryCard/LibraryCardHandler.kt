@@ -37,8 +37,7 @@ internal class LibraryCardHandler @Inject constructor(
       libraryMember(endpoint.libraryMemberId)
 
     override suspend fun handle(endpoint: LibraryCardApi.ListByLibraryMember): List<LibraryCardRep> {
-      val libraryMemberId = endpoint.libraryMemberId
-      val libraryCards = libraryCardService.listByLibraryMember(libraryMemberId)
+      val libraryCards = libraryCardService.listByLibraryMember(endpoint.libraryMemberId)
       return libraryCards.map { libraryCardMapper.map(it) }
     }
   }
@@ -48,9 +47,8 @@ internal class LibraryCardHandler @Inject constructor(
       superuser()
 
     override suspend fun handle(endpoint: LibraryCardApi.Create): LibraryCardRep {
-      val body = endpoint.body
       val libraryCard = libraryCardService.create(
-        creator = libraryCardMapper.map(body),
+        creator = libraryCardMapper.map(endpoint.body),
       )
       return libraryCardMapper.map(libraryCard)
     }
@@ -61,8 +59,7 @@ internal class LibraryCardHandler @Inject constructor(
       superuser()
 
     override suspend fun handle(endpoint: LibraryCardApi.Delete): LibraryCardRep {
-      val libraryCardId = endpoint.libraryCardId
-      val libraryCard = libraryCardService.delete(libraryCardId)
+      val libraryCard = libraryCardService.delete(endpoint.libraryCardId)
       return libraryCardMapper.map(libraryCard)
     }
   }
