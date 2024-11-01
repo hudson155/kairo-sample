@@ -23,7 +23,7 @@ internal class LibraryBookHandler @Inject constructor(
     }
   }
 
-  internal inner class SearchByIsbn : RestHandler<LibraryBookApi.GetByIsbn, LibraryBookRep>() {
+  internal inner class GetByIsbn : RestHandler<LibraryBookApi.GetByIsbn, LibraryBookRep>() {
     override suspend fun AuthProvider.auth(endpoint: LibraryBookApi.GetByIsbn): Auth.Result =
       public()
 
@@ -49,9 +49,11 @@ internal class LibraryBookHandler @Inject constructor(
       public()
 
     override suspend fun handle(endpoint: LibraryBookApi.SearchByText): List<LibraryBookRep> {
-      val title = endpoint.title
-      val author = endpoint.author
-      val libraryBooks = libraryBookService.searchByText(title = title, author = author)
+      val search = LibraryBookSearchByText(
+        title = endpoint.title,
+        author = endpoint.author,
+      )
+      val libraryBooks = libraryBookService.searchByText(search)
       return libraryBooks.map { libraryBookMapper.map(it) }
     }
   }

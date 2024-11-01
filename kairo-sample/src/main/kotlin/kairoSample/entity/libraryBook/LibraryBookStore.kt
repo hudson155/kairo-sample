@@ -29,11 +29,11 @@ internal class LibraryBookStore @Inject constructor() : KairoSampleSqlStore<Libr
       return@sql query.mapToType().toList()
     }
 
-  suspend fun searchByText(title: String?, author: String?): List<LibraryBookModel> =
+  suspend fun searchByText(search: LibraryBookSearchByText): List<LibraryBookModel> =
     sql { handle ->
       val query = handle.createQuery(rs("store/libraryBook/searchByText.sql"))
-      query.bind("title", title)
-      query.bind("author", author)
+      query.bind("title", search.title)
+      query.bind("author", search.author)
       return@sql query.mapToType().toList()
     }
 
