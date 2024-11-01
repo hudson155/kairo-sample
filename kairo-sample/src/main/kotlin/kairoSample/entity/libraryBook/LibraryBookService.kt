@@ -16,8 +16,8 @@ internal class LibraryBookService @Inject constructor(
   suspend fun listAll(): List<LibraryBookModel> =
     libraryBookStore.listAll()
 
-  suspend fun searchByText(title: String?, author: String?): List<LibraryBookModel> =
-    libraryBookStore.searchByText(title = title, author = author)
+  suspend fun searchByText(search: LibraryBookSearchByText): List<LibraryBookModel> =
+    libraryBookStore.searchByText(search)
 
   suspend fun create(creator: LibraryBookModel.Creator): LibraryBookModel =
     libraryBookStore.create(creator)
