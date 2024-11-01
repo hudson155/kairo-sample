@@ -28,8 +28,7 @@ internal class LibraryBookHandler @Inject constructor(
       public()
 
     override suspend fun handle(endpoint: LibraryBookApi.GetByIsbn): LibraryBookRep {
-      val isbn = endpoint.isbn
-      val libraryBook = libraryBookService.getByIsbn(isbn) ?: throw LibraryBookNotFound(null)
+      val libraryBook = libraryBookService.getByIsbn(endpoint.isbn) ?: throw LibraryBookNotFound(null)
       return libraryBookMapper.map(libraryBook)
     }
   }
@@ -49,11 +48,12 @@ internal class LibraryBookHandler @Inject constructor(
       public()
 
     override suspend fun handle(endpoint: LibraryBookApi.SearchByText): List<LibraryBookRep> {
-      val search = LibraryBookSearchByText(
-        title = endpoint.title,
-        author = endpoint.author,
+      val libraryBooks = libraryBookService.searchByText(
+        LibraryBookSearchByText(
+          title = endpoint.title,
+          author = endpoint.author,
+        ),
       )
-      val libraryBooks = libraryBookService.searchByText(search)
       return libraryBooks.map { libraryBookMapper.map(it) }
     }
   }
@@ -63,9 +63,8 @@ internal class LibraryBookHandler @Inject constructor(
       superuser()
 
     override suspend fun handle(endpoint: LibraryBookApi.Create): LibraryBookRep {
-      val body = endpoint.body
       val libraryBook = libraryBookService.create(
-        creator = libraryBookMapper.map(body),
+        creator = libraryBookMapper.map(endpoint.body),
       )
       return libraryBookMapper.map(libraryBook)
     }
@@ -76,9 +75,8 @@ internal class LibraryBookHandler @Inject constructor(
       superuser()
 
     override suspend fun handle(endpoint: LibraryBookApi.Update): LibraryBookRep {
-      val libraryBookId = endpoint.libraryBookId
       val body = endpoint.body
-      val libraryBook = libraryBookService.update(libraryBookId) { existing ->
+      val libraryBook = libraryBookService.update(endpoint.libraryBookId) { existing ->
         LibraryBookModel.Update(
           title = update(existing.title, body.title),
           author = update(existing.author, body.author),
@@ -93,8 +91,7 @@ internal class LibraryBookHandler @Inject constructor(
       superuser()
 
     override suspend fun handle(endpoint: LibraryBookApi.Delete): LibraryBookRep {
-      val libraryBookId = endpoint.libraryBookId
-      val libraryBook = libraryBookService.delete(libraryBookId)
+      val libraryBook = libraryBookService.delete(endpoint.libraryBookId)
       return libraryBookMapper.map(libraryBook)
     }
   }

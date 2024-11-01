@@ -29,8 +29,8 @@ internal class LibraryMemberHandler @Inject constructor(
     }
 
     override suspend fun handle(endpoint: LibraryMemberApi.GetByEmailAddress): LibraryMemberRep {
-      val emailAddress = endpoint.emailAddress
-      val libraryMember = libraryMemberService.getByEmailAddress(emailAddress) ?: throw LibraryMemberNotFound(null)
+      val libraryMember = libraryMemberService.getByEmailAddress(endpoint.emailAddress)
+        ?: throw LibraryMemberNotFound(null)
       return libraryMemberMapper.map(libraryMember)
     }
   }
@@ -50,9 +50,8 @@ internal class LibraryMemberHandler @Inject constructor(
       superuser()
 
     override suspend fun handle(endpoint: LibraryMemberApi.Create): LibraryMemberRep {
-      val body = endpoint.body
       val libraryMember = libraryMemberService.create(
-        creator = libraryMemberMapper.map(body),
+        creator = libraryMemberMapper.map(endpoint.body),
       )
       return libraryMemberMapper.map(libraryMember)
     }
@@ -63,9 +62,8 @@ internal class LibraryMemberHandler @Inject constructor(
       libraryMember(endpoint.libraryMemberId)
 
     override suspend fun handle(endpoint: LibraryMemberApi.Update): LibraryMemberRep {
-      val libraryMemberId = endpoint.libraryMemberId
       val body = endpoint.body
-      val libraryMember = libraryMemberService.update(libraryMemberId) { existing ->
+      val libraryMember = libraryMemberService.update(endpoint.libraryMemberId) { existing ->
         LibraryMemberModel.Update(
           emailAddress = update(existing.emailAddress, body.emailAddress),
           firstName = update(existing.firstName, body.firstName),
@@ -81,8 +79,7 @@ internal class LibraryMemberHandler @Inject constructor(
       superuser()
 
     override suspend fun handle(endpoint: LibraryMemberApi.Delete): LibraryMemberRep {
-      val libraryMemberId = endpoint.libraryMemberId
-      val libraryMember = libraryMemberService.delete(libraryMemberId)
+      val libraryMember = libraryMemberService.delete(endpoint.libraryMemberId)
       return libraryMemberMapper.map(libraryMember)
     }
   }
