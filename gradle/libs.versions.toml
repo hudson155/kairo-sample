@@ -14,9 +14,6 @@ shadow = "8.3.6"
 
 [libraries]
 
-# https://github.com/GoogleCloudPlatform/cloud-sql-jdbc-socket-factory/tags
-gcpPostgresSocketFactory = { module = "com.google.cloud.sql:postgres-socket-factory", version = "1.25.2" }
-
 # https://github.com/hudson155/kairo/releases
 kairoBom = { module = "software.airborne.kairo:bom", version = "LOCAL-SNAPSHOT" }
 kairoServer = { module = "software.airborne.kairo:kairo-server" }
