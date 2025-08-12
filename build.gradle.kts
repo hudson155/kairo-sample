@@ -38,7 +38,6 @@ kotlin {
 }
 
 dependencies {
-  implementation(libs.gcpPostgresSocketFactory)
   implementation(platform(libs.kairoBom))
   implementation(libs.kairoServer)
 
