@@ -1,20 +1,22 @@
 [versions]
-kairo = "0.30.0" # https://github.com/hudson155/kairo/releases
+
+# https://plugins.gradle.org/plugin/io.gitlab.arturbosch.detekt
+detekt = "1.23.8"
+
+# https://plugins.gradle.org/plugin/com.google.cloud.artifactregistry.gradle-plugin
+googleArtifactRegistry = "2.2.5"
+
+# https://kotlinlang.org/docs/releases.html#release-details
+kotlin = "2.2.0"
+
+# https://plugins.gradle.org/plugin/com.gradleup.shadow
+shadow = "8.3.6"
 
 [libraries]
-kairoClockFeature = { module = "kairo:kairo-clock-feature", version.ref = "kairo" }
-kairoConfig = { module = "kairo:kairo-config", version.ref = "kairo" }
-kairoFeature = { module = "kairo:kairo-feature", version.ref = "kairo" }
-kairoFeatureTesting = { module = "kairo:kairo-feature-testing", version.ref = "kairo" }
-kairoHealthCheckFeature = { module = "kairo:kairo-health-check-feature", version.ref = "kairo" }
-kairoIdFeature = { module = "kairo:kairo-id-feature", version.ref = "kairo" }
-kairoIdFeatureTesting = { module = "kairo:kairo-id-feature-testing", version.ref = "kairo" }
-kairoLoggingFeature = { module = "kairo:kairo-logging-feature", version.ref = "kairo" }
-kairoRestFeature = { module = "kairo:kairo-rest-feature", version.ref = "kairo" }
-kairoRestFeatureCors = { module = "kairo:kairo-rest-feature-cors", version.ref = "kairo" }
-kairoRestFeatureTesting = { module = "kairo:kairo-rest-feature-testing", version.ref = "kairo" }
-kairoServer = { module = "kairo:kairo-server", version.ref = "kairo" }
-kairoSqlFeature = { module = "kairo:kairo-sql-feature", version.ref = "kairo" }
-kairoSqlFeatureTesting = { module = "kairo:kairo-sql-feature-testing", version.ref = "kairo" }
-kairoSqlMigrationFeature = { module = "kairo:kairo-sql-migration-feature", version.ref = "kairo" }
-kairoTesting = { module = "kairo:kairo-testing", version.ref = "kairo" }
+
+# https://github.com/GoogleCloudPlatform/cloud-sql-jdbc-socket-factory/tags
+gcpPostgresSocketFactory = { module = "com.google.cloud.sql:postgres-socket-factory", version = "1.25.2" }
+
+# https://github.com/hudson155/kairo/releases
+kairoBom = { module = "software.airborne.kairo:bom", version = "LOCAL-SNAPSHOT" }
+kairoServer = { module = "software.airborne.kairo:kairo-server" }
