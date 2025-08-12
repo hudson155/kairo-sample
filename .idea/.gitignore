@@ -1,6 +1,7 @@
 *
 
 !/.gitignore
+!/.name
 
 !/codeStyles/
 !/codeStyles/**
@@ -12,6 +13,7 @@
 !/codeInsightSettings.xml
 !/compiler.xml
 !/kotlinc.xml
+!/ktlint-plugin.xml
 !/misc.xml
 !/sqldialects.xml
 !/vcs.xml
