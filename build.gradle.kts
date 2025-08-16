@@ -76,7 +76,6 @@ tasks.test {
     events("passed", "skipped", "failed")
   }
   useJUnitPlatform()
-  ignoreFailures = project.hasProperty("ignoreTestFailures") // This property may be set during CI.
 }
 
 detekt {
