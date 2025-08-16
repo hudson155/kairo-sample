@@ -1,6 +1,9 @@
+import com.github.jengelman.gradle.plugins.shadow.transformers.Log4j2PluginsCacheFileTransformer
+
 plugins {
   java
   kotlin("jvm") version libs.versions.kotlin
+  kotlin("plugin.serialization") version libs.versions.kotlin
   application
   id("com.google.cloud.artifactregistry.gradle-plugin") version libs.versions.googleArtifactRegistry
   id("io.gitlab.arturbosch.detekt") version libs.versions.detekt
@@ -15,30 +18,34 @@ repositories {
   }
 }
 
+private val javaVersion: JavaLanguageVersion = JavaLanguageVersion.of(21)
+
 java {
   toolchain {
-    languageVersion = JavaLanguageVersion.of(21)
+    languageVersion = javaVersion
   }
 }
 
 kotlin {
   jvmToolchain {
-    languageVersion = JavaLanguageVersion.of(21)
+    languageVersion = javaVersion
   }
-  explicitApi()
   compilerOptions {
     allWarningsAsErrors = true
     freeCompilerArgs.add("-Xannotation-default-target=param-property")
-    freeCompilerArgs.add("-Xannotation-target-all")
     freeCompilerArgs.add("-Xconsistent-data-class-copy-visibility")
     freeCompilerArgs.add("-Xcontext-parameters")
+    freeCompilerArgs.add("-Xjsr305=strict")
+    freeCompilerArgs.add("-Xlambdas=indy")
     freeCompilerArgs.add("-Xnested-type-aliases")
+    freeCompilerArgs.add("-opt-in=kotlin.concurrent.atomics.ExperimentalAtomicApi")
+    freeCompilerArgs.add("-opt-in=kotlin.time.ExperimentalTime")
     freeCompilerArgs.add("-opt-in=kotlin.uuid.ExperimentalUuidApi")
   }
 }
 
 dependencies {
-  implementation(platform(libs.kairoBom))
+  implementation(enforcedPlatform(libs.kairoBom))
   implementation(libs.kairoServer)
 
   detektPlugins("io.gitlab.arturbosch.detekt:detekt-formatting:${detekt.toolVersion}")
@@ -82,4 +89,5 @@ tasks.shadowJar {
   isZip64 = true
   archiveClassifier = "shadow"
   mergeServiceFiles()
+  transform(Log4j2PluginsCacheFileTransformer())
 }
