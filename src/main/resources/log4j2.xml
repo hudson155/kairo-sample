@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="warn" shutdownHook="disable">
+  <Appenders>
+    <Routing name="Console">
+      <Routes pattern="$${env:LOG_FORMAT:-Simple}">
+        <Route key="Simple">
+          <Console name="Simple" target="SYSTEM_OUT">
+            <PatternLayout>
+              <Pattern>%d{HH:mm:ss} %-5p %m%n</Pattern>
+            </PatternLayout>
+          </Console>
+        </Route>
+        <Route key="Detailed">
+          <Console name="Detailed" target="SYSTEM_OUT">
+            <PatternLayout>
+              <Pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} %-5p %c - %m %mdc%n</Pattern>
+            </PatternLayout>
+          </Console>
+        </Route>
+      </Routes>
+    </Routing>
+  </Appenders>
+  <Loggers>
+    <Root level="${env:LOG_LEVEL:-info}">
+      <AppenderRef ref="Console"/>
+    </Root>
+  </Loggers>
+</Configuration>

@@ -22,6 +22,7 @@
       <name>jdk.internal.*</name>
       <name>kotlin.coroutines.cancellation.*</name>
       <name>kotlinx.coroutines.time.*</name>
+      <name>org.koin.java.*</name>
       <name>sun.awt.*</name>
       <name>sun.net.*</name>
       <name>sun.nio.*</name>

@@ -41,12 +41,18 @@ kotlin {
     freeCompilerArgs.add("-opt-in=kotlin.concurrent.atomics.ExperimentalAtomicApi")
     freeCompilerArgs.add("-opt-in=kotlin.time.ExperimentalTime")
     freeCompilerArgs.add("-opt-in=kotlin.uuid.ExperimentalUuidApi")
+    freeCompilerArgs.add("-opt-in=kotlinx.serialization.ExperimentalSerializationApi")
   }
 }
 
 dependencies {
-  implementation(enforcedPlatform(libs.kairoBom))
-  implementation(libs.kairoServer)
+  implementation(enforcedPlatform(libs.kairo))
+  implementation(libs.kairo.application)
+  implementation(libs.kairo.config)
+  implementation(libs.kairo.healthCheck)
+  implementation(libs.kairo.rest)
+  implementation(libs.log4j.core)
+  runtimeOnly(libs.log4j.slf4j)
 
   detektPlugins("io.gitlab.arturbosch.detekt:detekt-formatting:${detekt.toolVersion}")
 }
