@@ -1,19 +1,18 @@
 [versions]
 
-# https://plugins.gradle.org/plugin/io.gitlab.arturbosch.detekt
-detekt = "1.23.8"
-
-# https://plugins.gradle.org/plugin/com.google.cloud.artifactregistry.gradle-plugin
-googleArtifactRegistry = "2.2.5"
-
-# https://kotlinlang.org/docs/releases.html#release-details
-kotlin = "2.2.0"
-
-# https://plugins.gradle.org/plugin/com.gradleup.shadow
-shadow = "8.3.6"
+detekt = "1.23.8" # https://plugins.gradle.org/plugin/io.gitlab.arturbosch.detekt
+googleArtifactRegistry = "2.2.5" # https://plugins.gradle.org/plugin/com.google.cloud.artifactregistry.gradle-plugin
+kairo = "LOCAL-SNAPSHOT" # https://github.com/hudson155/kairo/releases
+kotlin = "2.2.0" # https://kotlinlang.org/docs/releases.html#release-details
+shadow = "9.0.2" # https://plugins.gradle.org/plugin/com.gradleup.shadow
 
 [libraries]
 
-# https://github.com/hudson155/kairo/releases
-kairoBom = { module = "software.airborne.kairo:bom", version = "LOCAL-SNAPSHOT" }
-kairoServer = { module = "software.airborne.kairo:kairo-server" }
+kairo = { module = "software.airborne.kairo:bom-full", version.ref = "kairo" }
+kairo-application = { module = "software.airborne.kairo:kairo-application" }
+kairo-config = { module = "software.airborne.kairo:kairo-config" }
+kairo-healthCheck = { module = "software.airborne.kairo:kairo-health-check" }
+kairo-rest = { module = "software.airborne.kairo:kairo-rest" }
+
+log4j-core = { module = "org.apache.logging.log4j:log4j-core" }
+log4j-slf4j = { module = "org.apache.logging.log4j:log4j-slf4j2-impl" }
