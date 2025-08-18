@@ -59,7 +59,7 @@ dependencies {
   implementation(libs.koin.core)
   ksp(libs.koin.ksp)
   implementation(libs.log4j.core)
-  runtimeOnly(libs.log4j.json)
+  implementation(libs.log4j.json)
   runtimeOnly(libs.log4j.slf4j)
 
   detektPlugins("io.gitlab.arturbosch.detekt:detekt-formatting:${detekt.toolVersion}")
