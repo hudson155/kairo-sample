@@ -47,11 +47,9 @@ kotlin {
 }
 
 dependencies {
-  implementation(platform(libs.jackson))
   implementation(enforcedPlatform(libs.kairo))
   ksp(enforcedPlatform(libs.kairo))
 
-  runtimeOnly(libs.jackson.databind)
   implementation(libs.kairo.application)
   implementation(libs.kairo.config)
   implementation(libs.kairo.dependencyInjection)
