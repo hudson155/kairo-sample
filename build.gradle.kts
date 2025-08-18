@@ -48,11 +48,15 @@ kotlin {
 
 dependencies {
   implementation(enforcedPlatform(libs.kairo))
+  ksp(enforcedPlatform(libs.kairo))
+
   implementation(libs.kairo.application)
   implementation(libs.kairo.config)
   implementation(libs.kairo.dependencyInjection)
   implementation(libs.kairo.healthCheck)
   implementation(libs.kairo.rest)
+  implementation(libs.koin.annotations)
+  implementation(libs.koin.core)
   ksp(libs.koin.ksp)
   implementation(libs.log4j.core)
   runtimeOnly(libs.log4j.slf4j)
