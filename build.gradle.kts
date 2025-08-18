@@ -47,9 +47,11 @@ kotlin {
 }
 
 dependencies {
+  implementation(platform(libs.jackson))
   implementation(enforcedPlatform(libs.kairo))
   ksp(enforcedPlatform(libs.kairo))
 
+  runtimeOnly(libs.jackson.databind)
   implementation(libs.kairo.application)
   implementation(libs.kairo.config)
   implementation(libs.kairo.dependencyInjection)
@@ -59,7 +61,7 @@ dependencies {
   implementation(libs.koin.core)
   ksp(libs.koin.ksp)
   implementation(libs.log4j.core)
-  implementation(libs.log4j.json)
+  runtimeOnly(libs.log4j.json)
   runtimeOnly(libs.log4j.slf4j)
 
   detektPlugins("io.gitlab.arturbosch.detekt:detekt-formatting:${detekt.toolVersion}")
