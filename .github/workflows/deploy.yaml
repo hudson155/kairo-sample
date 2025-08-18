@@ -4,6 +4,9 @@ permissions:
   contents: read
 
 on:
+  push:
+    branches:
+      - "feature/deploy"
   workflow_dispatch:
     inputs:
       commit-hash:
