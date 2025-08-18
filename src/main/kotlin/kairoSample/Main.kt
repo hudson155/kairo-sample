@@ -9,6 +9,7 @@ import kairo.server.Server
 import kotlinx.serialization.hocon.Hocon
 import kotlinx.serialization.hocon.decodeFromConfig
 import org.apache.logging.log4j.LogManager
+import org.koin.ksp.generated.defaultModule
 
 // TODO: Log4j2.xml to support GCP.
 
@@ -16,6 +17,14 @@ fun main() {
   kairo {
     val config = loadConfig()
     val features = listOf(
+      DependencyInjectionFeature {
+        modules(
+          defaultModule,
+          module {
+            single<IdGenerationStrategy> { RandomIdGenerationStrategy(length = 24) }
+          },
+        )
+      },
       HealthCheckFeature(),
       RestFeature(Hocon.decodeFromConfig(config.getConfig("rest"))),
     )

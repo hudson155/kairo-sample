@@ -4,6 +4,7 @@ plugins {
   java
   kotlin("jvm") version libs.versions.kotlin
   kotlin("plugin.serialization") version libs.versions.kotlin
+  id("com.google.devtools.ksp") version libs.versions.ksp
   application
   id("com.google.cloud.artifactregistry.gradle-plugin") version libs.versions.googleArtifactRegistry
   id("io.gitlab.arturbosch.detekt") version libs.versions.detekt
@@ -49,8 +50,10 @@ dependencies {
   implementation(enforcedPlatform(libs.kairo))
   implementation(libs.kairo.application)
   implementation(libs.kairo.config)
+  implementation(libs.kairo.dependencyInjection)
   implementation(libs.kairo.healthCheck)
   implementation(libs.kairo.rest)
+  ksp(libs.koin.ksp)
   implementation(libs.log4j.core)
   runtimeOnly(libs.log4j.slf4j)
 
