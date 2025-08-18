@@ -1,0 +1,52 @@
+name: "Deploy"
+
+permissions:
+  contents: read
+
+on:
+  workflow_dispatch:
+    inputs:
+      commit-hash:
+        type: "string"
+        description: "Commit hash"
+        required: true
+
+concurrency:
+  group: "deploy-${{ github.ref }}"
+  cancel-in-progress: false
+
+jobs:
+  main:
+    runs-on: "ubuntu-latest"
+    env:
+      IMAGE_NAME: "us-central1-docker.pkg.dev/kairo-sample/kairo-sample/monolith"
+    steps:
+      - name: "Check out"
+        uses: "actions/checkout@v4"
+        with:
+          ref: ${{ inputs.commit }}
+      - name: "GCP auth"
+        uses: "google-github-actions/auth@v2"
+        with:
+          credentials_json: ${{ secrets.GCP_CREDENTIALS }}
+      - name: "Set up Java"
+        uses: "actions/setup-java@v4"
+        with:
+          java-version: "21"
+          distribution: "corretto"
+          cache: "gradle"
+      - name: "Gradle assemble"
+        run: |
+          ./gradlew assemble
+      - name: "Configure Docker"
+        run: |
+          gcloud auth configure-docker us-central1-docker.pkg.dev --quiet
+      - name: "Docker build"
+        run: |
+          docker build --platform=linux/amd64 -t "$IMAGE_NAME:$(git rev-parse --short=8 HEAD)" ./monolith
+      - name: "Docker push"
+        run: |
+          docker push "$IMAGE_NAME:$(git rev-parse --short=8 HEAD)"
+      # - name: "Update Cloud Run service"
+      #   run: |
+      #     gcloud run services update --project kairo-sample --region us-central1 monolith --image "us-central1-docker.pkg.dev/kairo-sample/kairo-sample/monolith:$(git rev-parse --short=8 HEAD)"
