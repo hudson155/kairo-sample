@@ -12,6 +12,7 @@
       <name>java.beans.*</name>
       <name>java.io.ObjectInputFilter.Config</name>
       <name>java.nio.channels.*</name>
+      <name>java.time.*</name>
       <name>java.util.Base64.*</name>
       <name>java.util.UUID</name>
       <name>java.util.concurrent.CancellationException</name>
@@ -22,7 +23,10 @@
       <name>jdk.internal.*</name>
       <name>kotlin.coroutines.cancellation.*</name>
       <name>kotlinx.coroutines.time.*</name>
+      <name>org.koin.core.annotation.Singleton</name>
+      <name>org.koin.core.context.GlobalContext.*</name>
       <name>org.koin.java.*</name>
+      <name>org.koin.mp.*</name>
       <name>sun.awt.*</name>
       <name>sun.net.*</name>
       <name>sun.nio.*</name>

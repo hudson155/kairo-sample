@@ -4,6 +4,7 @@ detekt = "1.23.8" # https://plugins.gradle.org/plugin/io.gitlab.arturbosch.detek
 googleArtifactRegistry = "2.2.5" # https://plugins.gradle.org/plugin/com.google.cloud.artifactregistry.gradle-plugin
 kairo = "LOCAL-SNAPSHOT" # https://github.com/hudson155/kairo/releases
 kotlin = "2.2.0" # https://kotlinlang.org/docs/releases.html#release-details
+ksp = "2.2.0-2.0.2" # https://github.com/google/ksp/releases
 shadow = "9.0.2" # https://plugins.gradle.org/plugin/com.gradleup.shadow
 
 [libraries]
@@ -11,8 +12,13 @@ shadow = "9.0.2" # https://plugins.gradle.org/plugin/com.gradleup.shadow
 kairo = { module = "software.airborne.kairo:bom-full", version.ref = "kairo" }
 kairo-application = { module = "software.airborne.kairo:kairo-application" }
 kairo-config = { module = "software.airborne.kairo:kairo-config" }
+kairo-dependencyInjection = { module = "software.airborne.kairo:kairo-dependency-injection" }
 kairo-healthCheck = { module = "software.airborne.kairo:kairo-health-check" }
 kairo-rest = { module = "software.airborne.kairo:kairo-rest" }
+
+koin-annotations = { module = "io.insert-koin:koin-annotations" }
+koin-core = { module = "io.insert-koin:koin-core" }
+koin-ksp = { module = "io.insert-koin:koin-ksp-compiler" }
 
 log4j-core = { module = "org.apache.logging.log4j:log4j-core" }
 log4j-slf4j = { module = "org.apache.logging.log4j:log4j-slf4j2-impl" }
