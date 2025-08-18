@@ -17,6 +17,13 @@
             </PatternLayout>
           </Console>
         </Route>
+        <Route key="GcpJson">
+          <Console name="GcpJson" target="SYSTEM_OUT">
+            <JsonTemplateLayout
+              locationInfoEnabled="true"
+              eventTemplateUri="classpath:GcpLayout.json"/>
+          </Console>
+        </Route>
       </Routes>
     </Routing>
   </Appenders>
