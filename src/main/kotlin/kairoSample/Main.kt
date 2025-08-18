@@ -11,8 +11,6 @@ import kotlinx.serialization.hocon.Hocon
 import kotlinx.serialization.hocon.decodeFromConfig
 import org.apache.logging.log4j.LogManager
 
-// TODO: Log4j2.xml to support GCP.
-
 fun main() {
   kairo {
     val config = loadConfig()
