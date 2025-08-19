@@ -8,9 +8,11 @@ import io.ktor.server.resources.post
 import io.ktor.server.response.respond
 import io.ktor.server.routing.routing
 import kairo.rest.RestFeature
+import org.koin.core.annotation.Single
 import org.koin.core.component.KoinComponent
 import org.koin.core.component.inject
 
+@Single(createdAtStart = true)
 internal class LibraryBookHandler : RestFeature.HasRouting, KoinComponent {
   private val libraryBookMapper: LibraryBookMapper by inject()
   private val libraryBookService: LibraryBookService by inject()
