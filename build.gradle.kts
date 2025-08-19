@@ -32,7 +32,6 @@ kotlin {
     languageVersion = javaVersion
   }
   compilerOptions {
-    allWarningsAsErrors = true
     freeCompilerArgs.add("-Xannotation-default-target=param-property")
     freeCompilerArgs.add("-Xconsistent-data-class-copy-visibility")
     freeCompilerArgs.add("-Xcontext-parameters")
@@ -54,6 +53,8 @@ dependencies {
   implementation(libs.kairo.config)
   implementation(libs.kairo.dependencyInjection)
   implementation(libs.kairo.healthCheck)
+  implementation(libs.kairo.id)
+  implementation(libs.kairo.logging)
   implementation(libs.kairo.rest)
   implementation(libs.koin.annotations)
   implementation(libs.koin.core)

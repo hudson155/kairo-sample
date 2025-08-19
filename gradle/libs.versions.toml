@@ -14,6 +14,8 @@ kairo-application = { module = "software.airborne.kairo:kairo-application" }
 kairo-config = { module = "software.airborne.kairo:kairo-config" }
 kairo-dependencyInjection = { module = "software.airborne.kairo:kairo-dependency-injection" }
 kairo-healthCheck = { module = "software.airborne.kairo:kairo-health-check" }
+kairo-id = { module = "software.airborne.kairo:kairo-id" }
+kairo-logging = { module = "software.airborne.kairo:kairo-logging" }
 kairo-rest = { module = "software.airborne.kairo:kairo-rest" }
 
 koin-annotations = { module = "io.insert-koin:koin-annotations" }
