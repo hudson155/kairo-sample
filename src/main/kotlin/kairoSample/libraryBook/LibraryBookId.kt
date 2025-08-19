@@ -5,13 +5,10 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 @JvmInline
-value class LibraryBookId(val value: Id) {
+value class LibraryBookId(override val value: String) : Id {
   init {
-    require(value.toString().matches(regex))
+    require(regex.matches(value)) { "Malformed library book ID (value=$value). " }
   }
-
-  override fun toString(): String =
-    value.toString()
 
   companion object {
     val regex: Regex = Id.regex(prefix = Regex("library_book"))
