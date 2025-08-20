@@ -8,6 +8,6 @@ import org.koin.core.annotation.Single
 class LibraryBookIdGenerator(
   strategy: IdGenerationStrategy,
 ) : IdGenerator<LibraryBookId>(strategy, prefix = "library_book") {
-  override fun wrap(value: String): LibraryBookId =
+  override fun generate(value: String): LibraryBookId =
     LibraryBookId(value)
 }
