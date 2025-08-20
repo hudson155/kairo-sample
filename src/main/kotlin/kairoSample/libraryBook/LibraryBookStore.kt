@@ -42,7 +42,7 @@ class LibraryBookStore(
     val id = idGenerator.generate()
     val libraryBook = LibraryBookModel(
       id = id,
-      createdAt = Clock.System.now(),
+      createdAt = Clock.System.now(), // TODO: No direct .now(). And add to Detekt rules.
       title = creator.title,
       authors = creator.authors,
       isbn = creator.isbn,
