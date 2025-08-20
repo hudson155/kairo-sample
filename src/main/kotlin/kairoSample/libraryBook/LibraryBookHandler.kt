@@ -23,11 +23,11 @@ internal class LibraryBookHandler : RestFeature.HasRouting, KoinComponent {
         val libraryBook = libraryBookService.get(api.id) ?: throw NotFoundException() // TODO: Use a more specific 404.
         call.respond(libraryBookMapper.rep(libraryBook))
       }
-      get<LibraryBookApi> {
+      get<LibraryBookApi> { _ ->
         val libraryBooks = libraryBookService.listAll()
         call.respond(libraryBooks.map { libraryBookMapper.rep(it) })
       }
-      post<LibraryBookApi> {
+      post<LibraryBookApi> { _ ->
         val creator = call.receive<LibraryBookRep.Creator>()
           .let { libraryBookMapper.creator(it) }
         val libraryBook = libraryBookService.create(creator)

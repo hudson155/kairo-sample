@@ -1,4 +1,6 @@
 import com.github.jengelman.gradle.plugins.shadow.transformers.Log4j2PluginsCacheFileTransformer
+import io.gitlab.arturbosch.detekt.Detekt
+import io.gitlab.arturbosch.detekt.DetektCreateBaselineTask
 
 plugins {
   java
@@ -97,6 +99,10 @@ detekt {
   config.from(files("$rootDir/.detekt/config.yaml"))
   parallel = true
   autoCorrect = true
+}
+
+tasks.withType<Detekt> {
+  exclude("org/koin/ksp/generated")
 }
 
 tasks.shadowJar {
