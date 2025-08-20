@@ -1,4 +1,5 @@
 import com.github.jengelman.gradle.plugins.shadow.transformers.Log4j2PluginsCacheFileTransformer
+import io.gitlab.arturbosch.detekt.Detekt
 
 plugins {
   java
@@ -52,9 +53,11 @@ dependencies {
 
   implementation(libs.kairo.application)
   implementation(libs.kairo.config)
-  implementation(libs.kairo.dependencyInjection)
-  implementation(libs.kairo.healthCheck)
-  implementation(libs.kairo.rest)
+  implementation(libs.kairo.dependencyInjectionFeature)
+  implementation(libs.kairo.healthCheckFeature)
+  implementation(libs.kairo.idFeature)
+  implementation(libs.kairo.logging)
+  implementation(libs.kairo.restFeature)
   implementation(libs.koin.annotations)
   implementation(libs.koin.core)
   ksp(libs.koin.ksp)
@@ -96,6 +99,10 @@ detekt {
   config.from(files("$rootDir/.detekt/config.yaml"))
   parallel = true
   autoCorrect = true
+}
+
+tasks.withType<Detekt> {
+  exclude("org/koin/ksp/generated")
 }
 
 tasks.shadowJar {
