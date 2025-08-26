@@ -4,7 +4,7 @@ import kairo.id.IdGenerationStrategy
 import kairo.id.IdGenerator
 import org.koin.core.annotation.Single
 
-@Single(createdAtStart = true)
+@Single
 class LibraryBookIdGenerator(
   strategy: IdGenerationStrategy,
 ) : IdGenerator<LibraryBookId>(strategy, prefix = "library_book") {

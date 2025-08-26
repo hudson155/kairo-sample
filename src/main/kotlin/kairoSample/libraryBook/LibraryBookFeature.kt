@@ -4,13 +4,14 @@ import io.ktor.server.application.Application
 import io.ktor.server.routing.routing
 import kairo.feature.Feature
 import kairo.rest.HasRouting
-import org.koin.core.component.KoinComponent
-import org.koin.core.component.inject
+import org.koin.core.Koin
 
-class LibraryBookFeature : Feature(), HasRouting, KoinComponent {
+class LibraryBookFeature(
+  private val koin: Koin,
+) : Feature(), HasRouting {
   override val name: String = "Library Book"
 
-  private val libraryBookHandler: LibraryBookHandler by inject()
+  private val libraryBookHandler: LibraryBookHandler by lazy { koin.get() }
 
   override fun Application.routing() {
     routing {

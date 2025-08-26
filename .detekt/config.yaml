@@ -666,6 +666,7 @@ style:
       - 'kotlin.coroutines.cancellation.*'
       - 'kotlinx.coroutines.time.*'
       - 'org.koin.core.annotation.Singleton'
+      - 'org.koin.core.component.*'
       - 'org.koin.core.context.GlobalContext.*'
       - 'org.koin.java.*'
       - 'org.koin.mp.*'

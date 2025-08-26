@@ -11,20 +11,20 @@ import kairoSample.libraryBook.LibraryBookFeature
 import kotlinx.serialization.hocon.Hocon
 import kotlinx.serialization.hocon.decodeFromConfig
 import org.apache.logging.log4j.LogManager
+import org.koin.dsl.koinApplication
 import org.koin.ksp.generated.defaultModule
 
 fun main() {
   kairo {
     val config = loadConfig()
+    val koinApplication = koinApplication {
+      modules(defaultModule)
+    }
     val features = listOf(
-      DependencyInjectionFeature {
-        modules(
-          defaultModule,
-        )
-      },
+      DependencyInjectionFeature(koinApplication),
       HealthCheckFeature(),
       IdFeature(config.id),
-      LibraryBookFeature(),
+      LibraryBookFeature(koinApplication.koin),
       RestFeature(config.rest),
     )
     val server = Server(
