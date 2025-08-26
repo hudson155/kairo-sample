@@ -25,7 +25,7 @@ class LibraryBookHandler : HasRouting, KoinComponent {
       }
 
       route(LibraryBookApi.ListAll::class) {
-        handle {
+        handle { _ ->
           val libraryBooks = libraryBookService.listAll()
           return@handle libraryBooks.map { libraryBookMapper.rep(it) }
         }
