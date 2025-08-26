@@ -9,6 +9,8 @@ shadow = "8.3.9" # https://plugins.gradle.org/plugin/com.gradleup.shadow
 
 [libraries]
 
+arrow-coroutines = { module = "io.arrow-kt:arrow-fx-coroutines" }
+
 kairo = { module = "software.airborne.kairo:bom-full", version.ref = "kairo" }
 kairo-application = { module = "software.airborne.kairo:kairo-application" }
 kairo-config = { module = "software.airborne.kairo:kairo-config" }

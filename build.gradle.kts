@@ -66,6 +66,7 @@ dependencies {
   runtimeOnly(libs.log4j.json)
   runtimeOnly(libs.log4j.slf4j)
 
+  testImplementation(libs.arrow.coroutines)
   testImplementation(libs.kairo.testing)
 
   detektPlugins("io.gitlab.arturbosch.detekt:detekt-formatting:${detekt.toolVersion}")
