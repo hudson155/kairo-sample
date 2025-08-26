@@ -11,7 +11,8 @@ class LibraryBookFeature(
 ) : Feature(), HasRouting {
   override val name: String = "Library Book"
 
-  private val libraryBookHandler: LibraryBookHandler by lazy { koin.get() }
+  private val libraryBookHandler: LibraryBookHandler
+    get() = koin.get()
 
   override fun Application.routing() {
     routing {
