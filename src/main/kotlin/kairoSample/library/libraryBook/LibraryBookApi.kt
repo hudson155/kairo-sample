@@ -1,4 +1,4 @@
-package kairoSample.libraryBook
+package kairoSample.library.libraryBook
 
 import kairo.rest.Rest
 import kairo.rest.RestEndpoint

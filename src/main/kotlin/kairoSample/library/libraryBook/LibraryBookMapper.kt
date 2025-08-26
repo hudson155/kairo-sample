@@ -1,4 +1,4 @@
-package kairoSample.libraryBook
+package kairoSample.library.libraryBook
 
 import org.koin.core.annotation.Single
 
