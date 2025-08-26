@@ -2,7 +2,7 @@ package kairoSample.libraryBook
 
 import org.koin.core.annotation.Single
 
-@Single(createdAtStart = true)
+@Single
 class LibraryBookService(
   private val libraryBookStore: LibraryBookStore,
 ) {

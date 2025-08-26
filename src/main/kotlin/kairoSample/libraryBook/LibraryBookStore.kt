@@ -8,7 +8,7 @@ import org.koin.core.annotation.Single
 private val logger: KLogger = KotlinLogging.logger {}
 
 // TODO: Use SQL.
-@Single(createdAtStart = true)
+@Single
 class LibraryBookStore(
   private val idGenerator: LibraryBookIdGenerator,
 ) {

@@ -6,14 +6,12 @@ import io.ktor.server.routing.routing
 import kairo.rest.HasRouting
 import kairo.rest.route
 import org.koin.core.annotation.Single
-import org.koin.core.component.KoinComponent
-import org.koin.core.component.inject
 
-@Single(createdAtStart = true)
-class LibraryBookHandler : HasRouting, KoinComponent {
-  private val libraryBookMapper: LibraryBookMapper by inject()
-  private val libraryBookService: LibraryBookService by inject()
-
+@Single
+class LibraryBookHandler(
+  private val libraryBookMapper: LibraryBookMapper,
+  private val libraryBookService: LibraryBookService,
+) : HasRouting {
   override fun Application.routing() {
     routing {
       route(LibraryBookApi.Get::class) {
