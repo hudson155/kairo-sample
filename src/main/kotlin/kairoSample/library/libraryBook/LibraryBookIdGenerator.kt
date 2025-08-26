@@ -1,4 +1,4 @@
-package kairoSample.libraryBook
+package kairoSample.library.libraryBook
 
 import kairo.id.IdGenerationStrategy
 import kairo.id.IdGenerator

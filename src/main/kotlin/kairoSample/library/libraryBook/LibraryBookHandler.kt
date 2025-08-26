@@ -1,4 +1,4 @@
-package kairoSample.libraryBook
+package kairoSample.library.libraryBook
 
 import io.ktor.server.application.Application
 import io.ktor.server.plugins.NotFoundException
