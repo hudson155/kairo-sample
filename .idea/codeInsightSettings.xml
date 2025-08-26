@@ -2,6 +2,7 @@
 <project version="4">
   <component name="JavaProjectCodeInsightSettings">
     <excluded-names>
+      <name>com.apple.eawt.*</name>
       <name>com.google.cloud.secretmanager.v1beta1.*</name>
       <name>com.google.cloud.secretmanager.v1beta2.*</name>
       <name>com.sun.jdi.*</name>
@@ -22,12 +23,14 @@
       <name>java.xml.*</name>
       <name>javax.xml.*</name>
       <name>jdk.internal.*</name>
+      <name>jdk.jfr.*</name>
       <name>kotlin.coroutines.cancellation.*</name>
       <name>kotlinx.coroutines.time.*</name>
       <name>org.koin.core.annotation.Singleton</name>
       <name>org.koin.core.context.GlobalContext.*</name>
       <name>org.koin.java.*</name>
       <name>org.koin.mp.*</name>
+      <name>org.w3c.dom.*</name>
       <name>sun.awt.*</name>
       <name>sun.net.*</name>
       <name>sun.nio.*</name>

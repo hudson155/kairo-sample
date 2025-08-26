@@ -2,36 +2,43 @@ package kairoSample.libraryBook
 
 import io.ktor.server.application.Application
 import io.ktor.server.plugins.NotFoundException
-import io.ktor.server.request.receive
-import io.ktor.server.resources.get
-import io.ktor.server.resources.post
-import io.ktor.server.response.respond
 import io.ktor.server.routing.routing
-import kairo.rest.RestFeature
+import kairo.rest.HasRouting
+import kairo.rest.route
 import org.koin.core.annotation.Single
 import org.koin.core.component.KoinComponent
 import org.koin.core.component.inject
 
 @Single(createdAtStart = true)
-internal class LibraryBookHandler : RestFeature.HasRouting, KoinComponent {
+class LibraryBookHandler : HasRouting, KoinComponent {
   private val libraryBookMapper: LibraryBookMapper by inject()
   private val libraryBookService: LibraryBookService by inject()
 
   override fun Application.routing() {
     routing {
-      get<LibraryBookApi.Id> { api ->
-        val libraryBook = libraryBookService.get(api.id) ?: throw NotFoundException() // TODO: Use a more specific 404.
-        call.respond(libraryBookMapper.rep(libraryBook))
+      route(LibraryBookApi.Get::class) {
+        handle { endpoint ->
+          val libraryBook = libraryBookService.get(endpoint.libraryBookId)
+            ?: throw NotFoundException() // TODO: Use a more specific 404.
+          return@handle libraryBookMapper.rep(libraryBook)
+        }
       }
-      get<LibraryBookApi> { _ ->
-        val libraryBooks = libraryBookService.listAll()
-        call.respond(libraryBooks.map { libraryBookMapper.rep(it) })
+
+      route(LibraryBookApi.ListAll::class) {
+        handle { _ ->
+          val libraryBooks = libraryBookService.listAll()
+          return@handle libraryBooks.map { libraryBookMapper.rep(it) }
+        }
       }
-      post<LibraryBookApi> { _ ->
-        val creator = call.receive<LibraryBookRep.Creator>()
-          .let { libraryBookMapper.creator(it) }
-        val libraryBook = libraryBookService.create(creator)
-        call.respond(libraryBookMapper.rep(libraryBook))
+
+      route(LibraryBookApi.Create::class) {
+        handle { endpoint ->
+          val creator = endpoint.body
+          val libraryBook = libraryBookService.create(
+            creator = libraryBookMapper.creator(creator),
+          )
+          return@handle libraryBookMapper.rep(libraryBook)
+        }
       }
     }
   }
