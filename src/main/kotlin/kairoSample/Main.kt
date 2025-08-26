@@ -3,7 +3,7 @@ package kairoSample
 import com.typesafe.config.ConfigFactory
 import kairo.application.kairo
 import kairo.dependencyInjection.DependencyInjectionFeature
-import kairo.healthCheck.feature.HealthCheckFeature
+import kairo.healthCheck.HealthCheckFeature
 import kairo.id.IdFeature
 import kairo.rest.RestFeature
 import kairo.server.Server
