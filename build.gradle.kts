@@ -48,8 +48,10 @@ kotlin {
 }
 
 dependencies {
-  implementation(enforcedPlatform(libs.kairo))
   ksp(enforcedPlatform(libs.kairo))
+  implementation(enforcedPlatform(libs.kairo))
+
+  ksp(libs.koin.ksp)
 
   implementation(libs.kairo.application)
   implementation(libs.kairo.config)
@@ -60,10 +62,11 @@ dependencies {
   implementation(libs.kairo.restFeature)
   implementation(libs.koin.annotations)
   implementation(libs.koin.core)
-  ksp(libs.koin.ksp)
   implementation(libs.log4j.core)
   runtimeOnly(libs.log4j.json)
   runtimeOnly(libs.log4j.slf4j)
+
+  testImplementation(libs.kairo.testing)
 
   detektPlugins("io.gitlab.arturbosch.detekt:detekt-formatting:${detekt.toolVersion}")
 }

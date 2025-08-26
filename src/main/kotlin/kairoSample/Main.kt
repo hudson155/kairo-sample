@@ -41,8 +41,9 @@ fun main() {
 }
 
 @Suppress("ForbiddenMethodCall")
-fun loadConfig(): Config {
-  val configName = requireNotNull(System.getenv("CONFIG")) { "CONFIG environment variable not set." }
+fun loadConfig(
+  configName: String = requireNotNull(System.getenv("CONFIG")) { "CONFIG environment variable not set." },
+): Config {
   val hocon = ConfigFactory.load("config/$configName.conf")
   return Hocon.decodeFromConfig(hocon)
 }

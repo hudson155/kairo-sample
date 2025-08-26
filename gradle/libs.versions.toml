@@ -17,6 +17,7 @@ kairo-healthCheckFeature = { module = "software.airborne.kairo:kairo-health-chec
 kairo-idFeature = { module = "software.airborne.kairo:kairo-id-feature" }
 kairo-logging = { module = "software.airborne.kairo:kairo-logging" }
 kairo-restFeature = { module = "software.airborne.kairo:kairo-rest-feature" }
+kairo-testing = { module = "software.airborne.kairo:kairo-testing" }
 
 koin-annotations = { module = "io.insert-koin:koin-annotations" }
 koin-core = { module = "io.insert-koin:koin-core" }
