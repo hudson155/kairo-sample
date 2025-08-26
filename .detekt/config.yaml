@@ -648,6 +648,7 @@ style:
       - 'com.sun.security.*'
       - 'com.sun.tools.javac.*'
       - 'io.kotest.core.spec.*'
+      - 'io.kotest.core.test.TestScope'
       - 'java.awt.*'
       - 'java.beans.*'
       - 'java.io.ObjectInputFilter.Config'
