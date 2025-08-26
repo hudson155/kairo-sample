@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Configuration status="warn" shutdownHook="disable">
+<Configuration status="warn">
   <Appenders>
     <Routing name="Console">
       <Routes pattern="$${env:LOG_FORMAT:-Simple}">
@@ -17,11 +17,6 @@
             </PatternLayout>
           </Console>
         </Route>
-        <Route key="GcpJson">
-          <Console name="GcpJson" target="SYSTEM_OUT">
-            <JsonTemplateLayout eventTemplateUri="classpath:GcpLayout.json"/>
-          </Console>
-        </Route>
       </Routes>
     </Routing>
   </Appenders>
@@ -31,5 +26,6 @@
     </Root>
     <Logger name="kairo.darb" level="info"/>
     <Logger name="kairo.gcpSecretSupplier" level="info"/>
+    <Logger name="kairo.server" level="warn"/>
   </Loggers>
 </Configuration>
