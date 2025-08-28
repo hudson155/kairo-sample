@@ -9,6 +9,8 @@ import org.junit.jupiter.api.Test
 class ListAllLibraryBooksTest : ServerTest by LibraryFeatureTest() {
   private val libraryBookService: LibraryBookService by lazy { koin.get() }
 
+  // TODO: Replace this with real tests.
+
   @Test
   fun temp(): Unit =
     restTest {
