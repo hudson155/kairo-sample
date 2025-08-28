@@ -2,52 +2,50 @@ package kairoSample.library.libraryBook
 
 import io.github.oshai.kotlinlogging.KLogger
 import io.github.oshai.kotlinlogging.KotlinLogging
-import kotlin.time.Clock
+import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.flow.singleOrNull
+import kotlinx.coroutines.flow.toList
+import org.jetbrains.exposed.v1.r2dbc.R2dbcDatabase
+import org.jetbrains.exposed.v1.r2dbc.insert
+import org.jetbrains.exposed.v1.r2dbc.selectAll
+import org.jetbrains.exposed.v1.r2dbc.transactions.suspendTransaction
 import org.koin.core.annotation.Single
 
 private val logger: KLogger = KotlinLogging.logger {}
 
-// TODO: Use SQL.
 @Single
 class LibraryBookStore(
   private val idGenerator: LibraryBookIdGenerator,
+  private val database: R2dbcDatabase,
 ) {
-  // This is not thread-safe.
-  private val store: MutableMap<LibraryBookId, LibraryBookModel> =
-    listOf(
-      LibraryBookModel(
-        id = idGenerator.generate(),
-        createdAt = Clock.System.now(),
-        title = "Mere Christianity",
-        authors = listOf("C. S. Lewis"),
-        isbn = "978-0060652920",
-      ),
-      LibraryBookModel(
-        id = idGenerator.generate(),
-        createdAt = Clock.System.now(),
-        title = "The Meaning of Marriage: Facing the Complexities of Commitment with the Wisdom of God",
-        authors = listOf("Timothy Keller", "Kathy Keller"),
-        isbn = "978-1594631870",
-      ),
-    ).associateBy { it.id }.toMutableMap()
+  suspend fun get(id: LibraryBookId): LibraryBookModel? =
+    suspendTransaction(db = database) {
+      LibraryBookTable
+        .selectAll()
+        .where { LibraryBookTable.id eq id }
+        .map(LibraryBookModel::fromRow)
+        .singleOrNull() // TODO: SingleNullOrThrow
+    }
 
-  fun get(id: LibraryBookId): LibraryBookModel? =
-    store[id]
+  suspend fun listAll(): List<LibraryBookModel> =
+    suspendTransaction(db = database) {
+      LibraryBookTable
+        .selectAll()
+        .map(LibraryBookModel::fromRow)
+        .toList()
+    }
 
-  fun listAll(): List<LibraryBookModel> =
-    store.values.toList()
-
-  fun create(creator: LibraryBookModel.Creator): LibraryBookModel {
+  suspend fun create(creator: LibraryBookModel.Creator): LibraryBookModel {
     logger.info { "Creating library book (creator=$creator)." }
-    val id = idGenerator.generate()
-    val libraryBook = LibraryBookModel(
-      id = id,
-      createdAt = Clock.System.now(), // TODO: No direct .now(). And add to Detekt rules.
-      title = creator.title,
-      authors = creator.authors,
-      isbn = creator.isbn,
-    )
-    store[id] = libraryBook
-    return libraryBook
+    return suspendTransaction(db = database) {
+      val id = idGenerator.generate()
+      LibraryBookTable.insert {
+        it[this.id] = id
+        it[this.title] = creator.title
+        it[this.authors] = creator.authors
+        it[this.isbn] = creator.isbn
+      }
+      checkNotNull(get(id))
+    }
   }
 }
