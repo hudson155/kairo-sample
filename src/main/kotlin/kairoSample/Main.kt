@@ -7,10 +7,12 @@ import kairo.healthCheck.HealthCheckFeature
 import kairo.id.IdFeature
 import kairo.rest.RestFeature
 import kairo.server.Server
+import kairo.sql.SqlFeature
 import kairoSample.library.LibraryFeature
 import kotlinx.serialization.hocon.Hocon
 import kotlinx.serialization.hocon.decodeFromConfig
 import org.apache.logging.log4j.LogManager
+import org.jetbrains.exposed.v1.core.vendors.PostgreSQLDialect
 import org.koin.dsl.koinApplication
 import org.koin.ksp.generated.defaultModule
 
@@ -26,6 +28,12 @@ fun main() {
       IdFeature(config.id),
       LibraryFeature(koinApplication.koin),
       RestFeature(config.rest),
+      SqlFeature(
+        config = config.sql,
+        configureDatabase = {
+          explicitDialect = PostgreSQLDialect()
+        },
+      ),
     )
     val server = Server(
       name = "Kairo Sample",

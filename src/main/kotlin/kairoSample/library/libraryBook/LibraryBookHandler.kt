@@ -18,14 +18,14 @@ class LibraryBookHandler(
         handle { endpoint ->
           val libraryBook = libraryBookService.get(endpoint.libraryBookId)
             ?: throw NotFoundException() // TODO: Use a more specific 404.
-          return@handle libraryBookMapper.rep(libraryBook)
+          libraryBookMapper.rep(libraryBook)
         }
       }
 
       route(LibraryBookApi.ListAll::class) {
         handle { _ ->
           val libraryBooks = libraryBookService.listAll()
-          return@handle libraryBooks.map { libraryBookMapper.rep(it) }
+          libraryBooks.map { libraryBookMapper.rep(it) }.toList()
         }
       }
 
@@ -35,7 +35,7 @@ class LibraryBookHandler(
           val libraryBook = libraryBookService.create(
             creator = libraryBookMapper.creator(creator),
           )
-          return@handle libraryBookMapper.rep(libraryBook)
+          libraryBookMapper.rep(libraryBook)
         }
       }
     }
