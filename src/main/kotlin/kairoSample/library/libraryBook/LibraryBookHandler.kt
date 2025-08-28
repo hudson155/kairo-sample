@@ -25,7 +25,7 @@ class LibraryBookHandler(
       route(LibraryBookApi.ListAll::class) {
         handle { _ ->
           val libraryBooks = libraryBookService.listAll()
-          libraryBooks.map { libraryBookMapper.rep(it) }.toList()
+          libraryBooks.map { libraryBookMapper.rep(it) }
         }
       }
 
