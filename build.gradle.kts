@@ -53,6 +53,7 @@ dependencies {
 
   ksp(libs.koin.ksp)
 
+  implementation(libs.coroutines.core)
   implementation(libs.kairo.application)
   implementation(libs.kairo.config)
   implementation(libs.kairo.dependencyInjectionFeature)
@@ -60,11 +61,14 @@ dependencies {
   implementation(libs.kairo.idFeature)
   implementation(libs.kairo.logging)
   implementation(libs.kairo.restFeature)
+  implementation(libs.kairo.sqlFeature)
+  implementation(libs.kairo.util)
   implementation(libs.koin.annotations)
   implementation(libs.koin.core)
   implementation(libs.log4j.core)
   runtimeOnly(libs.log4j.json)
   runtimeOnly(libs.log4j.slf4j)
+  runtimeOnly(libs.postgres.r2dbc)
 
   testImplementation(libs.arrow.coroutines)
   testImplementation(libs.kairo.testing)

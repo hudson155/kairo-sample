@@ -1,6 +1,7 @@
 package kairoSample.library.libraryBook
 
 import kotlin.time.Instant
+import org.jetbrains.exposed.v1.core.ResultRow
 
 data class LibraryBookModel(
   val id: LibraryBookId,
@@ -14,4 +15,15 @@ data class LibraryBookModel(
     val authors: List<String>,
     val isbn: String,
   )
+
+  companion object
 }
+
+fun LibraryBookModel.Companion.fromRow(row: ResultRow): LibraryBookModel =
+  LibraryBookModel(
+    id = row[LibraryBookTable.id],
+    createdAt = row[LibraryBookTable.createdAt],
+    title = row[LibraryBookTable.title],
+    authors = row[LibraryBookTable.authors],
+    isbn = row[LibraryBookTable.isbn],
+  )
