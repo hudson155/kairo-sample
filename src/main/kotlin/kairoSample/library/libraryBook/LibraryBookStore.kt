@@ -39,11 +39,11 @@ class LibraryBookStore(
     logger.info { "Creating library book (creator=$creator)." }
     return suspendTransaction(db = database) {
       val id = idGenerator.generate()
-      LibraryBookTable.insert {
-        it[this.id] = id
-        it[this.title] = creator.title
-        it[this.authors] = creator.authors
-        it[this.isbn] = creator.isbn
+      LibraryBookTable.insert { statement ->
+        statement[this.id] = id
+        statement[this.title] = creator.title
+        statement[this.authors] = creator.authors
+        statement[this.isbn] = creator.isbn
       }
       checkNotNull(get(id))
     }
