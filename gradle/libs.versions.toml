@@ -9,14 +9,19 @@ kairo = { module = "software.airborne.kairo:bom-full", version.ref = "kairo" }
 kairo-application = { module = "software.airborne.kairo:kairo-application" }
 kairo-config = { module = "software.airborne.kairo:kairo-config" }
 kairo-coroutines = { module = "software.airborne.kairo:kairo-coroutines" }
+kairo-dependencyInjection = { module = "software.airborne.kairo:kairo-dependency-injection" }
 kairo-dependencyInjectionFeature = { module = "software.airborne.kairo:kairo-dependency-injection-feature" }
+kairo-feature = { module = "software.airborne.kairo:kairo-feature" }
 kairo-healthCheckFeature = { module = "software.airborne.kairo:kairo-health-check-feature" }
+kairo-id = { module = "software.airborne.kairo:kairo-id" }
 kairo-idFeature = { module = "software.airborne.kairo:kairo-id-feature" }
 kairo-logging = { module = "software.airborne.kairo:kairo-logging" }
+kairo-rest = { module = "software.airborne.kairo:kairo-rest" }
 kairo-restFeature = { module = "software.airborne.kairo:kairo-rest-feature" }
+kairo-server = { module = "software.airborne.kairo:kairo-server" }
+kairo-sql = { module = "software.airborne.kairo:kairo-sql" }
 kairo-sqlFeature = { module = "software.airborne.kairo:kairo-sql-feature" }
 kairo-testing = { module = "software.airborne.kairo:kairo-testing" }
-kairo-util = { module = "software.airborne.kairo:kairo-util" }
 
 koin-annotations = { module = "io.insert-koin:koin-annotations" }
 koin-core = { module = "io.insert-koin:koin-core" }

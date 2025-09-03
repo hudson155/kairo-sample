@@ -1,4 +1,4 @@
 package kairoSample.testing
 
 @DslMarker
-annotation class ServerTestDsl
+internal annotation class ServerTestDsl

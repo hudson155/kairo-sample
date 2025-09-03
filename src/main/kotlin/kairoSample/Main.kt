@@ -14,14 +14,11 @@ import kotlinx.serialization.hocon.decodeFromConfig
 import org.apache.logging.log4j.LogManager
 import org.jetbrains.exposed.v1.core.vendors.PostgreSQLDialect
 import org.koin.dsl.koinApplication
-import org.koin.ksp.generated.defaultModule
 
 internal fun main() {
   kairo {
     val config = loadConfig()
-    val koinApplication = koinApplication {
-      modules(defaultModule)
-    }
+    val koinApplication = koinApplication()
     val features = listOf(
       DependencyInjectionFeature(koinApplication),
       HealthCheckFeature(),
@@ -49,7 +46,7 @@ internal fun main() {
 }
 
 @Suppress("ForbiddenMethodCall")
-internal fun loadConfig(
+public fun loadConfig(
   configName: String = requireNotNull(System.getenv("CONFIG")) { "CONFIG environment variable not set." },
 ): Config {
   val hocon = ConfigFactory.load("config/$configName.conf")

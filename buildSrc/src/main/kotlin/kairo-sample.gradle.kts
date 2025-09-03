@@ -35,7 +35,6 @@ kotlin {
     freeCompilerArgs.add("-opt-in=kotlin.concurrent.atomics.ExperimentalAtomicApi")
     freeCompilerArgs.add("-opt-in=kotlin.time.ExperimentalTime")
     freeCompilerArgs.add("-opt-in=kotlin.uuid.ExperimentalUuidApi")
-    freeCompilerArgs.add("-opt-in=kotlinx.serialization.ExperimentalSerializationApi")
   }
 }
 
