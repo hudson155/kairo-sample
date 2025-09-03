@@ -5,21 +5,23 @@ googleArtifactRegistry = "2.2.5" # https://plugins.gradle.org/plugin/com.google.
 kairo = "LOCAL-SNAPSHOT" # https://github.com/hudson155/kairo/releases
 kotlin = "2.2.0" # https://kotlinlang.org/docs/releases.html#release-details
 ksp = "2.2.0-2.0.2" # https://github.com/google/ksp/releases
+postgres-r2dbc = "1.0.7.RELEASE" # https://github.com/pgjdbc/r2dbc-postgresql/releases
 shadow = "8.3.9" # https://plugins.gradle.org/plugin/com.gradleup.shadow
 
 [libraries]
 
-arrow-coroutines = { module = "io.arrow-kt:arrow-fx-coroutines" }
-
 kairo = { module = "software.airborne.kairo:bom-full", version.ref = "kairo" }
 kairo-application = { module = "software.airborne.kairo:kairo-application" }
 kairo-config = { module = "software.airborne.kairo:kairo-config" }
+kairo-coroutines = { module = "software.airborne.kairo:kairo-coroutines" }
 kairo-dependencyInjectionFeature = { module = "software.airborne.kairo:kairo-dependency-injection-feature" }
 kairo-healthCheckFeature = { module = "software.airborne.kairo:kairo-health-check-feature" }
 kairo-idFeature = { module = "software.airborne.kairo:kairo-id-feature" }
 kairo-logging = { module = "software.airborne.kairo:kairo-logging" }
 kairo-restFeature = { module = "software.airborne.kairo:kairo-rest-feature" }
+kairo-sqlFeature = { module = "software.airborne.kairo:kairo-sql-feature" }
 kairo-testing = { module = "software.airborne.kairo:kairo-testing" }
+kairo-util = { module = "software.airborne.kairo:kairo-util" }
 
 koin-annotations = { module = "io.insert-koin:koin-annotations" }
 koin-core = { module = "io.insert-koin:koin-core" }
@@ -28,3 +30,5 @@ koin-ksp = { module = "io.insert-koin:koin-ksp-compiler" }
 log4j-core = { module = "org.apache.logging.log4j:log4j-core" }
 log4j-json = { module = "org.apache.logging.log4j:log4j-layout-template-json" }
 log4j-slf4j = { module = "org.apache.logging.log4j:log4j-slf4j2-impl" }
+
+postgres-r2dbc = { module = "org.postgresql:r2dbc-postgresql", version.ref = "postgres-r2dbc" }
