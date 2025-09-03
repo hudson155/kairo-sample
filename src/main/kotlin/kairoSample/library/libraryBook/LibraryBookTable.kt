@@ -6,7 +6,7 @@ import org.jetbrains.exposed.v1.core.Table
 import org.jetbrains.exposed.v1.datetime.CurrentTimestamp
 import org.jetbrains.exposed.v1.datetime.timestamp
 
-object LibraryBookTable : Table("library.library_book") {
+internal object LibraryBookTable : Table("library.library_book") {
   val id: Column<LibraryBookId> =
     text("id")
       .transform(::LibraryBookId, LibraryBookId::value)

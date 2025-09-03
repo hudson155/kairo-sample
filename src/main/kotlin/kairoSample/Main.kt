@@ -16,7 +16,7 @@ import org.jetbrains.exposed.v1.core.vendors.PostgreSQLDialect
 import org.koin.dsl.koinApplication
 import org.koin.ksp.generated.defaultModule
 
-fun main() {
+internal fun main() {
   kairo {
     val config = loadConfig()
     val koinApplication = koinApplication {
@@ -49,7 +49,7 @@ fun main() {
 }
 
 @Suppress("ForbiddenMethodCall")
-fun loadConfig(
+internal fun loadConfig(
   configName: String = requireNotNull(System.getenv("CONFIG")) { "CONFIG environment variable not set." },
 ): Config {
   val hocon = ConfigFactory.load("config/$configName.conf")

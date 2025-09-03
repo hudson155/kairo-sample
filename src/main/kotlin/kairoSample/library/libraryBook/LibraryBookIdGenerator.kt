@@ -5,7 +5,7 @@ import kairo.id.IdGenerator
 import org.koin.core.annotation.Single
 
 @Single
-class LibraryBookIdGenerator(
+internal class LibraryBookIdGenerator(
   strategy: IdGenerationStrategy,
 ) : IdGenerator<LibraryBookId>(strategy, prefix = "library_book") {
   override fun generate(value: String): LibraryBookId =

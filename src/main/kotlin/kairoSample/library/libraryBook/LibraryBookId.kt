@@ -5,7 +5,7 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 @JvmInline
-value class LibraryBookId(override val value: String) : Id {
+internal value class LibraryBookId(override val value: String) : Id {
   init {
     require(regex.matches(value)) { "Malformed library book ID (value=$value). " }
   }

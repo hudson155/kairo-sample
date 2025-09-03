@@ -765,7 +765,7 @@ style:
   RedundantHigherOrderMapUsage:
     active: true
   RedundantVisibilityModifierRule:
-    active: true
+    active: false # Conflicts with [explicitApi].
   ReturnCount:
     active: false
   SafeCast:

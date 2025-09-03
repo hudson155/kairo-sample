@@ -3,7 +3,7 @@ package kairoSample.library.libraryBook
 import org.koin.core.annotation.Single
 
 @Single
-class LibraryBookMapper {
+internal class LibraryBookMapper {
   fun creator(rep: LibraryBookRep.Creator): LibraryBookModel.Creator =
     LibraryBookModel.Creator(
       title = rep.title,

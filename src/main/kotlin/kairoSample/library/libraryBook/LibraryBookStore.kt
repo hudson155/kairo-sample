@@ -14,7 +14,7 @@ import org.koin.core.annotation.Single
 private val logger: KLogger = KotlinLogging.logger {}
 
 @Single
-class LibraryBookStore(
+internal class LibraryBookStore(
   private val idGenerator: LibraryBookIdGenerator,
   private val database: R2dbcDatabase,
 ) {
