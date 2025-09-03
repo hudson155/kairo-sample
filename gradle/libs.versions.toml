@@ -22,7 +22,6 @@ kairo-server = { module = "software.airborne.kairo:kairo-server" }
 kairo-sql = { module = "software.airborne.kairo:kairo-sql" }
 kairo-sqlFeature = { module = "software.airborne.kairo:kairo-sql-feature" }
 kairo-testing = { module = "software.airborne.kairo:kairo-testing" }
-kairo-util = { module = "software.airborne.kairo:kairo-util" }
 
 koin-annotations = { module = "io.insert-koin:koin-annotations" }
 koin-core = { module = "io.insert-koin:koin-core" }
