@@ -1,12 +1,7 @@
 [versions]
 
-detekt = "1.23.8" # https://plugins.gradle.org/plugin/io.gitlab.arturbosch.detekt
-googleArtifactRegistry = "2.2.5" # https://plugins.gradle.org/plugin/com.google.cloud.artifactregistry.gradle-plugin
 kairo = "LOCAL-SNAPSHOT" # https://github.com/hudson155/kairo/releases
-kotlin = "2.2.0" # https://kotlinlang.org/docs/releases.html#release-details
-ksp = "2.2.0-2.0.2" # https://github.com/google/ksp/releases
 postgres-r2dbc = "1.0.7.RELEASE" # https://github.com/pgjdbc/r2dbc-postgresql/releases
-shadow = "8.3.9" # https://plugins.gradle.org/plugin/com.gradleup.shadow
 
 [libraries]
 
