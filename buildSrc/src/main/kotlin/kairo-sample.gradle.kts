@@ -38,6 +38,10 @@ kotlin {
   }
 }
 
+dependencies {
+  detektPlugins("io.gitlab.arturbosch.detekt:detekt-formatting:${detekt.toolVersion}")
+}
+
 /**
  * Detekt makes the [check] task depend on the [detekt] task automatically.
  * However, since the [detekt] task doesn't support type resolution
