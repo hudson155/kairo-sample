@@ -25,6 +25,7 @@ dependencies {
 }
 
 kotlin {
+  explicitApi()
   compilerOptions {
     allWarningsAsErrors = true
   }

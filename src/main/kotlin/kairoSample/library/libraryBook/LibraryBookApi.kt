@@ -3,21 +3,21 @@ package kairoSample.library.libraryBook
 import kairo.rest.Rest
 import kairo.rest.RestEndpoint
 
-object LibraryBookApi {
+internal object LibraryBookApi {
   @Rest("GET", "/library-books/:libraryBookId")
   @Rest.Accept("application/json")
-  data class Get(
+  internal data class Get(
     @PathParam val libraryBookId: LibraryBookId,
   ) : RestEndpoint<Unit, LibraryBookRep>()
 
   @Rest("GET", "/library-books")
   @Rest.Accept("application/json")
-  data object ListAll : RestEndpoint<Unit, List<LibraryBookRep>>()
+  internal data object ListAll : RestEndpoint<Unit, List<LibraryBookRep>>()
 
   @Rest("POST", "/library-books")
   @Rest.ContentType("application/json")
   @Rest.Accept("application/json")
-  data class Create(
+  internal data class Create(
     override val body: LibraryBookRep.Creator,
   ) : RestEndpoint<LibraryBookRep.Creator, LibraryBookRep>()
 

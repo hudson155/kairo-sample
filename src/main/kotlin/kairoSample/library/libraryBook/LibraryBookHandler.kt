@@ -8,7 +8,7 @@ import kairo.rest.route
 import org.koin.core.annotation.Single
 
 @Single
-class LibraryBookHandler(
+internal class LibraryBookHandler(
   private val libraryBookMapper: LibraryBookMapper,
   private val libraryBookService: LibraryBookService,
 ) : HasRouting {

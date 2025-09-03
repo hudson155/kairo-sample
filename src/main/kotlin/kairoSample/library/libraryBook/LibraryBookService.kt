@@ -3,7 +3,7 @@ package kairoSample.library.libraryBook
 import org.koin.core.annotation.Single
 
 @Single
-class LibraryBookService(
+internal class LibraryBookService(
   private val libraryBookStore: LibraryBookStore,
 ) {
   suspend fun get(id: LibraryBookId): LibraryBookModel? =

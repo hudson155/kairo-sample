@@ -3,7 +3,7 @@ package kairoSample.library.libraryBook
 import kotlin.time.Instant
 import org.jetbrains.exposed.v1.core.ResultRow
 
-data class LibraryBookModel(
+internal data class LibraryBookModel(
   val id: LibraryBookId,
   val createdAt: Instant,
   val title: String?,
@@ -19,7 +19,7 @@ data class LibraryBookModel(
   companion object
 }
 
-fun LibraryBookModel.Companion.fromRow(row: ResultRow): LibraryBookModel =
+internal fun LibraryBookModel.Companion.fromRow(row: ResultRow): LibraryBookModel =
   LibraryBookModel(
     id = row[LibraryBookTable.id],
     createdAt = row[LibraryBookTable.createdAt],
