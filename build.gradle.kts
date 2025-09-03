@@ -53,9 +53,9 @@ dependencies {
 
   ksp(libs.koin.ksp)
 
-  implementation(libs.coroutines.core)
   implementation(libs.kairo.application)
   implementation(libs.kairo.config)
+  implementation(libs.kairo.coroutines)
   implementation(libs.kairo.dependencyInjectionFeature)
   implementation(libs.kairo.healthCheckFeature)
   implementation(libs.kairo.idFeature)
@@ -70,7 +70,6 @@ dependencies {
   runtimeOnly(libs.log4j.slf4j)
   runtimeOnly(libs.postgres.r2dbc)
 
-  testImplementation(libs.arrow.coroutines)
   testImplementation(libs.kairo.testing)
 
   detektPlugins("io.gitlab.arturbosch.detekt:detekt-formatting:${detekt.toolVersion}")

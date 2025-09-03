@@ -2,8 +2,8 @@ package kairoSample.library.libraryBook
 
 import io.github.oshai.kotlinlogging.KLogger
 import io.github.oshai.kotlinlogging.KotlinLogging
+import kairo.coroutines.singleNullOrThrow
 import kotlinx.coroutines.flow.map
-import kotlinx.coroutines.flow.singleOrNull
 import kotlinx.coroutines.flow.toList
 import org.jetbrains.exposed.v1.r2dbc.R2dbcDatabase
 import org.jetbrains.exposed.v1.r2dbc.insert
@@ -24,7 +24,7 @@ class LibraryBookStore(
         .selectAll()
         .where { LibraryBookTable.id eq id }
         .map(LibraryBookModel::fromRow)
-        .singleOrNull() // TODO: SingleNullOrThrow
+        .singleNullOrThrow()
     }
 
   suspend fun listAll(): List<LibraryBookModel> =
