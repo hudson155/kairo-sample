@@ -6,7 +6,7 @@ import kairo.sql.SqlFeatureConfig
 import kotlinx.serialization.Serializable
 
 @Serializable
-internal data class Config(
+public data class Config(
   val id: IdFeatureConfig = IdFeatureConfig(),
   val rest: RestFeatureConfig,
   val sql: SqlFeatureConfig,

@@ -7,7 +7,7 @@ import kairo.rest.HasRouting
 import kairoSample.library.libraryBook.LibraryBookHandler
 import org.koin.core.Koin
 
-internal class LibraryFeature(
+public class LibraryFeature(
   private val koin: Koin,
 ) : Feature(), HasRouting {
   override val name: String = "Library"

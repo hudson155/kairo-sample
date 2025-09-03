@@ -6,12 +6,12 @@ import kotlinx.coroutines.test.TestScope
 import kotlinx.coroutines.test.runTest
 import org.koin.core.Koin
 
-interface ServerTest {
-  val koin: Koin
-  val server: Server
+public interface ServerTest {
+  public val koin: Koin
+  public val server: Server
 
   @ServerTestDsl
-  fun restTest(block: suspend TestScope.() -> Unit) {
+  public fun restTest(block: suspend TestScope.() -> Unit) {
     runTest {
       resourceScope {
         install({ server.start() }, { _, _ -> server.stop() })

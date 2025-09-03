@@ -49,7 +49,7 @@ internal fun main() {
 }
 
 @Suppress("ForbiddenMethodCall")
-internal fun loadConfig(
+public fun loadConfig(
   configName: String = requireNotNull(System.getenv("CONFIG")) { "CONFIG environment variable not set." },
 ): Config {
   val hocon = ConfigFactory.load("config/$configName.conf")
