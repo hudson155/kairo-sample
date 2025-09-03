@@ -3,8 +3,6 @@ plugins {
 }
 
 dependencies {
-  implementation(enforcedPlatform(libs.kairo))
-
   api(project(":"))
 
   implementation(libs.kairo.coroutines)
