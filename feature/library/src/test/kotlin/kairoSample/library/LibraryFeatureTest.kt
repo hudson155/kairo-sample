@@ -11,14 +11,14 @@ import org.jetbrains.exposed.v1.core.vendors.PostgreSQLDialect
 import org.koin.core.Koin
 import org.koin.core.KoinApplication
 import org.koin.dsl.koinApplication
-import org.koin.ksp.generated.defaultModule
+import org.koin.ksp.generated.kairosample_library_LibraryFeature
 
 class LibraryFeatureTest : ServerTest {
   private val config: Config = loadConfig("testing/library-feature")
 
   private val koinApplication: KoinApplication =
     koinApplication {
-      modules(defaultModule)
+      modules(kairosample_library_LibraryFeature)
     }
 
   override val koin: Koin = koinApplication.koin
