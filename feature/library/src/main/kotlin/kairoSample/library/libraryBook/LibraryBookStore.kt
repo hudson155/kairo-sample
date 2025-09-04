@@ -4,9 +4,10 @@ import io.github.oshai.kotlinlogging.KLogger
 import io.github.oshai.kotlinlogging.KotlinLogging
 import kairo.coroutines.singleNullOrThrow
 import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.flow.single
 import kotlinx.coroutines.flow.toList
 import org.jetbrains.exposed.v1.r2dbc.R2dbcDatabase
-import org.jetbrains.exposed.v1.r2dbc.insert
+import org.jetbrains.exposed.v1.r2dbc.insertReturning
 import org.jetbrains.exposed.v1.r2dbc.selectAll
 import org.jetbrains.exposed.v1.r2dbc.transactions.suspendTransaction
 import org.koin.core.annotation.Single
@@ -39,13 +40,15 @@ internal class LibraryBookStore(
     logger.info { "Creating library book (creator=$creator)." }
     return suspendTransaction(db = database) {
       val id = idGenerator.generate()
-      LibraryBookTable.insert { statement ->
-        statement[this.id] = id
-        statement[this.title] = creator.title
-        statement[this.authors] = creator.authors
-        statement[this.isbn] = creator.isbn
-      }
-      checkNotNull(get(id))
+      LibraryBookTable
+        .insertReturning { statement ->
+          statement[this.id] = id
+          statement[this.title] = creator.title
+          statement[this.authors] = creator.authors
+          statement[this.isbn] = creator.isbn
+        }
+        .map(LibraryBookModel::fromRow)
+        .single()
     }
   }
 }

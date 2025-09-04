@@ -22,7 +22,10 @@ dependencies {
 
   testImplementation(project(":testing"))
 
+  testImplementation(libs.exposed.jdbc)
   testImplementation(libs.kairo.dependencyInjectionFeature)
   testImplementation(libs.kairo.idFeature)
   testImplementation(libs.kairo.sqlFeature)
+  testRuntimeOnly(libs.postgres.jdbc)
+  testImplementation(libs.testcontainers.postgres)
 }
