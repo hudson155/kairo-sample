@@ -17,7 +17,8 @@ import org.junit.jupiter.api.extension.ParameterResolver
 import org.koin.core.Koin
 import org.koin.core.KoinApplication
 import org.koin.dsl.koinApplication
-import org.koin.ksp.generated.kairosample_library_LibraryFeature
+
+// TODO: This file is still WIP. Perhaps extract a parent class for the testing Gradle module.
 
 private val namespace: ExtensionContext.Namespace =
   ExtensionContext.Namespace.create(LibraryFeatureTest::class)
@@ -26,18 +27,13 @@ private val namespace: ExtensionContext.Namespace =
 class LibraryFeatureTest : BeforeEachCallback, AfterEachCallback, ParameterResolver {
   override fun beforeEach(context: ExtensionContext) {
     runBlocking {
-      val koinApplication = createKoinApplication()
+      val koinApplication = koinApplication()
       context.getStore(namespace).put("koin", koinApplication.koin)
       val server = createServer(koinApplication)
       context.getStore(namespace).put("server", server)
       server.start()
     }
   }
-
-  private fun createKoinApplication(): KoinApplication =
-    koinApplication {
-      modules(kairosample_library_LibraryFeature)
-    }
 
   private fun createServer(koinApplication: KoinApplication): Server {
     val libraryFeature = LibraryFeature(koinApplication.koin)
