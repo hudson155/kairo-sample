@@ -2,13 +2,17 @@ package kairoSample.library
 
 import kairo.dependencyInjection.DependencyInjectionFeature
 import kairo.id.IdFeature
-import kairo.protectedString.ProtectedString
 import kairo.server.Server
 import kairo.sql.SqlFeature
 import kairo.sql.SqlFeatureConfig
+import kairoSample.library.libraryBook.LibraryBookTable
 import kairoSample.testing.get
 import kotlinx.coroutines.runBlocking
+import org.jetbrains.exposed.v1.core.Schema
 import org.jetbrains.exposed.v1.core.vendors.PostgreSQLDialect
+import org.jetbrains.exposed.v1.jdbc.Database
+import org.jetbrains.exposed.v1.jdbc.SchemaUtils
+import org.jetbrains.exposed.v1.jdbc.transactions.transaction
 import org.junit.jupiter.api.extension.AfterEachCallback
 import org.junit.jupiter.api.extension.BeforeEachCallback
 import org.junit.jupiter.api.extension.ExtensionContext
@@ -20,35 +24,42 @@ import org.koin.dsl.koinApplication
 
 // TODO: This file is still WIP. Perhaps extract a parent class for the testing Gradle module.
 
-private val namespace: ExtensionContext.Namespace =
-  ExtensionContext.Namespace.create(LibraryFeatureTest::class)
-
-@OptIn(ProtectedString.Access::class) // TODO: Remove this.
-class LibraryFeatureTest : BeforeEachCallback, AfterEachCallback, ParameterResolver {
+internal class LibraryFeatureTest : BeforeEachCallback, AfterEachCallback, ParameterResolver {
   override fun beforeEach(context: ExtensionContext) {
     runBlocking {
+      val database = context.getStore(PerMethodDatabaseExtension.namespace).get<Database>("database")
+      transaction(db = database) {
+        SchemaUtils.createSchema(Schema("library"))
+        SchemaUtils.create(
+          LibraryBookTable,
+        )
+      }
       val koinApplication = koinApplication()
       context.getStore(namespace).put("koin", koinApplication.koin)
-      val server = createServer(koinApplication)
+      val connectionFactory = context.getStore(PerMethodDatabaseExtension.namespace)
+        .get<SqlFeatureConfig.ConnectionFactory>("connectionFactory")
+        .let { checkNotNull(it) { "Library Feature tests require Postgres." } }
+      val server = createServer(koinApplication, connectionFactory)
       context.getStore(namespace).put("server", server)
       server.start()
     }
   }
 
-  private fun createServer(koinApplication: KoinApplication): Server {
-    val libraryFeature = LibraryFeature(koinApplication.koin)
-    return Server(
-      name = "${libraryFeature.name} Feature Test Server",
+  private fun createServer(
+    koinApplication: KoinApplication,
+    connectionFactory: SqlFeatureConfig.ConnectionFactory,
+  ): Server =
+    Server(
+      name = "Library Feature Test Server",
       features = listOf(
         DependencyInjectionFeature(koinApplication),
         IdFeature(), // TODO: Use deterministic generation.
-        libraryFeature,
+        LibraryFeature(koinApplication.koin),
         SqlFeature(
           config = SqlFeatureConfig(
-            connectionFactory = SqlFeatureConfig.ConnectionFactory(
-              url = "r2dbc:postgresql://localhost:5432/kairo_sample", // TODO: Use testcontainers.
-              username = "highbeam",
-              password = ProtectedString("highbeam"),
+            connectionFactory = connectionFactory,
+            connectionPool = SqlFeatureConfig.ConnectionPool(
+              size = SqlFeatureConfig.ConnectionPool.Size(initial = 2, min = 1, max = 5),
             ),
           ),
           configureDatabase = {
@@ -57,7 +68,6 @@ class LibraryFeatureTest : BeforeEachCallback, AfterEachCallback, ParameterResol
         ),
       ),
     )
-  }
 
   override fun afterEach(context: ExtensionContext): Unit =
     runBlocking {
@@ -76,6 +86,7 @@ class LibraryFeatureTest : BeforeEachCallback, AfterEachCallback, ParameterResol
       Server::class -> return true
     }
     val koin = checkNotNull(extensionContext.getStore(namespace).get<Koin>("koin"))
+    @Suppress("UndeclaredKoinUsage")
     return koin.getOrNull<Any>(kClass) != null
   }
 
@@ -89,6 +100,12 @@ class LibraryFeatureTest : BeforeEachCallback, AfterEachCallback, ParameterResol
       Server::class -> return checkNotNull(extensionContext.getStore(namespace).get<Server>("server"))
     }
     val koin = checkNotNull(extensionContext.getStore(namespace).get<Koin>("koin"))
+    @Suppress("UndeclaredKoinUsage")
     return koin.get(kClass)
+  }
+
+  internal companion object {
+    val namespace: ExtensionContext.Namespace =
+      ExtensionContext.Namespace.create(LibraryFeatureTest::class)
   }
 }
