@@ -5,7 +5,6 @@ import io.github.oshai.kotlinlogging.KotlinLogging
 import kairo.coroutines.singleNullOrThrow
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.toList
-import org.jetbrains.exposed.v1.core.eq
 import org.jetbrains.exposed.v1.r2dbc.R2dbcDatabase
 import org.jetbrains.exposed.v1.r2dbc.insert
 import org.jetbrains.exposed.v1.r2dbc.selectAll
