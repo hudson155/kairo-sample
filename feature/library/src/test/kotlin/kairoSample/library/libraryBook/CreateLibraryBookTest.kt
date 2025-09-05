@@ -32,7 +32,11 @@ internal class CreateLibraryBookTest {
     runTest {
       libraryBookService.create(LibraryBookModel.Creator.mereChristianity)
       shouldThrow<ExposedR2dbcException> { // TODO: This exception should be mapped.
-        libraryBookService.create(LibraryBookModel.Creator.mereChristianity)
+        libraryBookService.create(
+          LibraryBookModel.Creator.theMeaningOfMarriage.copy(
+            isbn = LibraryBookModel.mereChristianity.isbn,
+          ),
+        )
       }
     }
 }
