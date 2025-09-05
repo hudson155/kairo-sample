@@ -3,6 +3,9 @@ package kairoSample.library.libraryBook
 import io.github.oshai.kotlinlogging.KLogger
 import io.github.oshai.kotlinlogging.KotlinLogging
 import kairo.coroutines.singleNullOrThrow
+import kairo.sql.postgres.uniqueViolation
+import kairo.sql.postgres.withExceptionMappers
+import kairoSample.library.libraryBook.exception.DuplicateLibraryBookIsbn
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.single
 import kotlinx.coroutines.flow.toList
@@ -38,16 +41,20 @@ internal class LibraryBookStore(
 
   suspend fun create(creator: LibraryBookModel.Creator): LibraryBookModel {
     logger.info { "Creating library book (creator=$creator)." }
-    return suspendTransaction(db = database) {
-      LibraryBookTable
-        .insertReturning { statement ->
-          statement[this.id] = LibraryBookId.random()
-          statement[this.title] = creator.title
-          statement[this.authors] = creator.authors
-          statement[this.isbn] = creator.isbn
-        }
-        .map(LibraryBookModel::fromRow)
-        .single()
+    return withExceptionMappers(
+      uniqueViolation("uq__library_book__isbn") { DuplicateLibraryBookIsbn(creator.isbn) },
+    ) {
+      suspendTransaction(db = database) {
+        LibraryBookTable
+          .insertReturning { statement ->
+            statement[this.id] = LibraryBookId.random()
+            statement[this.title] = creator.title
+            statement[this.authors] = creator.authors
+            statement[this.isbn] = creator.isbn
+          }
+          .map(LibraryBookModel::fromRow)
+          .single()
+      }
     }
   }
 }
