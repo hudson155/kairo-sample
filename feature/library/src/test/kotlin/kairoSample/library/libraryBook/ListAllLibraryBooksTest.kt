@@ -28,10 +28,11 @@ internal class ListAllLibraryBooksTest {
         libraryBookService.create(LibraryBookModel.Creator.theMeaningOfMarriage)
       }
       test {
-        libraryBookService.listAll().map { it.sanitized() }.shouldContainExactlyInAnyOrder(
-          LibraryBookModel.mereChristianity,
-          LibraryBookModel.theMeaningOfMarriage,
-        )
+        libraryBookService.listAll().map { it.sanitized() }
+          .shouldContainExactlyInAnyOrder(
+            LibraryBookModel.mereChristianity,
+            LibraryBookModel.theMeaningOfMarriage,
+          )
       }
     }
 }
