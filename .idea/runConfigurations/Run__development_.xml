@@ -1,0 +1,13 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Run (development)" type="JetRunConfigurationType">
+    <envs>
+      <env name="CONFIG" value="development" />
+    </envs>
+    <option name="MAIN_CLASS_NAME" value="kairoSample.MainKt" />
+    <module name="kairo-sample.main" />
+    <shortenClasspath name="NONE" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>
