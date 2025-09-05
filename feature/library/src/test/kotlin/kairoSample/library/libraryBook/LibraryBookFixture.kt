@@ -3,9 +3,12 @@ package kairoSample.library.libraryBook
 import kairoSample.testing.epoch
 import kotlin.time.Instant
 
+internal val LibraryBookId.Companion.zero: LibraryBookId
+  get() = LibraryBookId("library_book_00000000")
+
 internal fun LibraryBookModel.sanitized(): LibraryBookModel =
   copy(
-    id = LibraryBookId("library_book_00000000"),
+    id = LibraryBookId.zero,
     createdAt = Instant.epoch,
   )
 
@@ -20,7 +23,7 @@ internal val LibraryBookModel.Creator.Companion.mereChristianity: LibraryBookMod
 internal val LibraryBookModel.Companion.mereChristianity: LibraryBookModel
   get() =
     LibraryBookModel(
-      id = LibraryBookId("library_book_00000000"),
+      id = LibraryBookId.zero,
       createdAt = Instant.epoch,
       title = "Mere Christianity",
       authors = listOf("C. S. Lewis"),
@@ -38,7 +41,7 @@ internal val LibraryBookModel.Creator.Companion.theMeaningOfMarriage: LibraryBoo
 internal val LibraryBookModel.Companion.theMeaningOfMarriage: LibraryBookModel
   get() =
     LibraryBookModel(
-      id = LibraryBookId("library_book_00000000"),
+      id = LibraryBookId.zero,
       createdAt = Instant.epoch,
       title = "The Meaning of Marriage: Facing the Complexities of Commitment with the Wisdom of God",
       authors = listOf("Timothy Keller", "Kathy Keller"),
