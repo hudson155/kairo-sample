@@ -1,8 +1,6 @@
 [versions]
 
 kairo = "LOCAL-SNAPSHOT" # https://github.com/hudson155/kairo/releases
-postgres-jdbc = "42.7.7" # https://github.com/pgjdbc/pgjdbc/releases
-postgres-r2dbc = "1.0.7.RELEASE" # https://github.com/pgjdbc/r2dbc-postgresql/releases
 
 [libraries]
 
@@ -14,6 +12,8 @@ kairo-config = { module = "software.airborne.kairo:kairo-config" }
 kairo-coroutines = { module = "software.airborne.kairo:kairo-coroutines" }
 kairo-dependencyInjection = { module = "software.airborne.kairo:kairo-dependency-injection" }
 kairo-dependencyInjectionFeature = { module = "software.airborne.kairo:kairo-dependency-injection-feature" }
+kairo-exception = { module = "software.airborne.kairo:kairo-exception" }
+kairo-exceptionTesting = { module = "software.airborne.kairo:kairo-exception-testing" }
 kairo-feature = { module = "software.airborne.kairo:kairo-feature" }
 kairo-healthCheckFeature = { module = "software.airborne.kairo:kairo-health-check-feature" }
 kairo-id = { module = "software.airborne.kairo:kairo-id" }
@@ -23,6 +23,7 @@ kairo-restFeature = { module = "software.airborne.kairo:kairo-rest-feature" }
 kairo-server = { module = "software.airborne.kairo:kairo-server" }
 kairo-sql = { module = "software.airborne.kairo:kairo-sql" }
 kairo-sqlFeature = { module = "software.airborne.kairo:kairo-sql-feature" }
+kairo-sqlPostgres = { module = "software.airborne.kairo:kairo-sql-postgres" }
 kairo-testing = { module = "software.airborne.kairo:kairo-testing" }
 
 koin-annotations = { module = "io.insert-koin:koin-annotations" }
@@ -33,7 +34,7 @@ log4j-core = { module = "org.apache.logging.log4j:log4j-core" }
 log4j-json = { module = "org.apache.logging.log4j:log4j-layout-template-json" }
 log4j-slf4j = { module = "org.apache.logging.log4j:log4j-slf4j2-impl" }
 
-postgres-jdbc = { module = "org.postgresql:postgresql", version.ref = "postgres-jdbc" }
-postgres-r2dbc = { module = "org.postgresql:r2dbc-postgresql", version.ref = "postgres-r2dbc" }
+postgres-jdbc = { module = "org.postgresql:postgresql" }
+postgres-r2dbc = { module = "org.postgresql:r2dbc-postgresql" }
 
 testcontainers-postgres = { module = "org.testcontainers:postgresql" }
