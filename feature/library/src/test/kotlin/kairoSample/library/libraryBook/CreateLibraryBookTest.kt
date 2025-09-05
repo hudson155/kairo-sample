@@ -1,12 +1,13 @@
 package kairoSample.library.libraryBook
 
-import io.kotest.assertions.throwables.shouldThrowAny
+import io.kotest.assertions.throwables.shouldThrow
 import io.kotest.matchers.shouldBe
 import kairo.testing.postcondition
 import kairo.testing.test
 import kairoSample.library.LibraryFeatureTest
 import kairoSample.library.PerMethodDatabaseExtension
 import kotlinx.coroutines.test.runTest
+import org.jetbrains.exposed.v1.r2dbc.ExposedR2dbcException
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.extension.ExtendWith
 
@@ -30,7 +31,7 @@ internal class CreateLibraryBookTest {
   fun `Duplicate ISBN`(libraryBookService: LibraryBookService): Unit =
     runTest {
       libraryBookService.create(LibraryBookModel.Creator.mereChristianity)
-      shouldThrowAny { // TODO: This exception should be mapped.
+      shouldThrow<ExposedR2dbcException> { // TODO: This exception should be mapped.
         libraryBookService.create(LibraryBookModel.Creator.mereChristianity)
       }
     }
