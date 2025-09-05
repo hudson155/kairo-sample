@@ -2,7 +2,6 @@ package kairoSample.library.libraryBook
 
 import io.ktor.server.application.Application
 import io.ktor.server.routing.routing
-import kairo.exception.logicalFailure
 import kairo.rest.HasRouting
 import kairo.rest.route
 import kairoSample.library.libraryBook.exception.LibraryBookNotFound
@@ -18,7 +17,7 @@ internal class LibraryBookHandler(
       route(LibraryBookApi.Get::class) {
         handle { endpoint ->
           val libraryBook = libraryBookService.get(endpoint.libraryBookId)
-            ?: logicalFailure(LibraryBookNotFound(endpoint.libraryBookId))
+            ?: throw LibraryBookNotFound(endpoint.libraryBookId)
           libraryBookMapper.rep(libraryBook)
         }
       }
