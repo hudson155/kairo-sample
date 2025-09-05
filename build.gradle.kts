@@ -12,14 +12,19 @@ kotlin {
 }
 
 dependencies {
-  implementation(enforcedPlatform(libs.kairo))
+  implementation(platform("io.arrow-kt:arrow-stack:2.1.2"))
+  implementation(platform("org.jetbrains.kotlinx:kotlinx-coroutines-bom:1.10.2"))
+  implementation(platform("org.jetbrains.exposed:exposed-bom:1.0.0-rc-1"))
+  implementation(platform("io.ktor:ktor-bom:3.2.3"))
+  implementation(platform("org.jetbrains.kotlinx:kotlinx-serialization-bom:1.9.0"))
+  implementation(platform("org.slf4j:slf4j-bom:2.0.17"))
 
   implementation(kotlin("reflect"))
 
   implementation("io.github.oshai:kotlin-logging-jvm:7.0.13")
   implementation("org.slf4j:slf4j-api")
   implementation("org.slf4j:slf4j-simple")
-  runtimeOnly(libs.postgres.r2dbc)
+  runtimeOnly("org.postgresql:r2dbc-postgresql:1.0.7.RELEASE")
   implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core")
   implementation("org.jetbrains.exposed:exposed-core")
   implementation("org.jetbrains.exposed:exposed-crypt")
