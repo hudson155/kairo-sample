@@ -1,52 +1,64 @@
 package kairoSample
 
-import com.typesafe.config.ConfigFactory
-import kairo.application.kairo
-import kairo.dependencyInjection.DependencyInjectionFeature
-import kairo.healthCheck.HealthCheckFeature
-import kairo.rest.RestFeature
-import kairo.server.Server
-import kairo.sql.SqlFeature
-import kairoSample.library.LibraryFeature
-import kotlinx.serialization.hocon.Hocon
-import kotlinx.serialization.hocon.decodeFromConfig
-import org.apache.logging.log4j.LogManager
-import org.jetbrains.exposed.v1.core.vendors.PostgreSQLDialect
-import org.koin.dsl.koinApplication
+import io.ktor.serialization.kotlinx.json.json
+import io.ktor.server.application.install
+import io.ktor.server.engine.applicationEnvironment
+import io.ktor.server.engine.connector
+import io.ktor.server.engine.embeddedServer
+import io.ktor.server.netty.Netty
+import io.ktor.server.plugins.autohead.AutoHeadResponse
+import io.ktor.server.plugins.calllogging.CallLogging
+import io.ktor.server.plugins.contentnegotiation.ContentNegotiation
+import io.ktor.server.response.respond
+import io.ktor.server.routing.get
+import io.ktor.server.routing.routing
+import kotlinx.coroutines.flow.toList
+import kotlinx.coroutines.runBlocking
+import org.jetbrains.exposed.v1.r2dbc.R2dbcDatabase
+import org.jetbrains.exposed.v1.r2dbc.selectAll
+import org.jetbrains.exposed.v1.r2dbc.transactions.suspendTransaction
 
-internal fun main() {
-  kairo {
-    val config = loadConfig()
-    val koinApplication = koinApplication()
-    val features = listOf(
-      DependencyInjectionFeature(koinApplication),
-      HealthCheckFeature(),
-      LibraryFeature(koinApplication.koin),
-      RestFeature(config.rest),
-      SqlFeature(
-        config = config.sql,
-        configureDatabase = {
-          explicitDialect = PostgreSQLDialect()
-        },
-      ),
-    )
-    val server = Server(
-      name = "Kairo Sample",
-      features = features,
-    )
-    server.startAndWait(
-      release = {
-        server.stop()
-        LogManager.shutdown()
-      },
-    )
+fun main() {
+  runBlocking {
+    val database = createDatabase()
+    val ktorServer = createKtorServer(database)
+    ktorServer.start()
+    Thread.sleep(Long.MAX_VALUE)
   }
 }
 
-@Suppress("ForbiddenMethodCall")
-private fun loadConfig(
-  configName: String = requireNotNull(System.getenv("CONFIG")) { "CONFIG environment variable not set." },
-): Config {
-  val hocon = ConfigFactory.load("config/$configName.conf")
-  return Hocon.decodeFromConfig(hocon)
-}
+private fun createDatabase() =
+  R2dbcDatabase.connect(
+    url = "r2dbc:postgresql://localhost:5432/kairo_sample",
+    user = "highbeam",
+    password = "highbeam",
+  )
+
+private fun createKtorServer(database: R2dbcDatabase) =
+  embeddedServer(
+    factory = Netty,
+    environment = applicationEnvironment(),
+    configure = {
+      connector {
+        host = "0.0.0.0"
+        port = 8080
+      }
+    },
+    module = {
+      install(AutoHeadResponse)
+      install(CallLogging) {
+        disableDefaultColors()
+      }
+      install(ContentNegotiation) {
+        json()
+      }
+      routing {
+        get("/library-books") {
+          suspendTransaction(db = database) {
+            LibraryBookTable.selectAll().toList()
+          }
+          call.respond("It worked!")
+        }
+      }
+    },
+  )

@@ -1,0 +1,16 @@
+POST http://localhost:8080/library-books
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2025.2.1 Preview
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+content-length: 0
+
+###
+
+GET http://localhost:8080/library-books
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2025.2.1 Preview
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+<> 2025-08-20T121504.200.json
+
+###

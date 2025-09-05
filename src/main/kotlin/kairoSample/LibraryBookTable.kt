@@ -1,4 +1,4 @@
-package kairoSample.library.libraryBook
+package kairoSample
 
 import kotlin.time.Instant
 import org.jetbrains.exposed.v1.core.Column
@@ -6,10 +6,9 @@ import org.jetbrains.exposed.v1.core.Table
 import org.jetbrains.exposed.v1.datetime.CurrentTimestamp
 import org.jetbrains.exposed.v1.datetime.timestamp
 
-internal object LibraryBookTable : Table("library.library_book") {
-  val id: Column<LibraryBookId> =
+object LibraryBookTable : Table("library.library_book") {
+  val id: Column<String> =
     text("id")
-      .transform(::LibraryBookId, LibraryBookId::value)
 
   override val primaryKey: PrimaryKey = PrimaryKey(id)
 

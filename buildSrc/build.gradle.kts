@@ -17,15 +17,11 @@ dependencies {
   // https://plugins.gradle.org/plugin/com.google.cloud.artifactregistry.gradle-plugin
   implementation("com.google.cloud.artifactregistry:artifactregistry-gradle-plugin:2.2.5")
 
-  // https://github.com/detekt/detekt/releases
-  implementation("io.gitlab.arturbosch.detekt:detekt-gradle-plugin:1.23.8")
-
   // https://github.com/GradleUp/shadow/releases
   implementation("com.gradleup.shadow:shadow-gradle-plugin:8.3.9")
 }
 
 kotlin {
-  explicitApi()
   compilerOptions {
     allWarningsAsErrors = true
   }

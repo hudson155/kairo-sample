@@ -1,0 +1,16 @@
+[
+  {
+    "id": "library_book_qr240OvtfMruUvY",
+    "createdAt": "2025-08-20T18:15:00.803130Z",
+    "title": "Mere Christianity",
+    "authors": ["C. S. Lewis"],
+    "isbn": "978-0060652920"
+  },
+  {
+    "id": "library_book_AI1DfQecMHX6HkS",
+    "createdAt": "2025-08-20T18:15:00.803427Z",
+    "title": "The Meaning of Marriage: Facing the Complexities of Commitment with the Wisdom of God",
+    "authors": ["Timothy Keller", "Kathy Keller"],
+    "isbn": "978-1594631870"
+  }
+]

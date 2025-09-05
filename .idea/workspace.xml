@@ -1,0 +1,452 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="2ecd1b0d-8744-44d3-a0e0-e664d271a75e" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.detekt/config.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/CODEOWNERS" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/workflows/ci.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/buildSrc/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/buildSrc/build.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/buildSrc/src/main/kotlin/KairoSample.kt" beforeDir="false" afterPath="$PROJECT_DIR$/buildSrc/src/main/kotlin/KairoSample.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/buildSrc/src/main/kotlin/kairo-sample.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/buildSrc/src/main/kotlin/kairo-sample.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/feature/library/build.gradle.kts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/feature/library/src/main/kotlin/kairoSample/library/LibraryFeature.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/feature/library/src/main/kotlin/kairoSample/library/libraryBook/LibraryBookApi.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/feature/library/src/main/kotlin/kairoSample/library/libraryBook/LibraryBookHandler.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/feature/library/src/main/kotlin/kairoSample/library/libraryBook/LibraryBookId.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/feature/library/src/main/kotlin/kairoSample/library/libraryBook/LibraryBookMapper.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/feature/library/src/main/kotlin/kairoSample/library/libraryBook/LibraryBookModel.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/feature/library/src/main/kotlin/kairoSample/library/libraryBook/LibraryBookRep.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/feature/library/src/main/kotlin/kairoSample/library/libraryBook/LibraryBookService.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/feature/library/src/main/kotlin/kairoSample/library/libraryBook/LibraryBookStore.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/feature/library/src/main/kotlin/kairoSample/library/libraryBook/LibraryBookTable.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/feature/library/src/test/kotlin/kairoSample/library/LibraryFeatureTest.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/feature/library/src/test/kotlin/kairoSample/library/PerMethodDatabaseExtension.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/feature/library/src/test/kotlin/kairoSample/library/libraryBook/CreateLibraryBookTest.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/feature/library/src/test/kotlin/kairoSample/library/libraryBook/GetLibraryBookTest.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/feature/library/src/test/kotlin/kairoSample/library/libraryBook/LibraryBookFixture.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/feature/library/src/test/kotlin/kairoSample/library/libraryBook/ListAllLibraryBooksTest.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle/libs.versions.toml" beforeDir="false" afterPath="$PROJECT_DIR$/gradle/libs.versions.toml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/settings.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/settings.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/kairoSample/Config.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/kairoSample/Config.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/kairoSample/LibraryBookTable.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/kairoSample/LibraryBookTable.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/kairoSample/Main.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/kairoSample/Main.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/config/production.conf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/db/migration/V1__create_updated_function.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/db/migration/V2__create_library_book_table.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/testing/build.gradle.kts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/testing/src/main/kotlin/kairoSample/testing/ExtensionContext.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/testing/src/main/kotlin/kairoSample/testing/Instant.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/testing/src/main/resources/log4j2-test.xml" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <task path="$PROJECT_DIR$">
+          <activation />
+        </task>
+        <projects_view>
+          <tree_state>
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="kairo-sample" type="f1a62948:ProjectNode" />
+              </path>
+            </expand>
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Kotlin Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GradleScriptDefinitionsStorage" workingDir="$PROJECT_DIR$" gradleHome="$USER_HOME$/.gradle/wrapper/dists/gradle-9.0.0-bin/d6wjpkvcgsg3oed0qlfss3wgl/gradle-9.0.0" javaHome="$USER_HOME$/Library/Java/JavaVirtualMachines/corretto-21.0.5/Contents/Home" gradleVersion="9.0.0" />
+  <component name="HighlightingSettingsPerFile">
+    <setting file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.gradleup.shadow/shadow-gradle-plugin/9.0.1/32a3922052bde9b74d817b88f2cf542af522d0d2/shadow-gradle-plugin-9.0.1.jar!/com/github/jengelman/gradle/plugins/shadow/transformers/Log4j2PluginsCacheFileTransformer.class" root0="SKIP_INSPECTION" />
+    <setting file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.gradleup.shadow/shadow-gradle-plugin/9.0.2/66ccde223c34159186025c2153e89a33ac888e4b/shadow-gradle-plugin-9.0.2.jar!/com/github/jengelman/gradle/plugins/shadow/tasks/ShadowJar.class" root0="SKIP_INSPECTION" />
+    <setting file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.typesafe/config/1.4.4/4784461959b679dd2963ed25d4c8ec70b2a5b55/config-1.4.4-sources.jar!/com/typesafe/config/Config.java" root0="SKIP_INSPECTION" />
+    <setting file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/gradle.plugin.org.flywaydb/gradle-plugin-publishing/11.11.2/1918795aae128beac402b9ada7ee609c36813f76/gradle-plugin-publishing-11.11.2.jar!/org/flywaydb/gradle/FlywayExtension.class" root0="SKIP_INSPECTION" />
+    <setting file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.arrow-kt/arrow-fx-coroutines-jvm/2.1.2/61718736e1a650d6baf4d46af49675e208f0dc0a/arrow-fx-coroutines-jvm-2.1.2-sources.jar!/commonMain/arrow/fx/coroutines/Bracket.kt" root0="SKIP_INSPECTION" />
+    <setting file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.arrow-kt/arrow-fx-coroutines-jvm/2.1.2/61718736e1a650d6baf4d46af49675e208f0dc0a/arrow-fx-coroutines-jvm-2.1.2-sources.jar!/commonMain/arrow/fx/coroutines/Resource.kt" root0="SKIP_INSPECTION" />
+    <setting file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.arrow-kt/suspendapp-jvm/2.1.2/ae2ae7feb0e63470b7de1bb0eb300ed0691da88f/suspendapp-jvm-2.1.2-sources.jar!/commonMain/arrow/continuations/Process.kt" root0="SKIP_INSPECTION" />
+    <setting file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.arrow-kt/suspendapp-jvm/2.1.2/ae2ae7feb0e63470b7de1bb0eb300ed0691da88f/suspendapp-jvm-2.1.2-sources.jar!/commonMain/arrow/continuations/SuspendApp.kt" root0="SKIP_INSPECTION" />
+    <setting file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.arrow-kt/suspendapp-jvm/2.1.2/cc9fb60594d58cd01591cdb7c5d49b2ad17f6fba/suspendapp-jvm-2.1.2.jar!/arrow/continuations/SuspendAppKt.class" root0="SKIP_INSPECTION" />
+    <setting file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.insert-koin/koin-annotations-jvm/2.1.0/8a0209aa54ff825cb4a6b0e864b4d6b4ec7f496/koin-annotations-jvm-2.1.0-sources.jar!/commonMain/org/koin/core/annotation/CoreAnnotations.kt" root0="SKIP_INSPECTION" />
+    <setting file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.insert-koin/koin-core-jvm/4.1.0/6e2fee46ea801f10cd3977309268c44b41631c27/koin-core-jvm-4.1.0-sources.jar!/commonMain/org/koin/core/Koin.kt" root0="SKIP_INSPECTION" />
+    <setting file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.insert-koin/koin-core-jvm/4.1.0/6e2fee46ea801f10cd3977309268c44b41631c27/koin-core-jvm-4.1.0-sources.jar!/commonMain/org/koin/core/KoinApplication.kt" root0="SKIP_INSPECTION" />
+    <setting file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.insert-koin/koin-core-jvm/4.1.0/6e2fee46ea801f10cd3977309268c44b41631c27/koin-core-jvm-4.1.0-sources.jar!/commonMain/org/koin/core/component/KoinComponent.kt" root0="SKIP_INSPECTION" />
+    <setting file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.insert-koin/koin-core-jvm/4.1.0/6e2fee46ea801f10cd3977309268c44b41631c27/koin-core-jvm-4.1.0-sources.jar!/commonMain/org/koin/core/error/NoDefinitionFoundException.kt" root0="SKIP_INSPECTION" />
+    <setting file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.kotest/kotest-assertions-core-jvm/6.0.2/6855807164e49429580cf40361bdb49918084a3c/kotest-assertions-core-jvm-6.0.2-sources.jar!/commonMain/io/kotest/matchers/should.kt" root0="SKIP_INSPECTION" />
+    <setting file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.ktor/ktor-http-jvm/3.2.3/e65e10f1ef43860b185f274553a679ac0d8c49c6/ktor-http-jvm-3.2.3-sources.jar!/commonMain/io/ktor/http/Parameters.kt" root0="SKIP_INSPECTION" />
+    <setting file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.ktor/ktor-io-jvm/3.2.3/dd99aab69aa8e9adcf3790900a882fe6f3ed6066/ktor-io-jvm-3.2.3-sources.jar!/commonMain/io/ktor/utils/io/Annotations.kt" root0="SKIP_INSPECTION" />
+    <setting file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.ktor/ktor-resources-jvm/3.2.3/57929ab5872b74be68fcfc9bc7c3f06258af408e/ktor-resources-jvm-3.2.3-sources.jar!/commonMain/io/ktor/resources/Resource.kt" root0="SKIP_INSPECTION" />
+    <setting file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.ktor/ktor-server-core-jvm/3.2.3/50c82e0d4ddbdb862d6f3558349d965090a86d42/ktor-server-core-jvm-3.2.3-sources.jar!/commonMain/io/ktor/server/application/PipelineCall.kt" root0="SKIP_INSPECTION" />
+    <setting file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.ktor/ktor-server-core-jvm/3.2.3/50c82e0d4ddbdb862d6f3558349d965090a86d42/ktor-server-core-jvm-3.2.3-sources.jar!/commonMain/io/ktor/server/engine/ApplicationEngine.kt" root0="SKIP_INSPECTION" />
+    <setting file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.ktor/ktor-server-core-jvm/3.2.3/50c82e0d4ddbdb862d6f3558349d965090a86d42/ktor-server-core-jvm-3.2.3-sources.jar!/commonMain/io/ktor/server/request/ApplicationReceiveFunctions.kt" root0="SKIP_INSPECTION" />
+    <setting file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.ktor/ktor-server-core-jvm/3.2.3/50c82e0d4ddbdb862d6f3558349d965090a86d42/ktor-server-core-jvm-3.2.3-sources.jar!/commonMain/io/ktor/server/routing/RoutingBuilder.kt" root0="SKIP_INSPECTION" />
+    <setting file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.ktor/ktor-server-core-jvm/3.2.3/50c82e0d4ddbdb862d6f3558349d965090a86d42/ktor-server-core-jvm-3.2.3-sources.jar!/commonMain/io/ktor/server/routing/RoutingNode.kt" root0="SKIP_INSPECTION" />
+    <setting file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.ktor/ktor-server-core-jvm/3.2.3/50c82e0d4ddbdb862d6f3558349d965090a86d42/ktor-server-core-jvm-3.2.3-sources.jar!/commonMain/io/ktor/server/routing/RoutingRoot.kt" root0="SKIP_INSPECTION" />
+    <setting file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.ktor/ktor-server-resources-jvm/3.2.3/522c7027cc1a26709d34e1ab38ad8973928954ba/ktor-server-resources-jvm-3.2.3-sources.jar!/commonMain/io/ktor/server/resources/Routing.kt" root0="SKIP_INSPECTION" />
+    <setting file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.ktor/ktor-utils-jvm/3.2.3/ef2db2f48bc522ae139cb5799bf8272be166b2be/ktor-utils-jvm-3.2.3-sources.jar!/commonMain/io/ktor/util/StringValues.kt" root0="SKIP_INSPECTION" />
+    <setting file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.ktor/ktor-utils-jvm/3.2.3/ef2db2f48bc522ae139cb5799bf8272be166b2be/ktor-utils-jvm-3.2.3-sources.jar!/commonMain/io/ktor/util/pipeline/SuspendFunctionGun.kt" root0="SKIP_INSPECTION" />
+    <setting file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.netty/netty-transport-classes-epoll/4.2.2.Final/730f1dd6249c3f4d27e9ec06b20f99e075edf1e8/netty-transport-classes-epoll-4.2.2.Final-sources.jar!/io/netty/channel/epoll/Native.java" root0="SKIP_INSPECTION" />
+    <setting file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.r2dbc/r2dbc-spi/1.0.0.RELEASE/232dbc5e46fce7495eef2d40df25b0d1340a763c/r2dbc-spi-1.0.0.RELEASE-sources.jar!/io/r2dbc/spi/R2dbcException.java" root0="SKIP_INSPECTION" />
+    <setting file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.logging.log4j/log4j-core/2.24.1/f5a5261c171329e63f3f0888202f0ed23ab0390a/log4j-core-2.24.1-sources.jar!/org/apache/logging/log4j/core/config/LoggerConfig.java" root0="SKIP_INSPECTION" />
+    <setting file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jdbi/jdbi3-core/3.49.5/80012047b5843598280ea623af5419649ba9174c/jdbi3-core-3.49.5-sources.jar!/org/jdbi/v3/core/Handle.java" root0="SKIP_INSPECTION" />
+    <setting file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jdbi/jdbi3-core/3.49.5/80012047b5843598280ea623af5419649ba9174c/jdbi3-core-3.49.5-sources.jar!/org/jdbi/v3/core/result/ResultIterable.java" root0="SKIP_INSPECTION" />
+    <setting file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jdbi/jdbi3-kotlin/3.49.5/9ed6a03b1ba30daa08811402f78a1e0ce9b1fd72/jdbi3-kotlin-3.49.5-sources.jar!/org/jdbi/v3/core/kotlin/Extensions.kt" root0="SKIP_INSPECTION" />
+    <setting file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.exposed/exposed-core/1.0.0-beta-5/11e8689dd56a61b0f9adad6f79ec4fe3268c2eb/exposed-core-1.0.0-beta-5-sources.jar!/org/jetbrains/exposed/v1/core/Column.kt" root0="SKIP_INSPECTION" />
+    <setting file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.exposed/exposed-core/1.0.0-beta-5/11e8689dd56a61b0f9adad6f79ec4fe3268c2eb/exposed-core-1.0.0-beta-5-sources.jar!/org/jetbrains/exposed/v1/core/Expression.kt" root0="SKIP_INSPECTION" />
+    <setting file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.exposed/exposed-core/1.0.0-beta-5/11e8689dd56a61b0f9adad6f79ec4fe3268c2eb/exposed-core-1.0.0-beta-5-sources.jar!/org/jetbrains/exposed/v1/core/Function.kt" root0="SKIP_INSPECTION" />
+    <setting file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.exposed/exposed-core/1.0.0-beta-5/11e8689dd56a61b0f9adad6f79ec4fe3268c2eb/exposed-core-1.0.0-beta-5-sources.jar!/org/jetbrains/exposed/v1/core/Op.kt" root0="SKIP_INSPECTION" />
+    <setting file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.exposed/exposed-core/1.0.0-beta-5/11e8689dd56a61b0f9adad6f79ec4fe3268c2eb/exposed-core-1.0.0-beta-5-sources.jar!/org/jetbrains/exposed/v1/core/SQLExpressionBuilder.kt" root0="SKIP_INSPECTION" />
+    <setting file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.exposed/exposed-core/1.0.0-beta-5/11e8689dd56a61b0f9adad6f79ec4fe3268c2eb/exposed-core-1.0.0-beta-5-sources.jar!/org/jetbrains/exposed/v1/core/Table.kt" root0="SKIP_INSPECTION" />
+    <setting file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.exposed/exposed-core/1.0.0-beta-5/11e8689dd56a61b0f9adad6f79ec4fe3268c2eb/exposed-core-1.0.0-beta-5-sources.jar!/org/jetbrains/exposed/v1/core/transactions/CoreTransactionManager.kt" root0="SKIP_INSPECTION" />
+    <setting file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.exposed/exposed-core/1.0.0-rc-1/ad13fd434b2784e2874997a8ce10ccdad72275e8/exposed-core-1.0.0-rc-1-sources.jar!/org/jetbrains/exposed/v1/core/transactions/CoreTransactionManager.kt" root0="SKIP_INSPECTION" />
+    <setting file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.exposed/exposed-jdbc/1.0.0-beta-5/df8fbac9533981375e500b9742710ec6dccfc9f/exposed-jdbc-1.0.0-beta-5-sources.jar!/org/jetbrains/exposed/v1/jdbc/Database.kt" root0="SKIP_INSPECTION" />
+    <setting file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.exposed/exposed-jdbc/1.0.0-beta-5/df8fbac9533981375e500b9742710ec6dccfc9f/exposed-jdbc-1.0.0-beta-5-sources.jar!/org/jetbrains/exposed/v1/jdbc/transactions/JdbcTransactionInterface.kt" root0="SKIP_INSPECTION" />
+    <setting file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.exposed/exposed-jdbc/1.0.0-beta-5/df8fbac9533981375e500b9742710ec6dccfc9f/exposed-jdbc-1.0.0-beta-5-sources.jar!/org/jetbrains/exposed/v1/jdbc/transactions/TransactionManager.kt" root0="SKIP_INSPECTION" />
+    <setting file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.exposed/exposed-kotlin-datetime/1.0.0-beta-5/96569d8d655597701cade57f00a9aab8fcf3203f/exposed-kotlin-datetime-1.0.0-beta-5-sources.jar!/org/jetbrains/exposed/v1/datetime/KotlinDateFunctions.kt" root0="SKIP_INSPECTION" />
+    <setting file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.exposed/exposed-migration/1.0.0-beta-5/97b7a69fc1da253cafcfbe77bae80f2898aaaa27/exposed-migration-1.0.0-beta-5-sources.jar!/org/jetbrains/exposed/v1/migration/MigrationUtils.kt" root0="SKIP_INSPECTION" />
+    <setting file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.exposed/exposed-r2dbc/1.0.0-beta-5/5cc3cb918d1cfd16b10e82bf7dfe41faa7cefd21/exposed-r2dbc-1.0.0-beta-5-sources.jar!/org/jetbrains/exposed/v1/r2dbc/ExposedR2dbcException.kt" root0="SKIP_INSPECTION" />
+    <setting file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.exposed/exposed-r2dbc/1.0.0-beta-5/5cc3cb918d1cfd16b10e82bf7dfe41faa7cefd21/exposed-r2dbc-1.0.0-beta-5-sources.jar!/org/jetbrains/exposed/v1/r2dbc/R2dbcDatabase.kt" root0="SKIP_INSPECTION" />
+    <setting file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.exposed/exposed-r2dbc/1.0.0-beta-5/5cc3cb918d1cfd16b10e82bf7dfe41faa7cefd21/exposed-r2dbc-1.0.0-beta-5-sources.jar!/org/jetbrains/exposed/v1/r2dbc/R2dbcTransaction.kt" root0="SKIP_INSPECTION" />
+    <setting file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.exposed/exposed-r2dbc/1.0.0-beta-5/5cc3cb918d1cfd16b10e82bf7dfe41faa7cefd21/exposed-r2dbc-1.0.0-beta-5-sources.jar!/org/jetbrains/exposed/v1/r2dbc/transactions/TransactionManager.kt" root0="SKIP_INSPECTION" />
+    <setting file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.exposed/exposed-r2dbc/1.0.0-rc-1/77e65131819e40353b0101ecf49a834d4cf90ea2/exposed-r2dbc-1.0.0-rc-1-sources.jar!/org/jetbrains/exposed/v1/r2dbc/transactions/R2dbcTransactionInterface.kt" root0="SKIP_INSPECTION" />
+    <setting file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.exposed/exposed-r2dbc/1.0.0-rc-1/77e65131819e40353b0101ecf49a834d4cf90ea2/exposed-r2dbc-1.0.0-rc-1-sources.jar!/org/jetbrains/exposed/v1/r2dbc/transactions/TransactionManager.kt" root0="SKIP_INSPECTION" />
+    <setting file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/2.2.10/dda98d7e091155886352a100dbca778315baa0f7/kotlin-stdlib-2.2.10-sources.jar!/commonMain/kotlin/time/Instant.kt" root0="SKIP_INSPECTION" />
+    <setting file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/2.2.10/dda98d7e091155886352a100dbca778315baa0f7/kotlin-stdlib-2.2.10-sources.jar!/commonMain/kotlin/util/Lazy.kt" root0="SKIP_INSPECTION" />
+    <setting file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/2.2.10/dda98d7e091155886352a100dbca778315baa0f7/kotlin-stdlib-2.2.10-sources.jar!/jvmMain/kotlin/util/LazyJVM.kt" root0="SKIP_INSPECTION" />
+    <setting file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlinx/kotlinx-coroutines-core-jvm/1.10.2/dd509cf554e712ac6b4c8c0b773be93d0142ec71/kotlinx-coroutines-core-jvm-1.10.2-sources.jar!/commonMain/Delay.kt" root0="SKIP_INSPECTION" />
+    <setting file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlinx/kotlinx-coroutines-core-jvm/1.10.2/dd509cf554e712ac6b4c8c0b773be93d0142ec71/kotlinx-coroutines-core-jvm-1.10.2-sources.jar!/commonMain/channels/BufferedChannel.kt" root0="SKIP_INSPECTION" />
+    <setting file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlinx/kotlinx-coroutines-core-jvm/1.10.2/dd509cf554e712ac6b4c8c0b773be93d0142ec71/kotlinx-coroutines-core-jvm-1.10.2-sources.jar!/commonMain/flow/internal/SafeCollector.common.kt" root0="SKIP_INSPECTION" />
+    <setting file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlinx/kotlinx-coroutines-core-jvm/1.10.2/dd509cf554e712ac6b4c8c0b773be93d0142ec71/kotlinx-coroutines-core-jvm-1.10.2-sources.jar!/commonMain/flow/terminal/Collection.kt" root0="SKIP_INSPECTION" />
+    <setting file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlinx/kotlinx-coroutines-core-jvm/1.10.2/dd509cf554e712ac6b4c8c0b773be93d0142ec71/kotlinx-coroutines-core-jvm-1.10.2-sources.jar!/commonMain/flow/terminal/Reduce.kt" root0="SKIP_INSPECTION" />
+    <setting file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlinx/kotlinx-coroutines-test-jvm/1.10.2/5d611d71d28955e3db7aba856fa4e17d42972bb5/kotlinx-coroutines-test-jvm-1.10.2-sources.jar!/commonMain/TestBuilders.kt" root0="SKIP_INSPECTION" />
+    <setting file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlinx/kotlinx-coroutines-test-jvm/1.10.2/5d611d71d28955e3db7aba856fa4e17d42972bb5/kotlinx-coroutines-test-jvm-1.10.2-sources.jar!/commonMain/TestScope.kt" root0="SKIP_INSPECTION" />
+    <setting file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.junit.jupiter/junit-jupiter-api/5.13.4/d6de55e11ea559f5a11b6718abdc728b6c1c385c/junit-jupiter-api-5.13.4-sources.jar!/org/junit/jupiter/api/extension/ExtensionContext.java" root0="SKIP_INSPECTION" />
+    <setting file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.junit.platform/junit-platform-engine/1.13.4/2843aaa35d1c06e8f3b5196697cd85522caf9e8b/junit-platform-engine-1.13.4-sources.jar!/org/junit/platform/engine/support/store/NamespacedHierarchicalStore.java" root0="SKIP_INSPECTION" />
+    <setting file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.postgresql/r2dbc-postgresql/1.0.7.RELEASE/f4dee2f8887cdc8fb1867d565b55126a72a3193/r2dbc-postgresql-1.0.7.RELEASE-sources.jar!/io/r2dbc/postgresql/PostgresqlResult.java" root0="SKIP_INSPECTION" />
+    <setting file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.testcontainers/postgresql/1.21.3/31dcad9724584585afd63143f2c43dc62a08d8a9/postgresql-1.21.3-sources.jar!/org/testcontainers/containers/PostgreSQLContainer.java" root0="SKIP_INSPECTION" />
+    <setting file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.testcontainers/testcontainers/1.21.3/b601613f28f8dcd41c9fb2eea96d1450f4ed0f0c/testcontainers-1.21.3-sources.jar!/org/testcontainers/containers/Container.java" root0="SKIP_INSPECTION" />
+    <setting file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.testcontainers/testcontainers/1.21.3/b601613f28f8dcd41c9fb2eea96d1450f4ed0f0c/testcontainers-1.21.3-sources.jar!/org/testcontainers/containers/ContainerState.java" root0="SKIP_INSPECTION" />
+    <setting file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.testcontainers/testcontainers/1.21.3/b601613f28f8dcd41c9fb2eea96d1450f4ed0f0c/testcontainers-1.21.3-sources.jar!/org/testcontainers/containers/GenericContainer.java" root0="SKIP_INSPECTION" />
+    <setting file="jar://$MAVEN_REPOSITORY$/org/jetbrains/kotlin/kotlin-stdlib/2.2.0/kotlin-stdlib-2.2.0.jar!/kotlin/DslMarker.class" root0="SKIP_INSPECTION" />
+    <setting file="jar://$MAVEN_REPOSITORY$/org/jetbrains/kotlin/kotlin-stdlib/2.2.0/kotlin-stdlib-2.2.0.jar!/kotlin/LazyKt.class" root0="SKIP_INSPECTION" />
+    <setting file="jar://$MAVEN_REPOSITORY$/org/jetbrains/kotlin/kotlin-stdlib/2.2.0/kotlin-stdlib-2.2.0.jar!/kotlin/LazyThreadSafetyMode.class" root0="SKIP_INSPECTION" />
+    <setting file="jar://$MAVEN_REPOSITORY$/org/jetbrains/kotlin/kotlin-stdlib/2.2.0/kotlin-stdlib-2.2.0.jar!/kotlin/collections/CollectionsKt.class" root0="SKIP_INSPECTION" />
+    <setting file="jar://$MAVEN_REPOSITORY$/software/airborne/kairo/kairo-application/LOCAL-SNAPSHOT/kairo-application-LOCAL-SNAPSHOT-sources.jar!/kairo/application/Kairo.kt" root0="SKIP_INSPECTION" />
+    <setting file="jar://$MAVEN_REPOSITORY$/software/airborne/kairo/kairo-application/LOCAL-SNAPSHOT/kairo-application-LOCAL-SNAPSHOT.jar!/kairo/application/Kairo.class" root0="SKIP_INSPECTION" />
+    <setting file="jar://$MAVEN_REPOSITORY$/software/airborne/kairo/kairo-rest-feature/LOCAL-SNAPSHOT/kairo-rest-feature-LOCAL-SNAPSHOT-sources.jar!/kairo/rest/RestFeatureConfig.kt" root0="SKIP_INSPECTION" />
+    <setting file="jar://$MAVEN_REPOSITORY$/software/airborne/kairo/kairo-rest/LOCAL-SNAPSHOT/kairo-rest-LOCAL-SNAPSHOT-sources.jar!/kairo/rest/RestEndpointHandler.kt" root0="SKIP_INSPECTION" />
+    <setting file="jar://$MAVEN_REPOSITORY$/software/airborne/kairo/kairo-sql-feature/LOCAL-SNAPSHOT/kairo-sql-feature-LOCAL-SNAPSHOT-sources.jar!/kairo/sql/SqlFeatureConfig.kt" root0="SKIP_INSPECTION" />
+    <setting file="jar://$MAVEN_REPOSITORY$/software/airborne/kairo/kairo-testing/LOCAL-SNAPSHOT/kairo-testing-LOCAL-SNAPSHOT-sources.jar!/kairo/testing/Testing.kt" root0="SKIP_INSPECTION" />
+  </component>
+  <component name="HttpClientOnboardingState">{
+  &quot;isOnboardingCommentShown&quot;: true
+}</component>
+  <component name="KubernetesApiPersistence">{}</component>
+  <component name="KubernetesApiProvider">{
+  &quot;isMigrated&quot;: true
+}</component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 6
+}</component>
+  <component name="ProjectId" id="31CNGg8n2ksKJh4NxyQQXTXW4MN" />
+  <component name="ProjectViewState">
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Gradle.Build kairo-sample.executor": "Run",
+    "Gradle.CreateLibraryBookTest.Duplicate ISBN.executor": "Run",
+    "Gradle.Download Sources.executor": "Run",
+    "Gradle.GetLibraryBookTest.happy path.executor": "Run",
+    "Gradle.Junie gradle test: kairoSample.library.libraryBook.CreateLibraryBookTest.executor": "Run",
+    "Gradle.Junie gradle test: kairoSample.library.libraryBook.GetLibraryBookTest.executor": "Run",
+    "Gradle.Junie gradle test: kairoSample.library.libraryBook.ListAllLibraryBooksTest.executor": "Run",
+    "Gradle.Lint.executor": "Run",
+    "Gradle.ListAllLibraryBooksTest (1).executor": "Run",
+    "Gradle.ListAllLibraryBooksTest (2).executor": "Run",
+    "Gradle.ListAllLibraryBooksTest.2 exist.executor": "Run",
+    "Gradle.ListAllLibraryBooksTest.executor": "Run",
+    "Gradle.Test.executor": "Run",
+    "Gradle.Tests in 'kairo-sample'.executor": "Run",
+    "Gradle.Tests in 'kairo-sample.feature.library'.executor": "Run",
+    "Gradle.kairo-sample [:db.main.GenerateMigrationScriptKt.main()].executor": "Run",
+    "Gradle.kairo-sample [:kairoSample.Main2Kt.main()].executor": "Run",
+    "Gradle.kairo-sample [:kairoSample.MainKt.main()].executor": "Run",
+    "Gradle.kairo-sample:feature:library [:feature:library:kairoSample.library.libraryBook.ExampleKt.main()].executor": "Run",
+    "Ktor.Main2Kt.executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "main",
+    "junie.onboarding.icon.badge.shown": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/Users/jeff-highbeam/personal/repos/kairo-sample/src",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "editor.preferences.import",
+    "sql.codeStylePanel.last.previewDialect": "PostgreSQL",
+    "stored_options": "{\"dialectConnections\":{\"app.cash.sqldelight.dialects.postgresql.PostgreSqlDialect\":{\"orderedOptions\":[],\"serializedProperties\":{}}}}",
+    "to.speed.mode.migration.done": "true",
+    "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File": [
+      "TEXT",
+      "JSON"
+    ]
+  }
+}]]></component>
+  <component name="ReactorSettings">
+    <option name="notificationShown" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src" />
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/testing/src/main/resources/config" />
+      <recent name="$PROJECT_DIR$/testing/src/main" />
+      <recent name="$PROJECT_DIR$/testing" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/resources/db/migration" />
+      <recent name="$PROJECT_DIR$/src/main/resources/db" />
+      <recent name="$PROJECT_DIR$/src/main/resources/sql/libraryBook" />
+      <recent name="$PROJECT_DIR$/src" />
+    </key>
+    <key name="CopyKotlinDeclarationDialog.RECENTS_KEY">
+      <recent name="kairoSample.library.libraryBook" />
+      <recent name="kairoSample.library" />
+      <recent name="kairoSample.libraryBook" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Kotlin.MainKt">
+    <configuration name="CreateLibraryBookTest.Duplicate ISBN" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":feature:library:test" />
+            <option value="--tests" />
+            <option value="&quot;kairoSample.library.libraryBook.CreateLibraryBookTest.Duplicate ISBN&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="ListAllLibraryBooksTest (1)" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":feature:library:test" />
+            <option value="--tests" />
+            <option value="&quot;kairoSample.library.libraryBook.ListAllLibraryBooksTest&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="ListAllLibraryBooksTest.2 exist" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":feature:library:test" />
+            <option value="--tests" />
+            <option value="&quot;kairoSample.library.libraryBook.ListAllLibraryBooksTest.2 exist&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="Tests in 'kairo-sample.feature.library'" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="env">
+          <map>
+            <entry key="TESTCONTAINERS_REUSE_ENABLE" value="true" />
+          </map>
+        </option>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":feature:library:test" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="ExampleKt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="kairoSample.library.libraryBook.ExampleKt" />
+      <module name="kairo-sample.feature.library.main" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Gradle.Lint" />
+      <item itemvalue="Gradle.Test" />
+      <item itemvalue="Gradle.CreateLibraryBookTest.Duplicate ISBN" />
+      <item itemvalue="Gradle.Tests in 'kairo-sample.feature.library'" />
+      <item itemvalue="Gradle.ListAllLibraryBooksTest.2 exist" />
+      <item itemvalue="Gradle.ListAllLibraryBooksTest (1)" />
+      <item itemvalue="Kotlin.MainKt" />
+      <item itemvalue="Kotlin.ExampleKt" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Kotlin.ExampleKt" />
+        <item itemvalue="Gradle.Tests in 'kairo-sample.feature.library'" />
+        <item itemvalue="Gradle.CreateLibraryBookTest.Duplicate ISBN" />
+        <item itemvalue="Gradle.ListAllLibraryBooksTest (1)" />
+        <item itemvalue="Gradle.ListAllLibraryBooksTest.2 exist" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-bf35d07a577b-intellij.indexing.shared.core-IU-252.25557.131" />
+        <option value="bundled-js-predefined-d6986cc7102b-b598e85cdad2-JavaScript-IU-252.25557.131" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="2ecd1b0d-8744-44d3-a0e0-e664d271a75e" name="Changes" comment="" />
+      <created>1755024000846</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1755024000846</updated>
+      <workItem from="1755024001884" duration="210000" />
+      <workItem from="1755024218593" duration="5000" />
+      <workItem from="1755024226961" duration="3790000" />
+      <workItem from="1755053444465" duration="1242000" />
+      <workItem from="1755073556337" duration="1229000" />
+      <workItem from="1755115147622" duration="250000" />
+      <workItem from="1755115749243" duration="24362000" />
+      <workItem from="1755214297444" duration="22926000" />
+      <workItem from="1755407093939" duration="4650000" />
+      <workItem from="1755476239149" duration="18867000" />
+      <workItem from="1755557372579" duration="12860000" />
+      <workItem from="1755629632746" duration="720000" />
+      <workItem from="1755630761523" duration="1118000" />
+      <workItem from="1755699456222" duration="4334000" />
+      <workItem from="1755713516573" duration="2077000" />
+      <workItem from="1755721617754" duration="1189000" />
+      <workItem from="1755791268856" duration="3480000" />
+      <workItem from="1755819188789" duration="8526000" />
+      <workItem from="1756079086069" duration="44000" />
+      <workItem from="1756079208671" duration="28457000" />
+      <workItem from="1756252046266" duration="31328000" />
+      <workItem from="1756823123770" duration="598000" />
+      <workItem from="1756865274144" duration="19191000" />
+      <workItem from="1756934916875" duration="24059000" />
+      <workItem from="1757018029956" duration="1440000" />
+      <workItem from="1757022223237" duration="9362000" />
+      <workItem from="1757044389343" duration="6648000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="com.intellij.fileTypeFactory" implementationName="default.conf" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.IllegalStateException" package="java.lang" />
+          <option name="timeStamp" value="5" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+    <watches-manager>
+      <configuration name="GradleRunConfiguration">
+        <watch expression="Json.decodeFromString(Json.serializersModule.serializer(param.type), values.single())" language="kotlin" />
+      </configuration>
+    </watches-manager>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>
