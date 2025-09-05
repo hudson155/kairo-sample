@@ -1,7 +1,6 @@
 package kairoSample.library
 
 import kairo.dependencyInjection.DependencyInjectionFeature
-import kairo.id.IdFeature
 import kairo.server.Server
 import kairo.sql.SqlFeature
 import kairo.sql.SqlFeatureConfig
@@ -53,7 +52,6 @@ internal class LibraryFeatureTest : BeforeEachCallback, AfterEachCallback, Param
       name = "Library Feature Test Server",
       features = listOf(
         DependencyInjectionFeature(koinApplication),
-        IdFeature(), // TODO: Use deterministic generation.
         LibraryFeature(koinApplication.koin),
         SqlFeature(
           config = SqlFeatureConfig(

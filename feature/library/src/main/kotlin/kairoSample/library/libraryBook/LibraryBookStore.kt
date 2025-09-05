@@ -16,7 +16,6 @@ private val logger: KLogger = KotlinLogging.logger {}
 
 @Single
 internal class LibraryBookStore(
-  private val idGenerator: LibraryBookIdGenerator,
   private val database: R2dbcDatabase,
 ) {
   suspend fun get(id: LibraryBookId): LibraryBookModel? =
@@ -39,10 +38,9 @@ internal class LibraryBookStore(
   suspend fun create(creator: LibraryBookModel.Creator): LibraryBookModel {
     logger.info { "Creating library book (creator=$creator)." }
     return suspendTransaction(db = database) {
-      val id = idGenerator.generate()
       LibraryBookTable
         .insertReturning { statement ->
-          statement[this.id] = id
+          statement[this.id] = LibraryBookId.random()
           statement[this.title] = creator.title
           statement[this.authors] = creator.authors
           statement[this.isbn] = creator.isbn
