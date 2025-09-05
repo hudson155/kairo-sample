@@ -42,9 +42,7 @@ private fun createKtorServer(database: R2dbcDatabase) =
       }
     },
     module = {
-      install(CallLogging) {
-        disableDefaultColors()
-      }
+      install(CallLogging)
       routing {
         get("/library-books") {
           suspendTransaction(db = database) {
