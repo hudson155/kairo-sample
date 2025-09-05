@@ -15,7 +15,7 @@ import org.junit.jupiter.api.extension.ExtendWith
 @ExtendWith(PerMethodDatabaseExtension::class, LibraryFeatureTest::class)
 internal class ListAllLibraryBooksTest {
   @Test
-  fun `no library books exist`(libraryBookService: LibraryBookService): Unit =
+  fun `No library books exist`(libraryBookService: LibraryBookService): Unit =
     runTest {
       test { libraryBookService.listAll().shouldBeEmpty() }
     }

@@ -13,14 +13,14 @@ import org.junit.jupiter.api.extension.ExtendWith
 @ExtendWith(PerMethodDatabaseExtension::class, LibraryFeatureTest::class)
 internal class GetLibraryBookTest {
   @Test
-  fun `library book doesn't exist`(libraryBookService: LibraryBookService): Unit =
+  fun `Library book doesn't exist`(libraryBookService: LibraryBookService): Unit =
     runTest {
       setup { libraryBookService.create(LibraryBookModel.Creator.mereChristianity) }
       test { libraryBookService.get(LibraryBookId.random()).shouldBeNull() }
     }
 
   @Test
-  fun `library book exists`(libraryBookService: LibraryBookService): Unit =
+  fun `Library book exists`(libraryBookService: LibraryBookService): Unit =
     runTest {
       val mereChristianity = setup { libraryBookService.create(LibraryBookModel.Creator.mereChristianity) }
       test {
