@@ -1,14 +1,11 @@
 package kairoSample
 
-import io.ktor.serialization.kotlinx.json.json
 import io.ktor.server.application.install
 import io.ktor.server.engine.applicationEnvironment
 import io.ktor.server.engine.connector
 import io.ktor.server.engine.embeddedServer
 import io.ktor.server.netty.Netty
-import io.ktor.server.plugins.autohead.AutoHeadResponse
 import io.ktor.server.plugins.calllogging.CallLogging
-import io.ktor.server.plugins.contentnegotiation.ContentNegotiation
 import io.ktor.server.response.respond
 import io.ktor.server.routing.get
 import io.ktor.server.routing.routing
@@ -45,12 +42,8 @@ private fun createKtorServer(database: R2dbcDatabase) =
       }
     },
     module = {
-      install(AutoHeadResponse)
       install(CallLogging) {
         disableDefaultColors()
-      }
-      install(ContentNegotiation) {
-        json()
       }
       routing {
         get("/library-books") {
