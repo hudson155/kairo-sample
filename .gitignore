@@ -11,7 +11,6 @@
 
 # IntelliJ
 */**/.idea/
-!/.idea/
 
 # Gradle
 .gradle/
