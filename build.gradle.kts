@@ -19,7 +19,6 @@ dependencies {
   implementation(libs.kairo.config)
   implementation(libs.kairo.dependencyInjectionFeature)
   implementation(libs.kairo.healthCheckFeature)
-  implementation(libs.kairo.idFeature)
   implementation(libs.kairo.restFeature)
   api(libs.kairo.server)
   implementation(libs.kairo.sqlFeature)

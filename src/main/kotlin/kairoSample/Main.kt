@@ -4,7 +4,6 @@ import com.typesafe.config.ConfigFactory
 import kairo.application.kairo
 import kairo.dependencyInjection.DependencyInjectionFeature
 import kairo.healthCheck.HealthCheckFeature
-import kairo.id.IdFeature
 import kairo.rest.RestFeature
 import kairo.server.Server
 import kairo.sql.SqlFeature
@@ -22,7 +21,6 @@ internal fun main() {
     val features = listOf(
       DependencyInjectionFeature(koinApplication),
       HealthCheckFeature(),
-      IdFeature(config.id),
       LibraryFeature(koinApplication.koin),
       RestFeature(config.rest),
       SqlFeature(

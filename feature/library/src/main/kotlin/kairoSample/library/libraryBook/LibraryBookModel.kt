@@ -14,7 +14,9 @@ internal data class LibraryBookModel(
     val title: String?,
     val authors: List<String>,
     val isbn: String,
-  )
+  ) {
+    companion object
+  }
 
   companion object
 }

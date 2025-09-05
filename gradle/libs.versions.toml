@@ -17,7 +17,6 @@ kairo-dependencyInjectionFeature = { module = "software.airborne.kairo:kairo-dep
 kairo-feature = { module = "software.airborne.kairo:kairo-feature" }
 kairo-healthCheckFeature = { module = "software.airborne.kairo:kairo-health-check-feature" }
 kairo-id = { module = "software.airborne.kairo:kairo-id" }
-kairo-idFeature = { module = "software.airborne.kairo:kairo-id-feature" }
 kairo-logging = { module = "software.airborne.kairo:kairo-logging" }
 kairo-rest = { module = "software.airborne.kairo:kairo-rest" }
 kairo-restFeature = { module = "software.airborne.kairo:kairo-rest-feature" }
