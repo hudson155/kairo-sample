@@ -24,8 +24,8 @@ internal class GetLibraryBookTest {
     runTest {
       val mereChristianity = setup { libraryBookService.create(LibraryBookModel.Creator.mereChristianity) }
       test {
-        libraryBookService.get(mereChristianity.id)
-          .also { it?.sanitized().shouldBe(LibraryBookModel.mereChristianity) }
+        libraryBookService.get(mereChristianity.id)?.sanitized()
+          .shouldBe(LibraryBookModel.mereChristianity)
       }
     }
 }

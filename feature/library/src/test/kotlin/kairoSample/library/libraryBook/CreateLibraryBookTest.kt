@@ -15,8 +15,9 @@ internal class CreateLibraryBookTest {
   fun `happy path`(libraryBookService: LibraryBookService): Unit =
     runTest {
       val mereChristianity = test {
-        libraryBookService.create(LibraryBookModel.Creator.mereChristianity)
-          .also { it.sanitized().shouldBe(LibraryBookModel.mereChristianity) }
+        val created = libraryBookService.create(LibraryBookModel.Creator.mereChristianity)
+        created.sanitized().shouldBe(LibraryBookModel.mereChristianity)
+        return@test created
       }
       postcondition {
         libraryBookService.get(mereChristianity.id)?.sanitized()
