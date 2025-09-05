@@ -6,7 +6,6 @@ import kairo.testing.postcondition
 import kairo.testing.test
 import kairoSample.library.LibraryFeatureTest
 import kairoSample.library.PerMethodDatabaseExtension
-import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.test.runTest
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.extension.ExtendWith
@@ -29,7 +28,7 @@ internal class CreateLibraryBookTest {
 
   @Test
   fun `Duplicate ISBN`(libraryBookService: LibraryBookService): Unit =
-    runBlocking {
+    runTest {
       libraryBookService.create(LibraryBookModel.Creator.mereChristianity)
       shouldThrowAny { // TODO: This exception should be mapped.
         libraryBookService.create(LibraryBookModel.Creator.mereChristianity)
