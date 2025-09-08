@@ -12,6 +12,12 @@ internal object LibraryBookApi {
 
   @Rest("GET", "/library-books")
   @Rest.Accept("application/json")
+  internal data class GetByIsbn(
+    @QueryParam val isbn: String,
+  ) : RestEndpoint<Unit, LibraryBookRep>()
+
+  @Rest("GET", "/library-books")
+  @Rest.Accept("application/json")
   internal data object ListAll : RestEndpoint<Unit, List<LibraryBookRep>>()
 
   @Rest("POST", "/library-books")
@@ -20,6 +26,4 @@ internal object LibraryBookApi {
   internal data class Create(
     override val body: LibraryBookRep.Creator,
   ) : RestEndpoint<LibraryBookRep.Creator, LibraryBookRep>()
-
-  // TODO: Add additional endpoints.
 }

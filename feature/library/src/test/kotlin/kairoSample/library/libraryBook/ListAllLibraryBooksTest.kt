@@ -15,7 +15,10 @@ internal class ListAllLibraryBooksTest {
   @Test
   fun `No library books exist`(libraryBookService: LibraryBookService): Unit =
     runTest {
-      test { libraryBookService.listAll().shouldBeEmpty() }
+      test {
+        libraryBookService.listAll()
+          .shouldBeEmpty()
+      }
     }
 
   @Test

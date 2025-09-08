@@ -31,6 +31,15 @@ internal class LibraryBookStore(
         .singleNullOrThrow()
     }
 
+  suspend fun getByIsbn(isbn: String): LibraryBookModel? =
+    suspendTransaction(db = database) {
+      LibraryBookTable
+        .selectAll()
+        .where { LibraryBookTable.isbn eq isbn }
+        .map(LibraryBookModel::fromRow)
+        .singleNullOrThrow()
+    }
+
   suspend fun listAll(): List<LibraryBookModel> =
     suspendTransaction(db = database) {
       LibraryBookTable
