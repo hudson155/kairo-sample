@@ -10,7 +10,7 @@ internal value class LibraryBookId(override val value: String) : Id {
     require(regex.matches(value)) { "Malformed library book ID (value=$value). " }
   }
 
-  companion object : Id.Companion<LibraryBookId>() {
+  internal companion object : Id.Companion<LibraryBookId>() {
     val regex: Regex = regex(prefix = Regex("library_book"))
 
     override fun create(payload: String): LibraryBookId =

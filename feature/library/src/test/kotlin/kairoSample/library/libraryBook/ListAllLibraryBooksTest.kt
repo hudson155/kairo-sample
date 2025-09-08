@@ -2,15 +2,15 @@ package kairoSample.library.libraryBook
 
 import io.kotest.matchers.collections.shouldBeEmpty
 import io.kotest.matchers.collections.shouldContainExactlyInAnyOrder
+import kairo.sql.PostgresExtension
 import kairo.testing.setup
 import kairo.testing.test
 import kairoSample.library.LibraryFeatureTest
-import kairoSample.library.PerMethodDatabaseExtension
 import kotlinx.coroutines.test.runTest
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.extension.ExtendWith
 
-@ExtendWith(PerMethodDatabaseExtension::class, LibraryFeatureTest::class)
+@ExtendWith(PostgresExtension::class, LibraryFeatureTest::class)
 internal class ListAllLibraryBooksTest {
   @Test
   fun `No library books exist`(libraryBookService: LibraryBookService): Unit =
