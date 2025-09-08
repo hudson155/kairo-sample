@@ -3,6 +3,7 @@ package kairoSample.library.libraryBook
 import io.kotest.matchers.shouldBe
 import kairo.exception.shouldThrow
 import kairo.testing.postcondition
+import kairo.testing.setup
 import kairo.testing.test
 import kairoSample.library.LibraryFeatureTest
 import kairoSample.library.PerMethodDatabaseExtension
@@ -18,7 +19,8 @@ internal class CreateLibraryBookTest {
     runTest {
       val mereChristianity = test {
         val created = libraryBookService.create(LibraryBookModel.Creator.mereChristianity)
-        created.sanitized().shouldBe(LibraryBookModel.mereChristianity)
+        created.sanitized()
+          .shouldBe(LibraryBookModel.mereChristianity)
         return@test created
       }
       postcondition {
@@ -30,13 +32,17 @@ internal class CreateLibraryBookTest {
   @Test
   fun `Duplicate ISBN`(libraryBookService: LibraryBookService): Unit =
     runTest {
-      libraryBookService.create(LibraryBookModel.Creator.mereChristianity)
-      shouldThrow(DuplicateLibraryBookIsbn(LibraryBookModel.Creator.mereChristianity.isbn)) {
+      setup {
         libraryBookService.create(
           LibraryBookModel.Creator.theMeaningOfMarriage.copy(
             isbn = LibraryBookModel.mereChristianity.isbn,
           ),
         )
+      }
+      test {
+        shouldThrow(DuplicateLibraryBookIsbn(LibraryBookModel.Creator.mereChristianity.isbn)) {
+          libraryBookService.create(LibraryBookModel.Creator.mereChristianity)
+        }
       }
     }
 }

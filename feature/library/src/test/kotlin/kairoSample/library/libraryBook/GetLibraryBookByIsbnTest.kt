@@ -11,7 +11,7 @@ import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.extension.ExtendWith
 
 @ExtendWith(PerMethodDatabaseExtension::class, LibraryFeatureTest::class)
-internal class GetLibraryBookTest {
+internal class GetLibraryBookByIsbnTest {
   @Test
   fun `Library book doesn't exist`(libraryBookService: LibraryBookService): Unit =
     runTest {
@@ -19,7 +19,7 @@ internal class GetLibraryBookTest {
         libraryBookService.create(LibraryBookModel.Creator.theMeaningOfMarriage)
       }
       test {
-        libraryBookService.get(LibraryBookId.random())
+        libraryBookService.getByIsbn(LibraryBookModel.mereChristianity.isbn)
           .shouldBeNull()
       }
     }

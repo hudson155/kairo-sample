@@ -22,6 +22,14 @@ internal class LibraryBookHandler(
         }
       }
 
+      route(LibraryBookApi.GetByIsbn::class) {
+        handle { endpoint ->
+          val libraryBook = libraryBookService.getByIsbn(endpoint.isbn)
+            ?: throw LibraryBookNotFound(null)
+          libraryBookMapper.rep(libraryBook)
+        }
+      }
+
       route(LibraryBookApi.ListAll::class) {
         handle { _ ->
           val libraryBooks = libraryBookService.listAll()

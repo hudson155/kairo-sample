@@ -9,6 +9,9 @@ internal class LibraryBookService(
   suspend fun get(id: LibraryBookId): LibraryBookModel? =
     libraryBookStore.get(id)
 
+  suspend fun getByIsbn(isbn: String): LibraryBookModel? =
+    libraryBookStore.getByIsbn(isbn)
+
   suspend fun listAll(): List<LibraryBookModel> =
     libraryBookStore.listAll()
 
