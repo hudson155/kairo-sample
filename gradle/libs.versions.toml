@@ -15,6 +15,7 @@ kairo-dependencyInjectionFeature = { module = "software.airborne.kairo:kairo-dep
 kairo-exception = { module = "software.airborne.kairo:kairo-exception" }
 kairo-exceptionTesting = { module = "software.airborne.kairo:kairo-exception-testing" }
 kairo-feature = { module = "software.airborne.kairo:kairo-feature" }
+kairo-featureTesting = { module = "software.airborne.kairo:kairo-feature-testing" }
 kairo-healthCheckFeature = { module = "software.airborne.kairo:kairo-health-check-feature" }
 kairo-id = { module = "software.airborne.kairo:kairo-id" }
 kairo-logging = { module = "software.airborne.kairo:kairo-logging" }
@@ -24,6 +25,7 @@ kairo-server = { module = "software.airborne.kairo:kairo-server" }
 kairo-sql = { module = "software.airborne.kairo:kairo-sql" }
 kairo-sqlFeature = { module = "software.airborne.kairo:kairo-sql-feature" }
 kairo-sqlPostgres = { module = "software.airborne.kairo:kairo-sql-postgres" }
+kairo-sqlFeaturePostgresTesting = { module = "software.airborne.kairo:kairo-sql-feature-postgres-testing" }
 kairo-testing = { module = "software.airborne.kairo:kairo-testing" }
 kairo-util = { module = "software.airborne.kairo:kairo-util" }
 
@@ -37,5 +39,3 @@ log4j-slf4j = { module = "org.apache.logging.log4j:log4j-slf4j2-impl" }
 
 postgres-jdbc = { module = "org.postgresql:postgresql" }
 postgres-r2dbc = { module = "org.postgresql:r2dbc-postgresql" }
-
-testcontainers-postgres = { module = "org.testcontainers:postgresql" }

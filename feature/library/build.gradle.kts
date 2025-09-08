@@ -26,7 +26,9 @@ dependencies {
 
   testImplementation(libs.exposed.jdbc)
   testImplementation(libs.kairo.dependencyInjectionFeature)
+  testImplementation(libs.kairo.featureTesting)
   testImplementation(libs.kairo.sqlFeature)
+  testImplementation(libs.kairo.sqlFeaturePostgresTesting)
   testImplementation(libs.kairo.util)
   testRuntimeOnly(libs.postgres.jdbc)
 }

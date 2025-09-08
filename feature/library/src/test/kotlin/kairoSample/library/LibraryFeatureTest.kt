@@ -1,12 +1,12 @@
 package kairoSample.library
 
 import kairo.dependencyInjection.DependencyInjectionFeature
+import kairo.feature.FeatureTest
 import kairo.server.Server
+import kairo.sql.PostgresExtensionAware
 import kairo.sql.SqlFeature
+import kairo.sql.from
 import kairoSample.library.libraryBook.LibraryBookTable
-import kairoSample.testing.FeatureTest
-import kairoSample.testing.PostgresExtensionAware
-import kairoSample.testing.from
 import org.jetbrains.exposed.v1.core.Schema
 import org.jetbrains.exposed.v1.jdbc.SchemaUtils
 import org.jetbrains.exposed.v1.jdbc.transactions.transaction
