@@ -1,6 +1,6 @@
 package kairoSample.library.libraryBook
 
-import kairoSample.testing.epoch
+import kairo.util.epoch
 import kotlin.time.Instant
 
 internal val LibraryBookId.Companion.zero: LibraryBookId
