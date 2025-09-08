@@ -15,10 +15,10 @@ internal data class LibraryBookModel(
     val authors: List<String>,
     val isbn: String,
   ) {
-    companion object
+    internal companion object
   }
 
-  companion object
+  internal companion object
 }
 
 internal fun LibraryBookModel.Companion.fromRow(row: ResultRow): LibraryBookModel =
