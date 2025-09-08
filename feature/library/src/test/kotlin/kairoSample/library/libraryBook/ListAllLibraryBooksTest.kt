@@ -10,8 +10,6 @@ import kotlinx.coroutines.test.runTest
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.extension.ExtendWith
 
-// TODO: Enable & document testcontainers.reuse.enable=true and environment variables
-
 @ExtendWith(PerMethodDatabaseExtension::class, LibraryFeatureTest::class)
 internal class ListAllLibraryBooksTest {
   @Test
