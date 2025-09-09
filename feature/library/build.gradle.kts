@@ -18,17 +18,17 @@ dependencies {
   implementation(libs.kairo.logging)
   implementation(libs.kairo.rest)
   implementation(libs.kairo.sql)
-  implementation(libs.kairo.sqlPostgres)
+  implementation(libs.kairo.sql.postgres)
   implementation(libs.koin.annotations)
   implementation(libs.koin.core)
 
   testImplementation(project(":testing"))
 
   testImplementation(libs.exposed.jdbc)
-  testImplementation(libs.kairo.dependencyInjectionFeature)
-  testImplementation(libs.kairo.featureTesting)
-  testImplementation(libs.kairo.sqlFeature)
-  testImplementation(libs.kairo.sqlFeaturePostgresTesting)
+  testImplementation(libs.kairo.dependencyInjection.feature)
+  testImplementation(libs.kairo.integrationTesting)
+  testImplementation(libs.kairo.integrationTesting.postgres)
+  testImplementation(libs.kairo.sql.feature)
   testImplementation(libs.kairo.util)
   testRuntimeOnly(libs.postgres.jdbc)
 }
