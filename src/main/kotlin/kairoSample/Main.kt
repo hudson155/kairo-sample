@@ -3,6 +3,7 @@ package kairoSample
 import com.typesafe.config.ConfigFactory
 import kairo.application.kairo
 import kairo.dependencyInjection.DependencyInjectionFeature
+import kairo.healthCheck.HealthCheck
 import kairo.healthCheck.HealthCheckFeature
 import kairo.rest.RestFeature
 import kairo.server.Server
@@ -17,10 +18,16 @@ import org.koin.dsl.koinApplication
 internal fun main() {
   kairo {
     val config = loadConfig()
+
     val koinApplication = koinApplication()
+
+    val healthChecks = mapOf(
+      "sql" to HealthCheck { SqlFeature.healthCheck(koinApplication.koin.get()) },
+    )
+
     val features = listOf(
       DependencyInjectionFeature(koinApplication),
-      HealthCheckFeature(),
+      HealthCheckFeature(healthChecks),
       LibraryFeature(koinApplication.koin),
       RestFeature(config.rest),
       SqlFeature(
@@ -30,6 +37,7 @@ internal fun main() {
         },
       ),
     )
+
     val server = Server(
       name = "Kairo Sample",
       features = features,
