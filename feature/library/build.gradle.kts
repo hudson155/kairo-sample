@@ -10,7 +10,6 @@ dependencies {
 
   ksp(libs.koin.ksp)
 
-  implementation(libs.kairo.coroutines)
   implementation(libs.kairo.dependencyInjection)
   implementation(libs.kairo.exception)
   api(libs.kairo.feature)
@@ -19,6 +18,7 @@ dependencies {
   implementation(libs.kairo.rest)
   implementation(libs.kairo.sql)
   implementation(libs.kairo.sql.postgres)
+  implementation(libs.kairo.util)
   implementation(libs.koin.annotations)
   implementation(libs.koin.core)
 

@@ -25,7 +25,7 @@ dependencies {
   implementation(libs.log4j.core)
   runtimeOnly(libs.log4j.json)
   runtimeOnly(libs.log4j.slf4j)
-  runtimeOnly(libs.postgres.r2dbc)
+  runtimeOnly(libs.postgres.jdbc)
 }
 
 application {

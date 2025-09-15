@@ -2,28 +2,24 @@ package kairoSample.library.libraryBook
 
 import io.github.oshai.kotlinlogging.KLogger
 import io.github.oshai.kotlinlogging.KotlinLogging
-import kairo.coroutines.singleNullOrThrow
 import kairo.sql.postgres.uniqueViolation
 import kairo.sql.postgres.withExceptionMappers
 import kairoSample.library.libraryBook.exception.DuplicateLibraryBookIsbn
-import kotlinx.coroutines.flow.map
-import kotlinx.coroutines.flow.single
-import kotlinx.coroutines.flow.toList
 import org.jetbrains.exposed.v1.core.eq
-import org.jetbrains.exposed.v1.r2dbc.R2dbcDatabase
-import org.jetbrains.exposed.v1.r2dbc.insertReturning
-import org.jetbrains.exposed.v1.r2dbc.selectAll
-import org.jetbrains.exposed.v1.r2dbc.transactions.suspendTransaction
+import org.jetbrains.exposed.v1.jdbc.Database
+import org.jetbrains.exposed.v1.jdbc.insertReturning
+import org.jetbrains.exposed.v1.jdbc.selectAll
+import org.jetbrains.exposed.v1.jdbc.transactions.transaction
 import org.koin.core.annotation.Single
 
 private val logger: KLogger = KotlinLogging.logger {}
 
 @Single
 internal class LibraryBookStore(
-  private val database: R2dbcDatabase,
+  private val database: Database,
 ) {
-  suspend fun get(id: LibraryBookId): LibraryBookModel? =
-    suspendTransaction(db = database) {
+  fun get(id: LibraryBookId): LibraryBookModel? =
+    transaction(db = database) {
       LibraryBookTable
         .selectAll()
         .where { LibraryBookTable.id eq id }
@@ -31,8 +27,8 @@ internal class LibraryBookStore(
         .singleNullOrThrow()
     }
 
-  suspend fun getByIsbn(isbn: String): LibraryBookModel? =
-    suspendTransaction(db = database) {
+  fun getByIsbn(isbn: String): LibraryBookModel? =
+    transaction(db = database) {
       LibraryBookTable
         .selectAll()
         .where { LibraryBookTable.isbn eq isbn }
@@ -40,20 +36,20 @@ internal class LibraryBookStore(
         .singleNullOrThrow()
     }
 
-  suspend fun listAll(): List<LibraryBookModel> =
-    suspendTransaction(db = database) {
+  fun listAll(): List<LibraryBookModel> =
+    transaction(db = database) {
       LibraryBookTable
         .selectAll()
         .map(LibraryBookModel::fromRow)
         .toList()
     }
 
-  suspend fun create(creator: LibraryBookModel.Creator): LibraryBookModel {
+  fun create(creator: LibraryBookModel.Creator): LibraryBookModel {
     logger.info { "Creating library book (creator=$creator)." }
     return withExceptionMappers(
       uniqueViolation("uq__library_book__isbn") { DuplicateLibraryBookIsbn(creator.isbn) },
     ) {
-      suspendTransaction(db = database) {
+      transaction(db = database) {
         LibraryBookTable
           .insertReturning { statement ->
             statement[this.id] = LibraryBookId.random()
