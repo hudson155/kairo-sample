@@ -30,5 +30,4 @@ dependencies {
   testImplementation(libs.kairo.integrationTesting.postgres)
   testImplementation(libs.kairo.sql.feature)
   testImplementation(libs.kairo.util)
-  testRuntimeOnly(libs.postgres.jdbc)
 }
