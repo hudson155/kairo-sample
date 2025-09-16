@@ -57,6 +57,13 @@ internal class LibraryBookHandler(
           libraryBookMapper.rep(libraryBook)
         }
       }
+
+      route(LibraryBookApi.Delete::class) {
+        handle { endpoint ->
+          val libraryBook = libraryBookService.delete(endpoint.libraryBookId)
+          libraryBookMapper.rep(libraryBook)
+        }
+      }
     }
   }
 }

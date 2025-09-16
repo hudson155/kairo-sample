@@ -31,8 +31,8 @@ internal class GetLibraryBookByIsbnTest {
         libraryBookService.create(LibraryBookModel.Creator.mereChristianity)
       }
       test {
-        libraryBookService.getByIsbn(mereChristianity.isbn)?.sanitized()
-          .shouldBe(LibraryBookModel.mereChristianity)
+        libraryBookService.getByIsbn(mereChristianity.isbn)
+          .shouldBe(mereChristianity)
       }
     }
 }
