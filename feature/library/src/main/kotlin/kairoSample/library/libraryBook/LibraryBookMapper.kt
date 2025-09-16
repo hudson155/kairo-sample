@@ -11,6 +11,13 @@ internal class LibraryBookMapper {
       isbn = rep.isbn,
     )
 
+  fun update(rep: LibraryBookRep.Update): LibraryBookModel.Update =
+    LibraryBookModel.Update(
+      title = rep.title,
+      authors = rep.authors,
+      isbn = rep.isbn,
+    )
+
   fun rep(model: LibraryBookModel): LibraryBookRep =
     LibraryBookRep(
       id = model.id,

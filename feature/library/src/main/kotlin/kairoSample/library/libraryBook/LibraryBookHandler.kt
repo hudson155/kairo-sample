@@ -46,6 +46,16 @@ internal class LibraryBookHandler(
           libraryBookMapper.rep(libraryBook)
         }
       }
+
+      route(LibraryBookApi.Update::class) {
+        handle { endpoint ->
+          val libraryBook = libraryBookService.update(
+            id = endpoint.libraryBookId,
+            update = libraryBookMapper.update(endpoint.body),
+          )
+          libraryBookMapper.rep(libraryBook)
+        }
+      }
     }
   }
 }

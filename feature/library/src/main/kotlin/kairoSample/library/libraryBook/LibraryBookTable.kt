@@ -2,6 +2,7 @@ package kairoSample.library.libraryBook
 
 import kotlin.time.Instant
 import org.jetbrains.exposed.v1.core.Column
+import org.jetbrains.exposed.v1.core.ResultRow
 import org.jetbrains.exposed.v1.core.Table
 import org.jetbrains.exposed.v1.datetime.CurrentTimestamp
 import org.jetbrains.exposed.v1.datetime.timestamp
@@ -35,3 +36,12 @@ internal object LibraryBookTable : Table("library.library_book") {
     text("isbn")
       .uniqueIndex("uq__library_book__isbn")
 }
+
+internal fun LibraryBookModel.Companion.fromRow(row: ResultRow): LibraryBookModel =
+  LibraryBookModel(
+    id = row[LibraryBookTable.id],
+    createdAt = row[LibraryBookTable.createdAt],
+    title = row[LibraryBookTable.title],
+    authors = row[LibraryBookTable.authors],
+    isbn = row[LibraryBookTable.isbn],
+  )

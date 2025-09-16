@@ -19,8 +19,7 @@ internal class CreateLibraryBookTest {
     runTest {
       val mereChristianity = test {
         val created = libraryBookService.create(LibraryBookModel.Creator.mereChristianity)
-        created.sanitized()
-          .shouldBe(LibraryBookModel.mereChristianity)
+        created.sanitized().shouldBe(LibraryBookModel.mereChristianity)
         return@test created
       }
       postcondition {

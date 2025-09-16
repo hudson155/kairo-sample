@@ -4,6 +4,12 @@ plugins {
   id("com.google.devtools.ksp")
 }
 
+kotlin {
+  compilerOptions {
+    freeCompilerArgs.add("-opt-in=kotlinx.serialization.ExperimentalSerializationApi")
+  }
+}
+
 dependencies {
   ksp(enforcedPlatform(libs.kairo))
   implementation(enforcedPlatform(libs.kairo))
