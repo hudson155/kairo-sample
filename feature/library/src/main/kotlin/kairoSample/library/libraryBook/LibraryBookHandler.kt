@@ -12,6 +12,7 @@ internal class LibraryBookHandler(
   private val libraryBookMapper: LibraryBookMapper,
   private val libraryBookService: LibraryBookService,
 ) : HasRouting {
+  @Suppress("LongMethod")
   override fun Application.routing() {
     routing {
       route(LibraryBookApi.Get::class) {

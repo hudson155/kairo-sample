@@ -2,7 +2,6 @@ package kairoSample.library.libraryBook
 
 import io.github.oshai.kotlinlogging.KLogger
 import io.github.oshai.kotlinlogging.KotlinLogging
-import kairo.optional.getOrThrow
 import kairo.optional.ifSpecified
 import kairo.sql.postgres.uniqueViolation
 import kairo.sql.postgres.withExceptionMappers

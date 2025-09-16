@@ -3,6 +3,7 @@ package kairoSample.library.libraryBook
 import io.kotest.matchers.shouldBe
 import kairo.exception.shouldThrow
 import kairo.optional.Optional
+import kairo.optional.Required
 import kairo.sql.PostgresExtension
 import kairo.testing.postcondition
 import kairo.testing.setup
@@ -55,8 +56,8 @@ internal class UpdateLibraryBookTest {
           id = mereChristianity.id,
           update = LibraryBookModel.Update(
             title = Optional.fromNullable(LibraryBookModel.theMeaningOfMarriage.title),
-            authors = LibraryBookModel.theMeaningOfMarriage.authors,
-            isbn = LibraryBookModel.theMeaningOfMarriage.isbn,
+            authors = Required.of(LibraryBookModel.theMeaningOfMarriage.authors),
+            isbn = Required.of(LibraryBookModel.theMeaningOfMarriage.isbn),
           ),
         ).sanitized().shouldBe(LibraryBookModel.theMeaningOfMarriage)
       }
@@ -85,7 +86,7 @@ internal class UpdateLibraryBookTest {
       test {
         libraryBookService.update(
           id = mereChristianity.id,
-          update = LibraryBookModel.Update().copy(authors = emptyList()),
+          update = LibraryBookModel.Update().copy(authors = Required.of(emptyList())),
         ).shouldBe(mereChristianity.copy(authors = emptyList()))
       }
     }

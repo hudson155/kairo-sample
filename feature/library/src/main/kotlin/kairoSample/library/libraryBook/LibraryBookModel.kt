@@ -31,7 +31,7 @@ internal data class LibraryBookModel(
     )
 
     fun hasUpdates(): Boolean =
-      title.isSpecified || authors.isSpecified || isbn.isSpecified
+      listOf(title, authors, isbn).any { it.isSpecified }
   }
 
   internal companion object
