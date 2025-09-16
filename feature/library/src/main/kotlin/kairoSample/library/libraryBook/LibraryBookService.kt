@@ -20,4 +20,7 @@ internal class LibraryBookService(
 
   fun update(id: LibraryBookId, update: LibraryBookModel.Update): LibraryBookModel =
     libraryBookStore.update(id, update)
+
+  fun delete(id: LibraryBookId): LibraryBookModel =
+    libraryBookStore.delete(id)
 }

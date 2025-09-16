@@ -34,4 +34,10 @@ internal object LibraryBookApi {
     @PathParam val libraryBookId: LibraryBookId,
     override val body: LibraryBookRep.Update,
   ) : RestEndpoint<LibraryBookRep.Update, LibraryBookRep>()
+
+  @Rest("DELETE", "/library-books/:libraryBookId")
+  @Rest.Accept("application/json")
+  internal data class Delete(
+    @PathParam val libraryBookId: LibraryBookId,
+  ) : RestEndpoint<Unit, LibraryBookRep>()
 }

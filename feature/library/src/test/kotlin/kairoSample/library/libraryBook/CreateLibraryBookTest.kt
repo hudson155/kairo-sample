@@ -23,8 +23,8 @@ internal class CreateLibraryBookTest {
         return@test created
       }
       postcondition {
-        libraryBookService.get(mereChristianity.id)?.sanitized()
-          .shouldBe(LibraryBookModel.mereChristianity)
+        libraryBookService.get(mereChristianity.id)
+          .shouldBe(mereChristianity)
       }
     }
 
