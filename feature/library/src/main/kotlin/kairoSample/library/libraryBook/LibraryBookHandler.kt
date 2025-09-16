@@ -12,6 +12,7 @@ internal class LibraryBookHandler(
   private val libraryBookMapper: LibraryBookMapper,
   private val libraryBookService: LibraryBookService,
 ) : HasRouting {
+  @Suppress("LongMethod")
   override fun Application.routing() {
     routing {
       route(LibraryBookApi.Get::class) {
@@ -42,6 +43,16 @@ internal class LibraryBookHandler(
           val creator = endpoint.body
           val libraryBook = libraryBookService.create(
             creator = libraryBookMapper.creator(creator),
+          )
+          libraryBookMapper.rep(libraryBook)
+        }
+      }
+
+      route(LibraryBookApi.Update::class) {
+        handle { endpoint ->
+          val libraryBook = libraryBookService.update(
+            id = endpoint.libraryBookId,
+            update = libraryBookMapper.update(endpoint.body),
           )
           libraryBookMapper.rep(libraryBook)
         }

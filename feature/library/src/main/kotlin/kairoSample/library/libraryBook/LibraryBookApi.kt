@@ -26,4 +26,12 @@ internal object LibraryBookApi {
   internal data class Create(
     override val body: LibraryBookRep.Creator,
   ) : RestEndpoint<LibraryBookRep.Creator, LibraryBookRep>()
+
+  @Rest("PATCH", "/library-books/:libraryBookId")
+  @Rest.ContentType("application/json")
+  @Rest.Accept("application/json")
+  internal data class Update(
+    @PathParam val libraryBookId: LibraryBookId,
+    override val body: LibraryBookRep.Update,
+  ) : RestEndpoint<LibraryBookRep.Update, LibraryBookRep>()
 }

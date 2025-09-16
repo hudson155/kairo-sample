@@ -19,7 +19,7 @@ internal class GetLibraryBookTest {
         libraryBookService.create(LibraryBookModel.Creator.theMeaningOfMarriage)
       }
       test {
-        libraryBookService.get(LibraryBookId.random())
+        libraryBookService.get(LibraryBookId.zero)
           .shouldBeNull()
       }
     }

@@ -17,4 +17,7 @@ internal class LibraryBookService(
 
   fun create(creator: LibraryBookModel.Creator): LibraryBookModel =
     libraryBookStore.create(creator)
+
+  fun update(id: LibraryBookId, update: LibraryBookModel.Update): LibraryBookModel =
+    libraryBookStore.update(id, update)
 }
