@@ -74,9 +74,7 @@ internal class LibraryBookStore(
     ) {
       transaction(db = database) {
         LibraryBookTable
-          .updateReturning(
-            where = { LibraryBookTable.id eq id },
-          ) { statement ->
+          .updateReturning(where = { LibraryBookTable.id eq id }) { statement ->
             update.title.ifSpecified { statement[this.title] = it }
             update.authors.ifSpecified { statement[this.authors] = it }
             update.isbn.ifSpecified { statement[this.isbn] = it }
