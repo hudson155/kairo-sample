@@ -4,12 +4,9 @@ kairo = "LOCAL-SNAPSHOT" # https://github.com/hudson155/kairo/releases
 
 [libraries]
 
-exposed-jdbc = { module = "org.jetbrains.exposed:exposed-jdbc" }
-
 kairo = { module = "software.airborne.kairo:bom-full", version.ref = "kairo" }
 kairo-application = { module = "software.airborne.kairo:kairo-application" }
 kairo-config = { module = "software.airborne.kairo:kairo-config" }
-kairo-coroutines = { module = "software.airborne.kairo:kairo-coroutines" }
 kairo-dependencyInjection = { module = "software.airborne.kairo:kairo-dependency-injection" }
 kairo-dependencyInjection-feature = { module = "software.airborne.kairo:kairo-dependency-injection-feature" }
 kairo-exception = { module = "software.airborne.kairo:kairo-exception" }
