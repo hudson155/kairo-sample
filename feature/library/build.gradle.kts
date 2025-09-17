@@ -30,7 +30,6 @@ dependencies {
 
   testImplementation(project(":testing"))
 
-  testImplementation(libs.exposed.jdbc)
   testImplementation(libs.kairo.dependencyInjection.feature)
   testImplementation(libs.kairo.integrationTesting)
   testImplementation(libs.kairo.integrationTesting.postgres)
