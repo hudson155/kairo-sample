@@ -6,7 +6,7 @@ plugins {
 
 kotlin {
   compilerOptions {
-    freeCompilerArgs.add("-opt-in=kotlinx.serialization.ExperimentalSerializationApi")
+    freeCompilerArgs.add("-opt-in=kotlinx.serialization.ExperimentalSerializationApi") // Hocon.
   }
 }
 
@@ -20,7 +20,7 @@ dependencies {
   implementation(libs.kairo.dependencyInjection.feature)
   implementation(libs.kairo.healthCheck.feature)
   implementation(libs.kairo.rest.feature)
-  api(libs.kairo.server)
+  api(libs.kairo.server) // Exposed for testing module.
   implementation(libs.kairo.sql.feature)
   implementation(libs.log4j.core)
   runtimeOnly(libs.log4j.json)
