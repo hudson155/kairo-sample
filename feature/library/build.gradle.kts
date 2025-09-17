@@ -6,7 +6,7 @@ plugins {
 
 kotlin {
   compilerOptions {
-    freeCompilerArgs.add("-opt-in=kotlinx.serialization.ExperimentalSerializationApi")
+    freeCompilerArgs.add("-opt-in=kotlinx.serialization.ExperimentalSerializationApi") // EncodeDefault.
   }
 }
 
@@ -16,10 +16,11 @@ dependencies {
 
   ksp(libs.koin.ksp)
 
+  implementation(libs.guava)
   implementation(libs.kairo.dependencyInjection)
   implementation(libs.kairo.exception)
   api(libs.kairo.feature)
-  api(libs.kairo.id)
+  implementation(libs.kairo.id)
   implementation(libs.kairo.logging)
   implementation(libs.kairo.rest)
   implementation(libs.kairo.sql)

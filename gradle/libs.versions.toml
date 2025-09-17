@@ -4,6 +4,8 @@ kairo = "LOCAL-SNAPSHOT" # https://github.com/hudson155/kairo/releases
 
 [libraries]
 
+guava = { module = "com.google.guava:guava" }
+
 kairo = { module = "software.airborne.kairo:bom-full", version.ref = "kairo" }
 kairo-application = { module = "software.airborne.kairo:kairo-application" }
 kairo-config = { module = "software.airborne.kairo:kairo-config" }
