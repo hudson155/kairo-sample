@@ -24,8 +24,6 @@
     <Root level="${env:LOG_LEVEL:-info}">
       <AppenderRef ref="Console"/>
     </Root>
-    <Logger name="kairo.darb" level="info"/>
-    <Logger name="kairo.gcpSecretSupplier" level="info"/>
     <Logger name="kairo.server" level="warn"/>
   </Loggers>
 </Configuration>
