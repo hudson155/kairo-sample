@@ -25,8 +25,6 @@ dependencies {
   implementation(libs.kairo.sql)
   implementation(libs.kairo.sql.postgres)
   implementation(libs.kairo.util)
-  implementation(libs.koin.annotations)
-  implementation(libs.koin.core)
 
   testImplementation(project(":testing"))
 
@@ -34,5 +32,4 @@ dependencies {
   testImplementation(libs.kairo.integrationTesting)
   testImplementation(libs.kairo.integrationTesting.postgres)
   testImplementation(libs.kairo.sql.feature)
-  testImplementation(libs.kairo.util)
 }
