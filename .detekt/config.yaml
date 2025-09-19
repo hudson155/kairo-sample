@@ -85,6 +85,9 @@ complexity:
   LongMethod:
     active: true
     threshold: 40
+    excludes:
+      - '**/src/test/kotlin/**/*Eval.kt'
+      - '**/src/test/kotlin/**/*Test.kt'
   LongParameterList:
     active: true
     functionThreshold: 4
@@ -461,6 +464,7 @@ naming:
     active: true
     functionPattern: '[a-z][A-Za-z0-9]*'
     excludes:
+      - '**/src/test/kotlin/**/*Eval.kt'
       - '**/src/test/kotlin/**/*Test.kt'
   FunctionParameterNaming:
     active: true
