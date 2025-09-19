@@ -1,4 +1,5 @@
 import io.gitlab.arturbosch.detekt.Detekt
+import org.gradle.api.tasks.testing.logging.TestExceptionFormat
 
 plugins {
   java
@@ -60,6 +61,7 @@ tasks.named("check").configure {
 
 tasks.test {
   testLogging {
+    exceptionFormat = TestExceptionFormat.FULL
     events("passed", "skipped", "failed")
   }
   useJUnitPlatform()
