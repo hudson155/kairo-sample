@@ -11,11 +11,11 @@ dependencies {
   implementation(kotlin("gradle-plugin", kotlinVersion))
   implementation(kotlin("serialization", kotlinVersion))
 
-  // https://github.com/google/ksp/releases
-  implementation("com.google.devtools.ksp:com.google.devtools.ksp.gradle.plugin:2.2.20-2.0.3")
-
   // https://plugins.gradle.org/plugin/com.google.cloud.artifactregistry.gradle-plugin
   implementation("com.google.cloud.artifactregistry:artifactregistry-gradle-plugin:2.2.5")
+
+  // https://github.com/google/ksp/releases
+  implementation("com.google.devtools.ksp:com.google.devtools.ksp.gradle.plugin:2.2.20-2.0.3")
 
   // https://github.com/detekt/detekt/releases
   implementation("io.gitlab.arturbosch.detekt:detekt-gradle-plugin:1.23.8")

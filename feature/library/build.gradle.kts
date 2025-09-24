@@ -1,7 +1,7 @@
 plugins {
   kotlin("plugin.serialization")
-  id("kairo-sample")
   id("com.google.devtools.ksp")
+  id("kairo-sample")
 }
 
 kotlin {
@@ -33,4 +33,8 @@ dependencies {
   testImplementation(libs.kairo.integrationTesting)
   testImplementation(libs.kairo.integrationTesting.postgres)
   testImplementation(libs.kairo.sql.feature)
+}
+
+ksp {
+  arg("KOIN_CONFIG_CHECK", "true")
 }

@@ -1,29 +1,28 @@
 package kairoSample.library
 
 import io.ktor.server.application.Application
-import io.ktor.server.routing.routing
-import kairo.dependencyInjection.KoinModule
+import kairo.dependencyInjection.HasKoinModules
 import kairo.feature.Feature
 import kairo.rest.HasRouting
+import kairo.rest.Routing
 import kairoSample.library.libraryBook.LibraryBookHandler
 import org.koin.core.Koin
 import org.koin.core.module.Module
-import org.koin.ksp.generated.kairosample_library_LibraryFeature
+import org.koin.ksp.generated.module
 
 @org.koin.core.annotation.Module
 @org.koin.core.annotation.ComponentScan
 public class LibraryFeature(
   private val koin: Koin,
-) : Feature(), KoinModule, HasRouting {
+) : Feature(), HasKoinModules, HasRouting {
   override val name: String = "Library"
 
   private val libraryBookHandler: LibraryBookHandler get() = koin.get()
 
-  override val koinModule: Module = kairosample_library_LibraryFeature
+  override val koinModules: List<Module> = listOf(module)
 
+  @Routing
   override fun Application.routing() {
-    routing {
-      with(libraryBookHandler) { routing() }
-    }
+    with(libraryBookHandler) { routing() }
   }
 }
