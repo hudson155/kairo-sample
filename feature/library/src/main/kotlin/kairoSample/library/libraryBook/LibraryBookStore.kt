@@ -14,13 +14,14 @@ import org.jetbrains.exposed.v1.jdbc.insertReturning
 import org.jetbrains.exposed.v1.jdbc.selectAll
 import org.jetbrains.exposed.v1.jdbc.transactions.transaction
 import org.jetbrains.exposed.v1.jdbc.updateReturning
+import org.koin.core.annotation.Provided
 import org.koin.core.annotation.Single
 
 private val logger: KLogger = KotlinLogging.logger {}
 
 @Single
 internal class LibraryBookStore(
-  private val database: Database,
+  @Provided private val database: Database,
 ) {
   fun get(id: LibraryBookId): LibraryBookModel? =
     transaction(db = database) {

@@ -3,6 +3,7 @@ package kairoSample.library.libraryBook
 import io.ktor.server.application.Application
 import io.ktor.server.routing.routing
 import kairo.rest.HasRouting
+import kairo.rest.Routing
 import kairo.rest.route
 import kairoSample.library.libraryBook.exception.LibraryBookNotFound
 import org.koin.core.annotation.Single
@@ -12,7 +13,7 @@ internal class LibraryBookHandler(
   private val libraryBookMapper: LibraryBookMapper,
   private val libraryBookService: LibraryBookService,
 ) : HasRouting {
-  @Suppress("LongMethod")
+  @Routing
   override fun Application.routing() {
     routing {
       route(LibraryBookApi.Get::class) {
