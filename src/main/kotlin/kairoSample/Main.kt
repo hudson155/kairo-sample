@@ -1,3 +1,5 @@
+@file:Suppress("ForbiddenImport")
+
 package kairoSample
 
 import com.typesafe.config.ConfigFactory
