@@ -11,7 +11,7 @@ kotlin {
 }
 
 dependencies {
-  api(enforcedPlatform(libs.kairo))
+  api(platform(libs.kairo))
 
   implementation(project(":feature:library"))
 
