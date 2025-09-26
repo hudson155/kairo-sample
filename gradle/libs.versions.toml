@@ -1,6 +1,6 @@
 [versions]
 
-kairo = "LOCAL-SNAPSHOT" # https://github.com/hudson155/kairo/releases
+kairo = "6.0.0-alpha.1" # https://github.com/hudson155/kairo/releases
 
 [libraries]
 
