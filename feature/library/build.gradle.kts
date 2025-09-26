@@ -11,8 +11,8 @@ kotlin {
 }
 
 dependencies {
-  ksp(enforcedPlatform(libs.kairo))
-  implementation(enforcedPlatform(libs.kairo))
+  ksp(platform(libs.kairo))
+  implementation(platform(libs.kairo))
 
   ksp(libs.koin.ksp)
 
