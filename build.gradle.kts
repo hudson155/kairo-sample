@@ -12,6 +12,7 @@ kotlin {
 }
 
 dependencies {
+  implementation(libs.kairo.application)
 }
 
 application {
