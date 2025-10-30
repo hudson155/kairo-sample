@@ -12,16 +12,20 @@ dependencies {
   implementation(kotlin("serialization", kotlinVersion))
 
   // https://plugins.gradle.org/plugin/com.google.cloud.artifactregistry.gradle-plugin
-  implementation("com.google.cloud.artifactregistry:artifactregistry-gradle-plugin:2.2.5")
+  val artifactRegistryVersion = "2.2.5"
+  implementation("com.google.cloud.artifactregistry:artifactregistry-gradle-plugin:$artifactRegistryVersion")
 
   // https://github.com/google/ksp/releases
-  implementation("com.google.devtools.ksp:com.google.devtools.ksp.gradle.plugin:2.2.20-2.0.3")
+  val kspVersion = "2.2.20-2.0.3"
+  implementation("com.google.devtools.ksp:com.google.devtools.ksp.gradle.plugin:$kspVersion")
 
   // https://github.com/detekt/detekt/releases
-  implementation("io.gitlab.arturbosch.detekt:detekt-gradle-plugin:1.23.8")
+  val detektVersion = "2.0.0-alpha.1"
+  implementation("dev.detekt:detekt-gradle-plugin:$detektVersion")
 
   // https://github.com/GradleUp/shadow/releases
-  implementation("com.gradleup.shadow:shadow-gradle-plugin:8.3.9")
+  val shadowVersion = "8.3.9"
+  implementation("com.gradleup.shadow:shadow-gradle-plugin:$shadowVersion")
 }
 
 kotlin {
