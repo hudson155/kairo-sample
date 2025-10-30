@@ -40,6 +40,7 @@ kotlin {
 }
 
 dependencies {
+  implementation(platform(Airborne.kairo))
   detektPlugins("dev.detekt:detekt-rules-ktlint-wrapper:${detekt.toolVersion.get()}")
 }
 
