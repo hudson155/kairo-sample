@@ -29,7 +29,7 @@ internal class LibraryBookFeatureTest : FeatureTest(), PostgresExtensionAware {
       features = listOf(
         DependencyInjectionFeature(koinApplication),
         LibraryBookFeature(koinApplication.koin),
-        SqlFeature.Companion.from(checkNotNull(context.connectionFactory)),
+        SqlFeature.from(checkNotNull(context.connectionFactory)),
       ),
     )
 }
