@@ -10,7 +10,7 @@ import kairo.healthCheck.HealthCheckFeature
 import kairo.rest.RestFeature
 import kairo.server.Server
 import kairo.sql.SqlFeature
-import kairoSample.library.LibraryFeature
+import kairoSample.libraryBook.LibraryBookFeature
 import kotlinx.serialization.hocon.Hocon
 import kotlinx.serialization.hocon.decodeFromConfig
 import org.apache.logging.log4j.LogManager
@@ -30,8 +30,11 @@ internal fun main() {
     val features = listOf(
       DependencyInjectionFeature(koinApplication),
       HealthCheckFeature(healthChecks),
-      LibraryFeature(koinApplication.koin),
-      RestFeature(config.rest),
+      LibraryBookFeature(koinApplication.koin),
+      RestFeature(
+        config = config.rest,
+        authConfig = null,
+      ),
       SqlFeature(
         config = config.sql,
         configureDatabase = {
@@ -56,6 +59,6 @@ internal fun main() {
 @Suppress("ForbiddenMethodCall")
 private fun loadConfig(): Config {
   val configName = requireNotNull(System.getenv("CONFIG")) { "CONFIG environment variable not set." }
-  val hocon = ConfigFactory.load("config/$configName.conf")
-  return Hocon.decodeFromConfig(hocon)
+  return ConfigFactory.load("config/$configName.conf")
+    .let { Hocon.decodeFromConfig<Config>(it) }
 }

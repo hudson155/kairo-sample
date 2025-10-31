@@ -1,37 +1,27 @@
-[versions]
-
-kairo = "6.0.0-alpha.1" # https://github.com/hudson155/kairo/releases
-
 [libraries]
 
-guava = { module = "com.google.guava:guava" }
-
-kairo = { module = "software.airborne.kairo:bom-full", version.ref = "kairo" }
 kairo-application = { module = "software.airborne.kairo:kairo-application" }
 kairo-config = { module = "software.airborne.kairo:kairo-config" }
-kairo-dependencyInjection = { module = "software.airborne.kairo:kairo-dependency-injection" }
+kairo-coroutines = { module = "software.airborne.kairo:kairo-coroutines" }
+kairo-datetime = { module = "software.airborne.kairo:kairo-datetime" }
 kairo-dependencyInjection-feature = { module = "software.airborne.kairo:kairo-dependency-injection-feature" }
 kairo-exception = { module = "software.airborne.kairo:kairo-exception" }
 kairo-exception-testing = { module = "software.airborne.kairo:kairo-exception-testing" }
-kairo-feature = { module = "software.airborne.kairo:kairo-feature" }
 kairo-healthCheck-feature = { module = "software.airborne.kairo:kairo-health-check-feature" }
 kairo-id = { module = "software.airborne.kairo:kairo-id" }
 kairo-integrationTesting = { module = "software.airborne.kairo:kairo-integration-testing" }
 kairo-integrationTesting-postgres = { module = "software.airborne.kairo:kairo-integration-testing-postgres" }
 kairo-logging = { module = "software.airborne.kairo:kairo-logging" }
-kairo-rest = { module = "software.airborne.kairo:kairo-rest" }
+kairo-optional = { module = "software.airborne.kairo:kairo-optional" }
+kairo-protectedString = { module = "software.airborne.kairo:kairo-protected-string" }
+kairo-reflect = { module = "software.airborne.kairo:kairo-reflect" }
 kairo-rest-feature = { module = "software.airborne.kairo:kairo-rest-feature" }
-kairo-server = { module = "software.airborne.kairo:kairo-server" }
-kairo-sql = { module = "software.airborne.kairo:kairo-sql" }
+kairo-serialization = { module = "software.airborne.kairo:kairo-serialization" }
 kairo-sql-feature = { module = "software.airborne.kairo:kairo-sql-feature" }
 kairo-sql-postgres = { module = "software.airborne.kairo:kairo-sql-postgres" }
 kairo-testing = { module = "software.airborne.kairo:kairo-testing" }
 kairo-util = { module = "software.airborne.kairo:kairo-util" }
 
-koin-ksp = { module = "io.insert-koin:koin-ksp-compiler" }
-
 log4j-core = { module = "org.apache.logging.log4j:log4j-core" }
 log4j-json = { module = "org.apache.logging.log4j:log4j-layout-template-json" }
 log4j-slf4j = { module = "org.apache.logging.log4j:log4j-slf4j2-impl" }
-
-postgres-jdbc = { module = "org.postgresql:postgresql" }
