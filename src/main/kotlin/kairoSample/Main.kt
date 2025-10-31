@@ -31,7 +31,10 @@ internal fun main() {
       DependencyInjectionFeature(koinApplication),
       HealthCheckFeature(healthChecks),
       LibraryFeature(koinApplication.koin),
-      RestFeature(config.rest),
+      RestFeature(
+        config = config.rest,
+        authConfig = null,
+      ),
       SqlFeature(
         config = config.sql,
         configureDatabase = {
@@ -56,6 +59,6 @@ internal fun main() {
 @Suppress("ForbiddenMethodCall")
 private fun loadConfig(): Config {
   val configName = requireNotNull(System.getenv("CONFIG")) { "CONFIG environment variable not set." }
-  val hocon = ConfigFactory.load("config/$configName.conf")
-  return Hocon.decodeFromConfig(hocon)
+  return ConfigFactory.load("config/$configName.conf")
+    .let { Hocon.decodeFromConfig<Config>(it) }
 }
