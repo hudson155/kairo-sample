@@ -1,20 +1,17 @@
-package kairoSample.library.libraryBook
+package kairoSample.libraryBook
 
 import io.kotest.matchers.nulls.shouldBeNull
 import io.kotest.matchers.shouldBe
 import kairo.sql.PostgresExtension
 import kairo.testing.setup
 import kairo.testing.test
-import kairoSample.library.LibraryFeatureTest
-import kairoSample.libraryBook.LibraryBookId
-import kairoSample.libraryBook.LibraryBookModel
-import kairoSample.libraryBook.LibraryBookService
+import kairoSample.libraryBook.LibraryBookFeatureTest
 import kotlinx.coroutines.test.runTest
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.extension.ExtendWith
 
-@ExtendWith(PostgresExtension::class, LibraryFeatureTest::class)
-internal class GetLibraryBookTest {
+@ExtendWith(PostgresExtension::class, LibraryBookFeatureTest::class)
+internal class GetLibraryBookByIsbnTest {
   @Test
   fun `Library book doesn't exist`(libraryBookService: LibraryBookService): Unit =
     runTest {
@@ -22,7 +19,7 @@ internal class GetLibraryBookTest {
         libraryBookService.create(LibraryBookModel.Creator.theMeaningOfMarriage)
       }
       test {
-        libraryBookService.get(LibraryBookId.zero)
+        libraryBookService.getByIsbn(LibraryBookModel.mereChristianity.isbn)
           .shouldBeNull()
       }
     }
@@ -34,7 +31,7 @@ internal class GetLibraryBookTest {
         libraryBookService.create(LibraryBookModel.Creator.mereChristianity)
       }
       test {
-        libraryBookService.get(mereChristianity.id)
+        libraryBookService.getByIsbn(mereChristianity.isbn)
           .shouldBe(mereChristianity)
       }
     }

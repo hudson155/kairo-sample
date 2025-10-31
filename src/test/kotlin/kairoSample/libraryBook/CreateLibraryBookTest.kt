@@ -1,4 +1,4 @@
-package kairoSample.library.libraryBook
+package kairoSample.libraryBook
 
 import io.kotest.matchers.shouldBe
 import kairo.exception.shouldThrow
@@ -6,15 +6,13 @@ import kairo.sql.PostgresExtension
 import kairo.testing.postcondition
 import kairo.testing.setup
 import kairo.testing.test
-import kairoSample.library.LibraryFeatureTest
-import kairoSample.libraryBook.LibraryBookModel
-import kairoSample.libraryBook.LibraryBookService
+import kairoSample.libraryBook.LibraryBookFeatureTest
 import kairoSample.libraryBook.exception.DuplicateLibraryBookIsbn
 import kotlinx.coroutines.test.runTest
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.extension.ExtendWith
 
-@ExtendWith(PostgresExtension::class, LibraryFeatureTest::class)
+@ExtendWith(PostgresExtension::class, LibraryBookFeatureTest::class)
 internal class CreateLibraryBookTest {
   @Test
   fun `Happy path`(libraryBookService: LibraryBookService): Unit =
