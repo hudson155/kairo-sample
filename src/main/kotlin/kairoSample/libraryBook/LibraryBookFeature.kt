@@ -6,12 +6,11 @@ import kairo.feature.Feature
 import kairo.rest.HasRouting
 import kairo.rest.Routing
 import org.koin.core.Koin
-import org.koin.core.annotation.ComponentScan
-import org.koin.core.annotation.Module
+import org.koin.core.module.Module
 import org.koin.ksp.generated.module
 
-@Module
-@ComponentScan
+@org.koin.core.annotation.Module
+@org.koin.core.annotation.ComponentScan
 public class LibraryBookFeature(
   private val koin: Koin,
 ) : Feature(), HasKoinModules, HasRouting {
@@ -19,7 +18,7 @@ public class LibraryBookFeature(
 
   private val libraryBookHandler: LibraryBookHandler get() = koin.get()
 
-  override val koinModules: List<org.koin.core.module.Module> = listOf(module)
+  override val koinModules: List<Module> = listOf(module)
 
   @Routing
   override fun Application.routing() {
