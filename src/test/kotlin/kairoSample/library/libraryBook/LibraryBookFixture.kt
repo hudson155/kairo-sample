@@ -1,6 +1,6 @@
 package kairoSample.library.libraryBook
 
-import kairo.util.epoch
+import kairo.datetime.epoch
 import kairoSample.libraryBook.LibraryBookId
 import kairoSample.libraryBook.LibraryBookModel
 import kotlin.time.Instant
