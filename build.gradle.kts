@@ -27,6 +27,10 @@ dependencies {
   implementation(libs.log4j.core)
   runtimeOnly(libs.log4j.json)
   runtimeOnly(libs.log4j.slf4j)
+
+  testImplementation(libs.kairo.integrationTesting)
+  testImplementation(libs.kairo.integrationTesting.postgres)
+  testImplementation(libs.kairo.testing)
 }
 
 application {
