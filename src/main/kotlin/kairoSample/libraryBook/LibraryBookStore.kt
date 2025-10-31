@@ -74,16 +74,20 @@ internal class LibraryBookStore(
   suspend fun update(id: LibraryBookId, update: LibraryBookModel.Update): LibraryBookModel {
     logger.info { "Updating library book (id=$id)." }
     if (!update.hasUpdates()) return get(id) ?: throw LibraryBookNotFound.unprocessable(id)
-    return suspendTransaction(db = database) {
-      LibraryBookTable
-        .updateReturning(where = { LibraryBookTable.id eq id }) { statement ->
-          update.title.ifSpecified { title -> statement[this.title] = title }
-          update.authors.ifSpecified { authors -> statement[this.authors] = authors }
-          update.isbn.ifSpecified { isbn -> statement[this.isbn] = isbn }
-        }
-        .map(LibraryBookModel::fromRow)
-        .singleNullOrThrow()
-        ?: throw LibraryBookNotFound.unprocessable(id)
+    return withExceptionMappers(
+      uniqueViolation("uq__library_book__isbn") { DuplicateLibraryBookIsbn(update.isbn.getOrThrow()) },
+    ) {
+      suspendTransaction(db = database) {
+        LibraryBookTable
+          .updateReturning(where = { LibraryBookTable.id eq id }) { statement ->
+            update.title.ifSpecified { title -> statement[this.title] = title }
+            update.authors.ifSpecified { authors -> statement[this.authors] = authors }
+            update.isbn.ifSpecified { isbn -> statement[this.isbn] = isbn }
+          }
+          .map(LibraryBookModel::fromRow)
+          .singleNullOrThrow()
+          ?: throw LibraryBookNotFound.unprocessable(id)
+      }
     }
   }
 
