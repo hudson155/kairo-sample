@@ -12,6 +12,9 @@ kairo-id = { module = "software.airborne.kairo:kairo-id" }
 kairo-integrationTesting = { module = "software.airborne.kairo:kairo-integration-testing" }
 kairo-integrationTesting-postgres = { module = "software.airborne.kairo:kairo-integration-testing-postgres" }
 kairo-logging = { module = "software.airborne.kairo:kairo-logging" }
+kairo-optional = { module = "software.airborne.kairo:kairo-optional" }
+kairo-protectedString = { module = "software.airborne.kairo:kairo-protected-string" }
+kairo-reflect = { module = "software.airborne.kairo:kairo-reflect" }
 kairo-rest-feature = { module = "software.airborne.kairo:kairo-rest-feature" }
 kairo-serialization = { module = "software.airborne.kairo:kairo-serialization" }
 kairo-sql-feature = { module = "software.airborne.kairo:kairo-sql-feature" }
