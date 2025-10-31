@@ -14,7 +14,7 @@ import org.koin.ksp.generated.module
 public class LibraryBookFeature(
   private val koin: Koin,
 ) : Feature(), HasKoinModules, HasRouting {
-  override val name: String = "Library"
+  override val name: String = "Library Book"
 
   private val libraryBookHandler: LibraryBookHandler get() = koin.get()
 
