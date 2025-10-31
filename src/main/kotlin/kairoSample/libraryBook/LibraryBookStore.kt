@@ -8,9 +8,9 @@ import kairo.sql.postgres.uniqueViolation
 import kairo.sql.postgres.withExceptionMappers
 import kairoSample.libraryBook.exception.DuplicateLibraryBookIsbn
 import kairoSample.libraryBook.exception.LibraryBookNotFound
-import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.single
+import kotlinx.coroutines.flow.toList
 import org.jetbrains.exposed.v1.core.eq
 import org.jetbrains.exposed.v1.r2dbc.R2dbcDatabase
 import org.jetbrains.exposed.v1.r2dbc.deleteReturning
@@ -44,11 +44,12 @@ internal class LibraryBookStore(
         .singleNullOrThrow()
     }
 
-  suspend fun listAll(): Flow<LibraryBookModel> =
+  suspend fun listAll(): List<LibraryBookModel> =
     suspendTransaction(db = database) {
       LibraryBookTable
         .selectAll()
         .map(LibraryBookModel::fromRow)
+        .toList()
     }
 
   suspend fun create(creator: LibraryBookModel.Creator): LibraryBookModel {

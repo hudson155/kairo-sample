@@ -8,8 +8,6 @@ import kairo.testing.test
 import kairoSample.library.LibraryFeatureTest
 import kairoSample.libraryBook.LibraryBookModel
 import kairoSample.libraryBook.LibraryBookService
-import kotlinx.coroutines.flow.map
-import kotlinx.coroutines.flow.toList
 import kotlinx.coroutines.test.runTest
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.extension.ExtendWith
@@ -20,7 +18,7 @@ internal class ListAllLibraryBooksTest {
   fun `No library books exist`(libraryBookService: LibraryBookService): Unit =
     runTest {
       test {
-        libraryBookService.listAll().toList()
+        libraryBookService.listAll()
           .shouldBeEmpty()
       }
     }
@@ -33,7 +31,7 @@ internal class ListAllLibraryBooksTest {
         libraryBookService.create(LibraryBookModel.Creator.theMeaningOfMarriage)
       }
       test {
-        libraryBookService.listAll().map { it.sanitized() }.toList()
+        libraryBookService.listAll().map { it.sanitized() }
           .shouldContainExactlyInAnyOrder(
             LibraryBookModel.mereChristianity,
             LibraryBookModel.theMeaningOfMarriage,

@@ -6,8 +6,6 @@ import kairo.rest.HasRouting
 import kairo.rest.Routing
 import kairo.rest.route
 import kairoSample.libraryBook.exception.LibraryBookNotFound
-import kotlinx.coroutines.flow.map
-import kotlinx.coroutines.flow.toList
 import org.koin.core.annotation.Single
 
 @Single
@@ -37,7 +35,7 @@ internal class LibraryBookHandler(
       route(LibraryBookApi.ListAll::class) {
         handle {
           val libraryBooks = libraryBookService.listAll()
-          libraryBooks.map { libraryBookMapper.rep(it) }.toList()
+          libraryBooks.map { libraryBookMapper.rep(it) }
         }
       }
 

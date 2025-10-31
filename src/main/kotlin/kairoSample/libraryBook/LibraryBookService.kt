@@ -1,6 +1,5 @@
 package kairoSample.libraryBook
 
-import kotlinx.coroutines.flow.Flow
 import org.koin.core.annotation.Single
 
 @Single
@@ -13,7 +12,7 @@ internal class LibraryBookService(
   suspend fun getByIsbn(isbn: String): LibraryBookModel? =
     libraryBookStore.getByIsbn(isbn)
 
-  suspend fun listAll(): Flow<LibraryBookModel> =
+  suspend fun listAll(): List<LibraryBookModel> =
     libraryBookStore.listAll()
 
   suspend fun create(creator: LibraryBookModel.Creator): LibraryBookModel =
