@@ -80,9 +80,9 @@ internal class LibraryBookStore(
       suspendTransaction(db = database) {
         LibraryBookTable
           .updateReturning(where = { LibraryBookTable.id eq id }) { statement ->
-            update.title.ifSpecified { title -> statement[this.title] = title }
-            update.authors.ifSpecified { authors -> statement[this.authors] = authors }
-            update.isbn.ifSpecified { isbn -> statement[this.isbn] = isbn }
+            update.title.ifSpecified { statement[this.title] = it }
+            update.authors.ifSpecified { statement[this.authors] = it }
+            update.isbn.ifSpecified { statement[this.isbn] = it }
           }
           .map(LibraryBookModel::fromRow)
           .singleNullOrThrow()
