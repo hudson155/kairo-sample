@@ -15,7 +15,9 @@ dependencies {
   implementation(libs.kairo.application)
   implementation(libs.kairo.config)
   implementation(libs.kairo.coroutines)
+  implementation(libs.kairo.datetime)
   implementation(libs.kairo.dependencyInjection.feature)
+  implementation(libs.kairo.exception)
   implementation(libs.kairo.healthCheck.feature)
   implementation(libs.kairo.id)
   implementation(libs.kairo.logging)
@@ -28,6 +30,7 @@ dependencies {
   runtimeOnly(libs.log4j.json)
   runtimeOnly(libs.log4j.slf4j)
 
+  testImplementation(libs.kairo.exception.testing)
   testImplementation(libs.kairo.integrationTesting)
   testImplementation(libs.kairo.integrationTesting.postgres)
   testImplementation(libs.kairo.testing)
