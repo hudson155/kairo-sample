@@ -10,7 +10,7 @@ import kairo.healthCheck.HealthCheckFeature
 import kairo.rest.RestFeature
 import kairo.server.Server
 import kairo.sql.SqlFeature
-import kairoSample.library.LibraryFeature
+import kairoSample.libraryBook.LibraryBookFeature
 import kotlinx.serialization.hocon.Hocon
 import kotlinx.serialization.hocon.decodeFromConfig
 import org.apache.logging.log4j.LogManager
@@ -30,7 +30,7 @@ internal fun main() {
     val features = listOf(
       DependencyInjectionFeature(koinApplication),
       HealthCheckFeature(healthChecks),
-      LibraryFeature(koinApplication.koin),
+      LibraryBookFeature(koinApplication.koin),
       RestFeature(
         config = config.rest,
         authConfig = null,
