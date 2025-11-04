@@ -40,6 +40,12 @@ kotlin {
 
 dependencies {
   implementation(platform(Airborne.kairo))
+  /**
+   * TODO: Choosing a specific Netty version
+   *  is a workaround to deal with the fact that kairo-sql doesn't work properly with Netty 4.2,
+   *  but kairo-rest expects Netty 4.2.
+   */
+  implementation(enforcedPlatform("io.netty:netty-bom:4.1.128.Final"))
   detektPlugins("dev.detekt:detekt-rules-ktlint-wrapper:${detekt.toolVersion.get()}")
 }
 
