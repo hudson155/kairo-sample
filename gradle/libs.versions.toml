@@ -7,6 +7,7 @@ kairo-datetime = { module = "software.airborne.kairo:kairo-datetime" }
 kairo-dependencyInjection-feature = { module = "software.airborne.kairo:kairo-dependency-injection-feature" }
 kairo-exception = { module = "software.airborne.kairo:kairo-exception" }
 kairo-exception-testing = { module = "software.airborne.kairo:kairo-exception-testing" }
+kairo-gcpSecretSupplier = { module = "software.airborne.kairo:kairo-gcp-secret-supplier" }
 kairo-healthCheck-feature = { module = "software.airborne.kairo:kairo-health-check-feature" }
 kairo-id = { module = "software.airborne.kairo:kairo-id" }
 kairo-integrationTesting = { module = "software.airborne.kairo:kairo-integration-testing" }
@@ -25,3 +26,5 @@ kairo-util = { module = "software.airborne.kairo:kairo-util" }
 log4j = { module = "org.apache.logging.log4j:log4j-core" }
 log4j-json = { module = "org.apache.logging.log4j:log4j-layout-template-json" }
 log4j-slf4j = { module = "org.apache.logging.log4j:log4j-slf4j2-impl" }
+
+postgres-gcp = { module = "com.google.cloud.sql:cloud-sql-connector-r2dbc-postgres" }
