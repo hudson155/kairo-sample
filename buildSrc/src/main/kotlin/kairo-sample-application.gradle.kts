@@ -10,4 +10,7 @@ tasks.shadowJar {
   archiveClassifier = "shadow"
   mergeServiceFiles()
   transform(Log4j2PluginsCacheFileTransformer())
+  manifest {
+    attributes("Multi-Release" to "true")
+  }
 }
