@@ -33,7 +33,7 @@ dependencies {
   implementation(libs.log4j)
   runtimeOnly(libs.log4j.json)
   runtimeOnly(libs.log4j.slf4j)
-  implementation(libs.postgres.gcp)
+  runtimeOnly(libs.postgres.gcp)
 
   testImplementation(libs.kairo.exception.testing)
   testImplementation(libs.kairo.integrationTesting)
