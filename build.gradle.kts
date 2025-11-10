@@ -29,7 +29,7 @@ dependencies {
   implementation(libs.kairo.sql.feature)
   implementation(libs.kairo.sql.postgres)
   implementation(libs.kairo.util)
-  implementation(libs.log4j.core)
+  implementation(libs.log4j)
   runtimeOnly(libs.log4j.json)
   runtimeOnly(libs.log4j.slf4j)
 
