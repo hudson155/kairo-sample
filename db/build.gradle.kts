@@ -9,9 +9,9 @@ kotlin {
 }
 
 dependencies {
-  implementation(project(":"))
+  api(project(":"))
 
-  implementation(libs.exposedMigration.r2dbc)
+  api(libs.exposedMigration.r2dbc)
   runtimeOnly(libs.postgres.r2dbc)
 }
 
