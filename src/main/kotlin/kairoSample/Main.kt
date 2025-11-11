@@ -24,7 +24,7 @@ import org.koin.dsl.koinApplication
 
 private val gcpSecretSupplier: GcpSecretSupplier = DefaultGcpSecretSupplier()
 
-internal fun main() {
+fun main() {
   kairo {
     val config = loadConfig()
 

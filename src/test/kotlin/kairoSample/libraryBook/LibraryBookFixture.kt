@@ -3,16 +3,16 @@ package kairoSample.libraryBook
 import kairo.datetime.epoch
 import kotlin.time.Instant
 
-internal val LibraryBookId.Companion.zero: LibraryBookId
+val LibraryBookId.Companion.zero: LibraryBookId
   get() = LibraryBookId("library_book_00000000")
 
-internal fun LibraryBookModel.sanitized(): LibraryBookModel =
+fun LibraryBookModel.sanitized(): LibraryBookModel =
   copy(
     id = LibraryBookId.zero,
     createdAt = Instant.epoch,
   )
 
-internal val LibraryBookModel.Creator.Companion.mereChristianity: LibraryBookModel.Creator
+val LibraryBookModel.Creator.Companion.mereChristianity: LibraryBookModel.Creator
   get() =
     LibraryBookModel.Creator(
       title = "Mere Christianity",
@@ -20,7 +20,7 @@ internal val LibraryBookModel.Creator.Companion.mereChristianity: LibraryBookMod
       isbn = "978-0060652920",
     )
 
-internal val LibraryBookModel.Companion.mereChristianity: LibraryBookModel
+val LibraryBookModel.Companion.mereChristianity: LibraryBookModel
   get() =
     LibraryBookModel(
       id = LibraryBookId.zero,
@@ -30,7 +30,7 @@ internal val LibraryBookModel.Companion.mereChristianity: LibraryBookModel
       isbn = "978-0060652920",
     )
 
-internal val LibraryBookModel.Creator.Companion.theMeaningOfMarriage: LibraryBookModel.Creator
+val LibraryBookModel.Creator.Companion.theMeaningOfMarriage: LibraryBookModel.Creator
   get() =
     LibraryBookModel.Creator(
       title = "The Meaning of Marriage: Facing the Complexities of Commitment with the Wisdom of God",
@@ -38,7 +38,7 @@ internal val LibraryBookModel.Creator.Companion.theMeaningOfMarriage: LibraryBoo
       isbn = "978-1594631870",
     )
 
-internal val LibraryBookModel.Companion.theMeaningOfMarriage: LibraryBookModel
+val LibraryBookModel.Companion.theMeaningOfMarriage: LibraryBookModel
   get() =
     LibraryBookModel(
       id = LibraryBookId.zero,
