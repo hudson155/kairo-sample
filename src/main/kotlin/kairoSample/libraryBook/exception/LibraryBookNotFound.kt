@@ -22,7 +22,7 @@ data class LibraryBookNotFound private constructor(
     libraryBookId?.let { put("libraryBookId", Json.encodeToJsonElement(it)) }
   }
 
-  internal companion object {
+  companion object {
     fun unprocessable(libraryBookId: LibraryBookId): LibraryBookNotFound =
       LibraryBookNotFound(
         status = HttpStatusCode.UnprocessableEntity,

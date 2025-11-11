@@ -13,7 +13,7 @@ import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.extension.ExtendWith
 
 @ExtendWith(PostgresExtension::class, LibraryBookFeatureTest::class)
-internal class CreateLibraryBookTest {
+class CreateLibraryBookTest {
   @Test
   fun `Happy path`(libraryBookService: LibraryBookService): Unit =
     runTest {

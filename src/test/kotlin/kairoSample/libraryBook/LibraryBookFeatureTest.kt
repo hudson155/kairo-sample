@@ -12,7 +12,7 @@ import org.jetbrains.exposed.v1.jdbc.transactions.transaction
 import org.junit.jupiter.api.extension.ExtensionContext
 import org.koin.core.KoinApplication
 
-internal class LibraryBookFeatureTest : FeatureTest(), PostgresExtensionAware {
+class LibraryBookFeatureTest : FeatureTest(), PostgresExtensionAware {
   override fun beforeEach(context: ExtensionContext) {
     transaction(db = checkNotNull(context.database)) {
       SchemaUtils.createSchema(Schema("library"))

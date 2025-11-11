@@ -11,7 +11,7 @@ import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.extension.ExtendWith
 
 @ExtendWith(PostgresExtension::class, LibraryBookFeatureTest::class)
-internal class ListAllLibraryBooksTest {
+class ListAllLibraryBooksTest {
   @Test
   fun `No library books exist`(libraryBookService: LibraryBookService): Unit =
     runTest {
