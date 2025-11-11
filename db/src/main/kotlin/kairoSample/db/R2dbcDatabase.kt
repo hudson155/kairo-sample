@@ -20,7 +20,7 @@ val database: R2dbcDatabase by lazy {
     option(ConnectionFactoryOptions.USER, databaseConfig.username)
     option(ConnectionFactoryOptions.PASSWORD, databaseConfig.password.value)
   }.build()
-  R2dbcDatabase.connect(
+  return@lazy R2dbcDatabase.connect(
     connectionFactory = ConnectionFactories.get(options),
     databaseConfig = R2dbcDatabaseConfig {
       explicitDialect = PostgreSQLDialect()
