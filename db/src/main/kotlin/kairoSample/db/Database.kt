@@ -9,6 +9,7 @@ val tables: List<Table> =
     LibraryBookTable,
   )
 
+@Suppress("ForbiddenMethodCall")
 val database: R2dbcDatabase =
   R2dbcDatabase.connect(
     url = requireNotNull(System.getenv("KAIRO_SAMPLE_POSTGRES_URL")),
