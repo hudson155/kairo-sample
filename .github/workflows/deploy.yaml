@@ -37,7 +37,7 @@ jobs:
           cache: "gradle"
       - name: "Gradle assemble"
         run: |
-          ./gradlew assemble
+          ./gradlew :assemble
       - name: "Configure Docker for GCP"
         run: |
           gcloud auth configure-docker us-central1-docker.pkg.dev --quiet

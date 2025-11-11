@@ -17,7 +17,7 @@ if [[ "${answer}" != "${expected}" ]]; then
   exit 1
 fi
 
-./gradlew assemble
+./gradlew :assemble
 
 docker build --platform=linux/amd64 \
   -t "us-central1-docker.pkg.dev/kairo-sample/kairo-sample/${service}:$(git rev-parse --short=8 HEAD)" \
