@@ -20,3 +20,8 @@ tasks.register<JavaExec>("generateMigrationScript") {
   classpath = sourceSets.main.get().runtimeClasspath
   mainClass = "kairoSample.db.GenerateMigrationScriptKt"
 }
+
+tasks.register<JavaExec>("validateMigrationStatus") {
+  classpath = sourceSets.main.get().runtimeClasspath
+  mainClass = "kairoSample.db.ValidateMigrationStatusKt"
+}
