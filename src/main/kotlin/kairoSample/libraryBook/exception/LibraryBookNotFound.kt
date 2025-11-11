@@ -7,13 +7,13 @@ import kotlinx.serialization.json.Json
 import kotlinx.serialization.json.JsonObjectBuilder
 import kotlinx.serialization.json.encodeToJsonElement
 
-internal data class LibraryBookNotFound private constructor(
+data class LibraryBookNotFound private constructor(
   override val status: HttpStatusCode,
   val libraryBookId: LibraryBookId?,
 ) : LogicalFailure("Library book not found") {
   override val type: String = "LibraryBookNotFound"
 
-  internal constructor(libraryBookId: LibraryBookId?) : this(
+  constructor(libraryBookId: LibraryBookId?) : this(
     status = HttpStatusCode.NotFound,
     libraryBookId = libraryBookId,
   )

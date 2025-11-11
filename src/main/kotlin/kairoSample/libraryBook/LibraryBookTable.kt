@@ -7,7 +7,7 @@ import org.jetbrains.exposed.v1.core.Table
 import org.jetbrains.exposed.v1.datetime.CurrentTimestamp
 import org.jetbrains.exposed.v1.datetime.timestamp
 
-internal object LibraryBookTable : Table("library.library_book") {
+object LibraryBookTable : Table("library.library_book") {
   val id: Column<LibraryBookId> =
     text("id")
       .transform(::LibraryBookId, LibraryBookId::value)
@@ -37,7 +37,7 @@ internal object LibraryBookTable : Table("library.library_book") {
       .uniqueIndex("uq__library_book__isbn")
 }
 
-internal fun LibraryBookModel.Companion.fromRow(row: ResultRow): LibraryBookModel =
+fun LibraryBookModel.Companion.fromRow(row: ResultRow): LibraryBookModel =
   LibraryBookModel(
     id = row[LibraryBookTable.id],
     createdAt = row[LibraryBookTable.createdAt],

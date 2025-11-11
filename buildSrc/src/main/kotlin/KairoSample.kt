@@ -12,7 +12,7 @@ internal fun RepositoryHandler.artifactRegistry() {
   }
 }
 
-public object Airborne {
+object Airborne {
   // https://github.com/hudson155/kairo/releases
-  public const val kairo: String = "software.airborne.kairo:bom-full:6.0.0-beta.6"
+  const val kairo: String = "software.airborne.kairo:bom-full:6.0.0-beta.6"
 }

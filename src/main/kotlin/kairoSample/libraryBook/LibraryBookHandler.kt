@@ -9,7 +9,7 @@ import kairoSample.libraryBook.exception.LibraryBookNotFound
 import org.koin.core.annotation.Single
 
 @Single
-internal class LibraryBookHandler(
+class LibraryBookHandler(
   private val libraryBookMapper: LibraryBookMapper,
   private val libraryBookService: LibraryBookService,
 ) : HasRouting {
