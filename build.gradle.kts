@@ -34,7 +34,7 @@ dependencies {
   runtimeOnly(libs.log4j.json)
   runtimeOnly(libs.log4j.slf4j)
   runtimeOnly(libs.postgres.r2dbc)
-  runtimeOnly(libs.postgres.gcp)
+  runtimeOnly(libs.postgresGcp.r2dbc)
 
   testImplementation(libs.kairo.exception.testing)
   testImplementation(libs.kairo.integrationTesting)
