@@ -4,7 +4,7 @@ import kairo.optional.Optional
 import kairo.optional.Required
 import kotlin.time.Instant
 
-internal data class LibraryBookModel(
+data class LibraryBookModel(
   val id: LibraryBookId,
   val createdAt: Instant,
   val title: String?,
@@ -16,7 +16,7 @@ internal data class LibraryBookModel(
     val authors: List<String>,
     val isbn: String,
   ) {
-    internal companion object
+    companion object
   }
 
   data class Update(
@@ -34,5 +34,5 @@ internal data class LibraryBookModel(
       listOf(title, authors, isbn).any { it.isSpecified }
   }
 
-  internal companion object
+  companion object
 }

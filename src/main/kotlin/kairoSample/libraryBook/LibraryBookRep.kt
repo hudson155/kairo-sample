@@ -8,7 +8,7 @@ import kotlinx.serialization.EncodeDefault
 import kotlinx.serialization.Serializable
 
 @Serializable
-internal data class LibraryBookRep(
+data class LibraryBookRep(
   val id: LibraryBookId,
   val createdAt: Instant,
   val title: String?,
@@ -16,14 +16,14 @@ internal data class LibraryBookRep(
   val isbn: String,
 ) {
   @Serializable
-  internal data class Creator(
+  data class Creator(
     val title: String?,
     val authors: List<String>,
     val isbn: String,
   )
 
   @Serializable
-  internal data class Update(
+  data class Update(
     @EncodeDefault(EncodeDefault.Mode.NEVER) @Contextual
     val title: Optional<String> = Optional.Missing,
     @EncodeDefault(EncodeDefault.Mode.NEVER) @Contextual

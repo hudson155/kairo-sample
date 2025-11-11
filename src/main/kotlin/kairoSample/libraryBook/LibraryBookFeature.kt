@@ -11,7 +11,7 @@ import org.koin.ksp.generated.module
 
 @org.koin.core.annotation.Module
 @org.koin.core.annotation.ComponentScan
-public class LibraryBookFeature(
+class LibraryBookFeature(
   private val koin: Koin,
 ) : Feature(), HasKoinModules, HasRouting {
   override val name: String = "Library Book"

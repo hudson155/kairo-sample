@@ -23,7 +23,7 @@ import org.koin.core.annotation.Single
 private val logger: KLogger = KotlinLogging.logger {}
 
 @Single
-internal class LibraryBookStore(
+class LibraryBookStore(
   private val database: R2dbcDatabase,
 ) {
   suspend fun get(id: LibraryBookId): LibraryBookModel? =

@@ -24,7 +24,6 @@ kotlin {
   jvmToolchain {
     languageVersion = javaVersion
   }
-  explicitApi()
   compilerOptions {
     allWarningsAsErrors = true
     freeCompilerArgs.add("-Xannotation-default-target=param-property")

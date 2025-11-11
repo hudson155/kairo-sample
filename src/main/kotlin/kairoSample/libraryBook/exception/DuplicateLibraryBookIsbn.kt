@@ -5,7 +5,7 @@ import kairo.exception.LogicalFailure
 import kotlinx.serialization.json.JsonObjectBuilder
 import kotlinx.serialization.json.JsonPrimitive
 
-internal data class DuplicateLibraryBookIsbn(
+data class DuplicateLibraryBookIsbn(
   val isbn: String,
 ) : LogicalFailure("Duplicate library book ISBN") {
   override val type: String = "DuplicateLibraryBookIsbn"

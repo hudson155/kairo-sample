@@ -903,7 +903,7 @@ style:
   RedundantHigherOrderMapUsage:
     active: true
   RedundantVisibilityModifier:
-    active: false # Conflicts with [explicitApi].
+    active: true
   ReturnCount:
     active: false
   SafeCast:
