@@ -1,16 +1,13 @@
 package kairoSample.db
 
-import kotlinx.coroutines.runBlocking
-import org.jetbrains.exposed.v1.migration.r2dbc.MigrationUtils
-import org.jetbrains.exposed.v1.r2dbc.transactions.suspendTransaction
+import org.jetbrains.exposed.v1.jdbc.transactions.transaction
+import org.jetbrains.exposed.v1.migration.jdbc.MigrationUtils
 
 fun main() {
-  runBlocking {
-    val statements = suspendTransaction(database) {
-      MigrationUtils.statementsRequiredForDatabaseMigration(
-        tables = tables.toTypedArray(),
-      )
-    }
-    check(statements.isEmpty())
+  val statements = transaction(database) {
+    MigrationUtils.statementsRequiredForDatabaseMigration(
+      tables = tables.toTypedArray(),
+    )
   }
+  check(statements.isEmpty())
 }

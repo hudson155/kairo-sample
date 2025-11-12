@@ -13,7 +13,10 @@ kotlin {
 dependencies {
   api(project(":"))
 
-  api(libs.exposedMigration.r2dbc)
+  api(libs.exposedMigration)
+  api(libs.exposedMigration.jdbc)
+  runtimeOnly(libs.postgres.jdbc)
+  runtimeOnly(libs.postgresGcp.jdbc)
 }
 
 tasks.register<JavaExec>("generateMigrationScript") {
