@@ -1,7 +1,14 @@
+[versions]
+
+flyway = "11.17.0" # https://github.com/flyway/flyway/releases
+
 [libraries]
 
 exposedMigration = { module = "org.jetbrains.exposed:exposed-migration-core" }
 exposedMigration-jdbc = { module = "org.jetbrains.exposed:exposed-migration-jdbc" }
+
+flyway = { module = "org.flywaydb:flyway-core", version.ref = "flyway" }
+flyway-postgres = { module = "org.flywaydb:flyway-database-postgresql", version.ref = "flyway" }
 
 kairo-application = { module = "software.airborne.kairo:kairo-application" }
 kairo-config = { module = "software.airborne.kairo:kairo-config" }

@@ -15,6 +15,8 @@ dependencies {
 
   api(libs.exposedMigration)
   api(libs.exposedMigration.jdbc)
+  api(libs.flyway)
+  api(libs.flyway.postgres)
   runtimeOnly(libs.postgres.jdbc)
   runtimeOnly(libs.postgresGcp.jdbc)
 }
@@ -22,6 +24,11 @@ dependencies {
 tasks.register<JavaExec>("generateMigrationScript") {
   classpath = sourceSets.main.get().runtimeClasspath
   mainClass = "kairoSample.db.GenerateMigrationScriptKt"
+}
+
+tasks.register<JavaExec>("runMigrations") {
+  classpath = sourceSets.main.get().runtimeClasspath
+  mainClass = "kairoSample.db.RunMigrationsKt"
 }
 
 tasks.register<JavaExec>("validateMigrationStatus") {
