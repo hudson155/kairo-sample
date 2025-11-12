@@ -5,11 +5,6 @@ import kairoSample.libraryBook.LibraryBookTable
 import org.jetbrains.exposed.v1.core.Table
 import org.jetbrains.exposed.v1.jdbc.Database
 
-val tables: List<Table> =
-  listOf(
-    LibraryBookTable,
-  )
-
 @OptIn(ProtectedString.Access::class)
 val database: Database by lazy {
   Database.connect(
@@ -18,3 +13,8 @@ val database: Database by lazy {
     password = databaseConfig.password.value,
   )
 }
+
+val tables: List<Table> =
+  listOf(
+    LibraryBookTable,
+  )
