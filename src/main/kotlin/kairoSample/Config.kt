@@ -2,10 +2,12 @@ package kairoSample
 
 import kairo.rest.RestFeatureConfig
 import kairo.sql.SqlFeatureConfig
-import kotlinx.serialization.Serializable
+import kairo.stytch.StytchFeatureConfig
+import kairoSample.ai.AiFeatureConfig
 
-@Serializable
 data class Config(
+  val ai: AiFeatureConfig,
   val rest: RestFeatureConfig,
   val sql: SqlFeatureConfig,
+  val stytch: StytchFeatureConfig,
 )

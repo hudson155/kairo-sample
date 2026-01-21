@@ -1,7 +1,9 @@
 package kairoSample.db
 
 import kairo.protectedString.ProtectedString
-import kairoSample.libraryBook.LibraryBookTable
+import kairoSample.chat.conversation.ConversationTable
+import kairoSample.chat.message.MessageTable
+import kairoSample.identity.user.UserTable
 import org.jetbrains.exposed.v1.core.Table
 import org.jetbrains.exposed.v1.jdbc.Database
 
@@ -16,5 +18,7 @@ val database: Database by lazy {
 
 val tables: List<Table> =
   listOf(
-    LibraryBookTable,
+    ConversationTable,
+    MessageTable,
+    UserTable,
   )

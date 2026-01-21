@@ -16,12 +16,11 @@ dependencies {
   implementation("dev.detekt:detekt-gradle-plugin:$detektVersion")
 
   // https://kotlinlang.org/docs/releases.html#release-details
-  val kotlinVersion = "2.2.20"
+  val kotlinVersion = "2.3.0"
   implementation(kotlin("gradle-plugin", kotlinVersion))
-  implementation(kotlin("serialization", kotlinVersion))
 
   // https://github.com/google/ksp/releases
-  val kspVersion = "2.2.20-2.0.3"
+  val kspVersion = "2.3.4"
   implementation("com.google.devtools.ksp:com.google.devtools.ksp.gradle.plugin:$kspVersion")
 
   // https://github.com/GradleUp/shadow/releases

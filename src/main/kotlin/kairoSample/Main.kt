@@ -1,11 +1,8 @@
-@file:Suppress("ForbiddenImport")
-
 package kairoSample
 
-import com.typesafe.config.ConfigFactory
 import kairo.application.kairo
 import kairo.config.ConfigResolver
-import kairo.config.resolveConfig
+import kairo.config.loadConfig
 import kairo.dependencyInjection.DependencyInjectionFeature
 import kairo.gcpSecretSupplier.DefaultGcpSecretSupplier
 import kairo.gcpSecretSupplier.GcpSecretSupplier
@@ -15,18 +12,25 @@ import kairo.protectedString.ProtectedString
 import kairo.rest.RestFeature
 import kairo.server.Server
 import kairo.sql.SqlFeature
-import kairoSample.libraryBook.LibraryBookFeature
-import kotlinx.serialization.hocon.Hocon
-import kotlinx.serialization.hocon.decodeFromConfig
+import kairo.stytch.StytchFeature
+import kairoSample.ai.AiFeature
+import kairoSample.chat.ChatFeature
+import kairoSample.identity.IdentityFeature
 import org.apache.logging.log4j.LogManager
 import org.jetbrains.exposed.v1.core.vendors.PostgreSQLDialect
 import org.koin.dsl.koinApplication
 
 private val gcpSecretSupplier: GcpSecretSupplier = DefaultGcpSecretSupplier()
 
+@OptIn(ProtectedString.Access::class)
 fun main() {
   kairo {
-    val config = loadConfig()
+    val config = loadConfig<Config>(
+      json = json,
+      resolvers = listOf(
+        ConfigResolver("gcp::") { gcpSecretSupplier[it]?.value },
+      ),
+    )
 
     val koinApplication = koinApplication()
 
@@ -35,12 +39,17 @@ fun main() {
     )
 
     val features = listOf(
+      AiFeature(config.ai),
+      ChatFeature(koinApplication.koin),
       DependencyInjectionFeature(koinApplication),
       HealthCheckFeature(healthChecks),
-      LibraryBookFeature(koinApplication.koin),
+      IdentityFeature(koinApplication.koin),
       RestFeature(
         config = config.rest,
         authConfig = null,
+        json = json.copy {
+          pretty = true
+        },
       ),
       SqlFeature(
         config = config.sql,
@@ -48,6 +57,7 @@ fun main() {
           explicitDialect = PostgreSQLDialect()
         },
       ),
+      StytchFeature(config.stytch),
     )
 
     val server = Server(
@@ -61,16 +71,4 @@ fun main() {
       },
     )
   }
-}
-
-@Suppress("ForbiddenMethodCall")
-@OptIn(ProtectedString.Access::class)
-private suspend fun loadConfig(): Config {
-  val configName = requireNotNull(System.getenv("CONFIG")) { "CONFIG environment variable not set." }
-  val configResolvers = listOf(
-    ConfigResolver("gcp::") { gcpSecretSupplier[it]?.value },
-  )
-  return ConfigFactory.load("config/$configName.conf")
-    .let { Hocon.decodeFromConfig<Config>(it) }
-    .let { resolveConfig(it, configResolvers) }
 }
