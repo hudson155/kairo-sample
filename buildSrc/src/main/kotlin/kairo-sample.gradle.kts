@@ -34,11 +34,13 @@ kotlin {
     freeCompilerArgs.add("-opt-in=kotlin.concurrent.atomics.ExperimentalAtomicApi")
     freeCompilerArgs.add("-opt-in=kotlin.time.ExperimentalTime")
     freeCompilerArgs.add("-opt-in=kotlin.uuid.ExperimentalUuidApi")
+    freeCompilerArgs.add("-opt-in=kotlinx.coroutines.ExperimentalCoroutinesApi")
   }
 }
 
 dependencies {
   implementation(platform(Airborne.kairo))
+  implementation(platform(Airborne.osiris))
   /**
    * TODO: Choosing a specific Netty version
    *  is a workaround to deal with the fact that kairo-sql doesn't work properly with Netty 4.2,

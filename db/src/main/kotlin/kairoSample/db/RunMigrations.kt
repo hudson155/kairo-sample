@@ -10,7 +10,8 @@ private val flyway: Flyway by lazy {
     table("database_migration")
     defaultSchema("public")
     schemas(
-      "library",
+      "chat",
+      "identity",
     )
     locations("classpath:migration")
     validateOnMigrate(true)

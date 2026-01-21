@@ -1,6 +1,6 @@
 [versions]
 
-flyway = "11.17.0" # https://github.com/flyway/flyway/releases
+flyway = "11.18.0" # https://github.com/flyway/flyway/releases
 
 [libraries]
 
@@ -9,6 +9,9 @@ exposedMigration-jdbc = { module = "org.jetbrains.exposed:exposed-migration-jdbc
 
 flyway = { module = "org.flywaydb:flyway-core", version.ref = "flyway" }
 flyway-postgres = { module = "org.flywaydb:flyway-database-postgresql", version.ref = "flyway" }
+
+gcpSocketFactory-jdbc = { module = "com.google.cloud.sql:postgres-socket-factory" }
+gcpSocketFactory-r2dbc = { module = "com.google.cloud.sql:cloud-sql-connector-r2dbc-postgres" }
 
 kairo-application = { module = "software.airborne.kairo:kairo-application" }
 kairo-config = { module = "software.airborne.kairo:kairo-config" }
@@ -30,6 +33,7 @@ kairo-rest-feature = { module = "software.airborne.kairo:kairo-rest-feature" }
 kairo-serialization = { module = "software.airborne.kairo:kairo-serialization" }
 kairo-sql-feature = { module = "software.airborne.kairo:kairo-sql-feature" }
 kairo-sql-postgres = { module = "software.airborne.kairo:kairo-sql-postgres" }
+kairo-stytch-feature = { module = "software.airborne.kairo:kairo-stytch-feature" }
 kairo-testing = { module = "software.airborne.kairo:kairo-testing" }
 kairo-util = { module = "software.airborne.kairo:kairo-util" }
 
@@ -37,8 +41,11 @@ log4j = { module = "org.apache.logging.log4j:log4j-core" }
 log4j-json = { module = "org.apache.logging.log4j:log4j-layout-template-json" }
 log4j-slf4j = { module = "org.apache.logging.log4j:log4j-slf4j2-impl" }
 
+osiris-agent = { module = "software.airborne.osiris:osiris-agent" }
+osiris-element = { module = "software.airborne.osiris:osiris-element" }
+osiris-llm = { module = "software.airborne.osiris:osiris-llm" }
+osiris-openAi = { module = "software.airborne.osiris:osiris-open-ai" }
+osiris-schema = { module = "software.airborne.osiris:osiris-schema" }
+
 postgres-jdbc = { module = "org.postgresql:postgresql" }
 postgres-r2dbc = { module = "org.postgresql:r2dbc-postgresql" }
-
-postgresGcp-jdbc = { module = "com.google.cloud.sql:postgres-socket-factory" }
-postgresGcp-r2dbc = { module = "com.google.cloud.sql:cloud-sql-connector-r2dbc-postgres" }
