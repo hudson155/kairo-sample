@@ -5,9 +5,9 @@ import io.ktor.server.routing.routing
 import kairo.rest.Rest
 import kairo.rest.RestEndpoint
 import kairo.rest.route
-import org.koin.core.annotation.Single
 import kairoSample.chat.agent.AgentService
 import kairoSample.chat.conversation.ConversationId
+import org.koin.core.annotation.Single
 
 @Single
 class ProcessConversation(

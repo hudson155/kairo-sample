@@ -1,7 +1,7 @@
 package kairoSample.chat.conversation
 
-import kotlin.time.Instant
 import kairoSample.identity.user.UserId
+import kotlin.time.Instant
 
 data class ConversationModel(
   val id: ConversationId,

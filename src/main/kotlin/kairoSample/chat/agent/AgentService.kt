@@ -1,11 +1,11 @@
 package kairoSample.chat.agent
 
-import org.koin.core.annotation.Single
-import osiris.Agent
 import kairoSample.chat.agent.exception.AgentNotFound
 import kairoSample.chat.conversation.ConversationId
 import kairoSample.chat.conversation.ConversationService
 import kairoSample.chat.conversation.exception.ConversationNotFound
+import org.koin.core.annotation.Single
+import osiris.Agent
 
 @Single
 class AgentService(

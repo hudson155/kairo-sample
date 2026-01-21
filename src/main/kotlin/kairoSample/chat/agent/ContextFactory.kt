@@ -1,11 +1,11 @@
 package kairoSample.chat.agent
 
 import io.ktor.util.AttributeKey
+import kairoSample.chat.conversation.ConversationModel
+import kairoSample.identity.user.UserId
 import org.koin.core.annotation.Single
 import osiris.Context
 import osiris.history
-import kairoSample.chat.conversation.ConversationModel
-import kairoSample.identity.user.UserId
 
 @Single
 class ContextFactory(

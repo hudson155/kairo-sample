@@ -5,11 +5,11 @@ import io.kotest.matchers.shouldBe
 import kairo.sql.PostgresExtension
 import kairo.testing.setup
 import kairo.testing.test
+import kairoSample.chat.ChatFeatureTest
+import kairoSample.identity.user.UserId
 import kotlinx.coroutines.test.runTest
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.extension.ExtendWith
-import kairoSample.chat.ChatFeatureTest
-import kairoSample.identity.user.UserId
 
 @ExtendWith(PostgresExtension::class, ChatFeatureTest::class)
 class GetConversationTest {

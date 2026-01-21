@@ -4,9 +4,9 @@ import io.ktor.server.application.Application
 import io.ktor.server.routing.routing
 import kairo.rest.HasRouting
 import kairo.rest.route
-import org.koin.core.annotation.Single
 import kairoSample.chat.agent.AgentService
 import kairoSample.chat.message.exception.MessageNotFound
+import org.koin.core.annotation.Single
 
 @Single
 class MessageHandler(

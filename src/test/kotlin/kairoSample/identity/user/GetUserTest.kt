@@ -9,10 +9,10 @@ import kairo.sql.PostgresExtension
 import kairo.stytch.Stytch
 import kairo.testing.setup
 import kairo.testing.test
+import kairoSample.identity.IdentityFeatureTest
 import kotlinx.coroutines.test.runTest
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.extension.ExtendWith
-import kairoSample.identity.IdentityFeatureTest
 
 @ExtendWith(PostgresExtension::class, IdentityFeatureTest::class)
 class GetUserTest {

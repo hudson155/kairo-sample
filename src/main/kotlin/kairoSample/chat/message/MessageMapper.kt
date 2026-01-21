@@ -2,8 +2,8 @@ package kairoSample.chat.message
 
 import dev.langchain4j.data.message.ChatMessageSerializer
 import dev.langchain4j.data.message.UserMessage
-import org.koin.core.annotation.Single
 import kairoSample.json
+import org.koin.core.annotation.Single
 
 @Single
 class MessageMapper {

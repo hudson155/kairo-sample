@@ -8,18 +8,18 @@ import kairo.coroutines.emitAll
 import kairo.rest.Rest
 import kairo.rest.RestEndpoint
 import kairo.rest.route
-import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.asFlow
-import kotlinx.coroutines.flow.flatMapConcat
-import kotlinx.coroutines.flow.flow
-import kotlinx.coroutines.flow.map
-import org.koin.core.annotation.Single
 import kairoSample.chat.conversation.ConversationId
 import kairoSample.chat.conversation.ConversationService
 import kairoSample.chat.message.MessageId
 import kairoSample.chat.message.MessageService
 import kairoSample.identity.user.UserId
 import kairoSample.identity.user.UserService
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.asFlow
+import kotlinx.coroutines.flow.flatMapConcat
+import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.flow.map
+import org.koin.core.annotation.Single
 
 @Single
 class RecomputeElements(

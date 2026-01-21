@@ -2,10 +2,10 @@ package kairoSample.chat.message
 
 import dev.langchain4j.data.message.UserMessage
 import kairo.datetime.epoch
-import kotlin.time.Instant
-import osiris.element.element.ParagraphElement
 import kairoSample.chat.conversation.ConversationId
 import kairoSample.identity.user.UserId
+import kotlin.time.Instant
+import osiris.element.element.ParagraphElement
 
 val MessageId.Companion.zero: MessageId
   get() = MessageId("msg_00000000")

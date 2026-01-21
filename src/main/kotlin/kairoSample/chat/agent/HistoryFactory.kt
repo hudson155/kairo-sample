@@ -1,13 +1,13 @@
 package kairoSample.chat.agent
 
 import dev.langchain4j.data.message.ChatMessage
-import org.koin.core.annotation.Single
-import osiris.Context
-import osiris.currentAgent
 import kairoSample.chat.conversation.ConversationId
 import kairoSample.chat.message.MessageModel
 import kairoSample.chat.message.MessageRep
 import kairoSample.chat.message.MessageService
+import org.koin.core.annotation.Single
+import osiris.Context
+import osiris.currentAgent
 
 @Single
 class HistoryFactory(

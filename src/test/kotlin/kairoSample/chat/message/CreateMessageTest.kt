@@ -6,9 +6,6 @@ import kairo.sql.PostgresExtension
 import kairo.testing.postcondition
 import kairo.testing.setup
 import kairo.testing.test
-import kotlinx.coroutines.test.runTest
-import org.junit.jupiter.api.Test
-import org.junit.jupiter.api.extension.ExtendWith
 import kairoSample.chat.ChatFeatureTest
 import kairoSample.chat.agent.TestAgent
 import kairoSample.chat.conversation.ConversationId
@@ -18,6 +15,9 @@ import kairoSample.chat.conversation.exception.ConversationNotFound
 import kairoSample.chat.conversation.fixture
 import kairoSample.chat.conversation.zero
 import kairoSample.identity.user.UserId
+import kotlinx.coroutines.test.runTest
+import org.junit.jupiter.api.Test
+import org.junit.jupiter.api.extension.ExtendWith
 
 @ExtendWith(PostgresExtension::class, ChatFeatureTest::class)
 class CreateMessageTest {

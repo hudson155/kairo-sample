@@ -2,6 +2,8 @@ package kairoSample.chat.message
 
 import io.github.oshai.kotlinlogging.KLogger
 import io.github.oshai.kotlinlogging.KotlinLogging
+import kairoSample.chat.conversation.ConversationId
+import kairoSample.chat.message.exception.MessageNotFound
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.single
 import org.jetbrains.exposed.v1.core.eq
@@ -9,8 +11,6 @@ import org.jetbrains.exposed.v1.r2dbc.R2dbcDatabase
 import org.jetbrains.exposed.v1.r2dbc.transactions.suspendTransaction
 import org.jetbrains.exposed.v1.r2dbc.updateReturning
 import org.koin.core.annotation.Single
-import kairoSample.chat.conversation.ConversationId
-import kairoSample.chat.message.exception.MessageNotFound
 
 private val logger: KLogger = KotlinLogging.logger {}
 

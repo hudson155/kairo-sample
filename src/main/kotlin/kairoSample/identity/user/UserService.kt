@@ -1,9 +1,5 @@
 package kairoSample.identity.user
 
-import com.stytch.java.consumer.models.users.CreateRequest as UserCreateRequest
-import com.stytch.java.consumer.models.users.DeleteRequest as UserDeleteRequest
-import com.stytch.java.consumer.models.users.Name as UserName
-import com.stytch.java.consumer.models.users.UpdateRequest as UserUpdateRequest
 import io.github.oshai.kotlinlogging.KLogger
 import io.github.oshai.kotlinlogging.KotlinLogging
 import kairo.stytch.Stytch
@@ -11,6 +7,10 @@ import kairo.stytch.get
 import org.jetbrains.exposed.v1.r2dbc.R2dbcDatabase
 import org.jetbrains.exposed.v1.r2dbc.transactions.suspendTransaction
 import org.koin.core.annotation.Single
+import com.stytch.java.consumer.models.users.CreateRequest as UserCreateRequest
+import com.stytch.java.consumer.models.users.DeleteRequest as UserDeleteRequest
+import com.stytch.java.consumer.models.users.Name as UserName
+import com.stytch.java.consumer.models.users.UpdateRequest as UserUpdateRequest
 
 private val logger: KLogger = KotlinLogging.logger {}
 

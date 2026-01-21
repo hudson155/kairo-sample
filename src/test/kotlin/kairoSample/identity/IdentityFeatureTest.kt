@@ -8,12 +8,12 @@ import kairo.sql.PostgresExtensionAware
 import kairo.sql.SqlFeature
 import kairo.sql.from
 import kairo.stytch.StytchFeature
+import kairoSample.identity.user.UserTable
 import org.jetbrains.exposed.v1.core.Schema
 import org.jetbrains.exposed.v1.jdbc.SchemaUtils
 import org.jetbrains.exposed.v1.jdbc.transactions.transaction
 import org.junit.jupiter.api.extension.ExtensionContext
 import org.koin.core.KoinApplication
-import kairoSample.identity.user.UserTable
 
 class IdentityFeatureTest : FeatureTest(), PostgresExtensionAware {
   override fun beforeEach(context: ExtensionContext) {

@@ -3,10 +3,10 @@ package kairoSample.chat.message
 import com.fasterxml.jackson.annotation.JsonSubTypes
 import com.fasterxml.jackson.annotation.JsonTypeInfo
 import com.fasterxml.jackson.databind.JsonNode
-import kotlin.time.Instant
-import osiris.element.element.Element
 import kairoSample.chat.conversation.ConversationId
 import kairoSample.identity.user.UserId
+import kotlin.time.Instant
+import osiris.element.element.Element
 
 data class MessageRep(
   val id: MessageId,

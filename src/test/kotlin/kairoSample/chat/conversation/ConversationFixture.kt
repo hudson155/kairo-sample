@@ -1,8 +1,8 @@
 package kairoSample.chat.conversation
 
 import kairo.datetime.epoch
-import kotlin.time.Instant
 import kairoSample.identity.user.UserId
+import kotlin.time.Instant
 
 val ConversationId.Companion.zero: ConversationId
   get() = ConversationId("convo_00000000")

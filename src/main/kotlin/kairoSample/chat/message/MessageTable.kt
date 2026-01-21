@@ -3,6 +3,10 @@ package kairoSample.chat.message
 import dev.langchain4j.data.message.ChatMessage
 import dev.langchain4j.data.message.ChatMessageDeserializer
 import dev.langchain4j.data.message.ChatMessageSerializer
+import kairoSample.chat.conversation.ConversationId
+import kairoSample.chat.conversation.ConversationTable
+import kairoSample.identity.user.UserId
+import kairoSample.jsonb
 import kotlin.time.Instant
 import org.jetbrains.exposed.v1.core.Column
 import org.jetbrains.exposed.v1.core.ReferenceOption
@@ -12,10 +16,6 @@ import org.jetbrains.exposed.v1.datetime.CurrentTimestamp
 import org.jetbrains.exposed.v1.datetime.timestamp
 import org.jetbrains.exposed.v1.json.jsonb
 import osiris.element.element.Element
-import kairoSample.chat.conversation.ConversationId
-import kairoSample.chat.conversation.ConversationTable
-import kairoSample.identity.user.UserId
-import kairoSample.jsonb
 
 object MessageTable : Table("chat.message") {
   val id: Column<MessageId> =

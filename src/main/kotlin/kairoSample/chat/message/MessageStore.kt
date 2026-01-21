@@ -1,6 +1,10 @@
 package kairoSample.chat.message
 
 import kairo.coroutines.singleNullOrThrow
+import kairoSample.chat.conversation.ConversationId
+import kairoSample.chat.conversation.ConversationStore
+import kairoSample.chat.conversation.exception.ConversationNotFound
+import kairoSample.chat.message.exception.MessageNotFound
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.single
 import kotlinx.coroutines.flow.toList
@@ -13,10 +17,6 @@ import org.jetbrains.exposed.v1.r2dbc.selectAll
 import org.jetbrains.exposed.v1.r2dbc.transactions.suspendTransaction
 import org.koin.core.annotation.Single
 import osiris.element.element.Element
-import kairoSample.chat.conversation.ConversationId
-import kairoSample.chat.conversation.ConversationStore
-import kairoSample.chat.conversation.exception.ConversationNotFound
-import kairoSample.chat.message.exception.MessageNotFound
 
 @Single
 class MessageStore(

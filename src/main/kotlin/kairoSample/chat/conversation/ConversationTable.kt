@@ -1,12 +1,12 @@
 package kairoSample.chat.conversation
 
+import kairoSample.identity.user.UserId
 import kotlin.time.Instant
 import org.jetbrains.exposed.v1.core.Column
 import org.jetbrains.exposed.v1.core.ResultRow
 import org.jetbrains.exposed.v1.core.Table
 import org.jetbrains.exposed.v1.datetime.CurrentTimestamp
 import org.jetbrains.exposed.v1.datetime.timestamp
-import kairoSample.identity.user.UserId
 
 object ConversationTable : Table("chat.conversation") {
   val id: Column<ConversationId> =

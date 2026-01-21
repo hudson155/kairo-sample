@@ -2,10 +2,10 @@ package kairoSample.chat.conversation
 
 import io.github.oshai.kotlinlogging.KLogger
 import io.github.oshai.kotlinlogging.KotlinLogging
-import org.koin.core.annotation.Single
-import osiris.Agent
 import kairoSample.chat.agent.exception.AgentNotFound
 import kairoSample.identity.user.UserId
+import org.koin.core.annotation.Single
+import osiris.Agent
 
 private val logger: KLogger = KotlinLogging.logger {}
 

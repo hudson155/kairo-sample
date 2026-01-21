@@ -4,10 +4,10 @@ import dev.langchain4j.data.message.AiMessage
 import dev.langchain4j.data.message.ChatMessage
 import dev.langchain4j.data.message.ToolExecutionResultMessage
 import dev.langchain4j.data.message.UserMessage
-import kotlin.time.Instant
-import osiris.element.element.Element
 import kairoSample.chat.conversation.ConversationId
 import kairoSample.identity.user.UserId
+import kotlin.time.Instant
+import osiris.element.element.Element
 
 data class MessageModel(
   val id: MessageId,
