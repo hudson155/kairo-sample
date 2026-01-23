@@ -10,6 +10,8 @@ import kairo.healthCheck.HealthCheck
 import kairo.healthCheck.HealthCheckFeature
 import kairo.protectedString.ProtectedString
 import kairo.rest.RestFeature
+import kairo.rest.auth.koin
+import kairo.serialization.KairoJson
 import kairo.server.Server
 import kairo.sql.SqlFeature
 import kairo.stytch.StytchFeature
@@ -47,8 +49,12 @@ fun main() {
       RestFeature(
         config = config.rest,
         authConfig = null,
-        json = json.copy {
+        json = KairoJson {
+          configure()
           pretty = true
+        },
+        ktorModule = {
+          koin = koinApplication.koin
         },
       ),
       SqlFeature(

@@ -1,6 +1,7 @@
 package kairoSample.db
 
 import kairo.config.ConfigResolver
+import kairo.config.configName
 import kairo.config.loadConfig
 import kairo.gcpSecretSupplier.DefaultGcpSecretSupplier
 import kairo.gcpSecretSupplier.GcpSecretSupplier
@@ -19,8 +20,12 @@ data class DatabaseConfig(
 @OptIn(ProtectedString.Access::class)
 val databaseConfig: DatabaseConfig =
   runBlocking {
+    val configName = configName(
+      configName = requireNotNull(System.getenv("DATABASE_CONFIG")) { "DATABASE_CONFIG environment variable not set." },
+      prefix = "databaseConfig",
+    )
     loadConfig(
-      configName = System.getenv("DATABASE_CONFIG") ?: "local",
+      configName = configName,
       json = json,
       resolvers = listOf(
         ConfigResolver("gcp::") { gcpSecretSupplier[it]?.value },

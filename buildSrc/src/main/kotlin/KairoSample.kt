@@ -14,7 +14,7 @@ fun RepositoryHandler.artifactRegistry() {
 
 object Airborne {
   // https://github.com/hudson155/kairo/releases
-  const val kairo: String = "software.airborne.kairo:bom-full:6.0.0-beta.15"
+  const val kairo: String = "software.airborne.kairo:bom-full:6.0.0-beta.17"
   // https://github.com/hudson155/osiris-ai/releases
-  const val osiris: String = "software.airborne.osiris:bom:1.0.0-beta.2"
+  const val osiris: String = "software.airborne.osiris:bom:1.0.0-beta.3"
 }

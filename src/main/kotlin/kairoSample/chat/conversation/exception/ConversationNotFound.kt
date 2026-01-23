@@ -16,7 +16,7 @@ class ConversationNotFound private constructor(
   )
 
   override fun MutableMap<String, Any?>.buildJson() {
-    conversationId?.let { put("conversationId", it) }
+    put("conversationId", conversationId)
   }
 
   companion object {
