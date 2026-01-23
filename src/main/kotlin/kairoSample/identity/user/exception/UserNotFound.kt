@@ -16,7 +16,7 @@ class UserNotFound private constructor(
   )
 
   override fun MutableMap<String, Any?>.buildJson() {
-    userId?.let { put("userId", it) }
+    put("userId", userId)
   }
 
   companion object {
