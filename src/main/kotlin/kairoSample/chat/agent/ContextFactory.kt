@@ -6,6 +6,7 @@ import kairoSample.identity.user.UserId
 import org.koin.core.annotation.Single
 import osiris.Context
 import osiris.ModelFactory
+import osiris.context
 import osiris.history
 
 @Single
@@ -15,7 +16,7 @@ class ContextFactory(
   private val configureContext: ConfigureContext,
 ) {
   fun create(conversation: ConversationModel): Context =
-    Context().apply {
+    context {
       userId = conversation.userId
       history = historyFactory.History(conversation.id)
       configureContext(modelFactory)
