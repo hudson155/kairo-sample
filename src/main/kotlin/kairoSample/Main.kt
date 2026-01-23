@@ -21,6 +21,8 @@ import kairoSample.identity.IdentityFeature
 import org.apache.logging.log4j.LogManager
 import org.jetbrains.exposed.v1.core.vendors.PostgreSQLDialect
 import org.koin.dsl.koinApplication
+import osiris.defaultModel
+import osiris.openAi
 
 private val gcpSecretSupplier: GcpSecretSupplier = DefaultGcpSecretSupplier()
 
@@ -42,7 +44,9 @@ fun main() {
 
     val features = listOf(
       AiFeature(config.ai),
-      ChatFeature(koinApplication.koin),
+      ChatFeature(koinApplication.koin) { modelFactory ->
+        defaultModel = modelFactory.openAi("gpt-5.2")
+      },
       DependencyInjectionFeature(koinApplication),
       HealthCheckFeature(healthChecks),
       IdentityFeature(koinApplication.koin),

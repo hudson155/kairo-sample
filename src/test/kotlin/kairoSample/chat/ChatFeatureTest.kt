@@ -6,6 +6,8 @@ import kairo.server.Server
 import kairo.sql.PostgresExtensionAware
 import kairo.sql.SqlFeature
 import kairo.sql.from
+import kairoSample.ai.AiFeature
+import kairoSample.ai.AiFeatureConfig
 import kairoSample.chat.conversation.ConversationTable
 import kairoSample.chat.message.MessageTable
 import org.jetbrains.exposed.v1.core.Schema
@@ -30,6 +32,7 @@ class ChatFeatureTest : FeatureTest(), PostgresExtensionAware {
     Server(
       name = "Chat Feature Test Server",
       features = listOf(
+        AiFeature(AiFeatureConfig()),
         ChatFeature(koinApplication.koin),
         ChatTestFeature(),
         DependencyInjectionFeature(koinApplication),

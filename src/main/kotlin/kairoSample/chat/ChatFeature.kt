@@ -5,6 +5,7 @@ import kairo.dependencyInjection.HasKoinModules
 import kairo.feature.Feature
 import kairo.rest.HasRouting
 import kairoSample.chat.admin.ChatAdmin
+import kairoSample.chat.agent.ConfigureContext
 import kairoSample.chat.conversation.ConversationHandler
 import kairoSample.chat.message.MessageHandler
 import org.koin.core.Koin
@@ -17,6 +18,7 @@ import osiris.Agent
 @org.koin.core.annotation.ComponentScan
 class ChatFeature(
   private val koin: Koin,
+  private val configureContext: ConfigureContext = {},
 ) : Feature(), HasKoinModules, HasRouting {
   override val name: String = "Chat"
 
@@ -29,6 +31,7 @@ class ChatFeature(
     listOf(
       module,
       module {
+        single<ConfigureContext> { configureContext }
         single<Map<String, Agent>> { getAll<Agent>().associateBy { agent -> agent.name } }
       },
     )
