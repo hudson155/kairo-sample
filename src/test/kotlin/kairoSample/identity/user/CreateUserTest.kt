@@ -10,12 +10,12 @@ import kairo.stytch.Stytch
 import kairo.testing.postcondition
 import kairo.testing.setup
 import kairo.testing.test
-import com.stytch.java.consumer.models.users.CreateRequest as UserCreateRequest
-import com.stytch.java.consumer.models.users.Name as UserName
 import kairoSample.identity.IdentityFeatureTest
 import kotlinx.coroutines.test.runTest
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.extension.ExtendWith
+import com.stytch.java.consumer.models.users.CreateRequest as UserCreateRequest
+import com.stytch.java.consumer.models.users.Name as UserName
 
 @ExtendWith(PostgresExtension::class, IdentityFeatureTest::class)
 class CreateUserTest {
