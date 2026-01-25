@@ -4,6 +4,7 @@ import kotlin.time.Instant
 import org.jetbrains.exposed.v1.core.Column
 import org.jetbrains.exposed.v1.core.ResultRow
 import org.jetbrains.exposed.v1.core.Table
+import org.jetbrains.exposed.v1.core.lowerCase
 import org.jetbrains.exposed.v1.datetime.CurrentTimestamp
 import org.jetbrains.exposed.v1.datetime.timestamp
 
@@ -34,9 +35,12 @@ object UserTable : Table("identity.user_account") {
     text("last_name")
       .nullable()
 
-  // TODO: Make this unique.
   val emailAddress: Column<String> =
     text("email_address")
+
+  init {
+    uniqueIndex("uq__user_account__email_address", functions = listOf(emailAddress.lowerCase()))
+  }
 }
 
 fun UserModel.Companion.fromRow(row: ResultRow): UserModel =
