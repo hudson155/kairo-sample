@@ -5,12 +5,14 @@ import io.kotest.matchers.shouldBe
 import io.mockk.coEvery
 import io.mockk.coVerify
 import io.mockk.mockk
+import kairo.exception.shouldThrow
 import kairo.sql.PostgresExtension
 import kairo.stytch.Stytch
 import kairo.testing.postcondition
 import kairo.testing.setup
 import kairo.testing.test
 import kairoSample.identity.IdentityFeatureTest
+import kairoSample.identity.user.exception.EmailAddressAlreadyInUse
 import kotlinx.coroutines.test.runTest
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.extension.ExtendWith
@@ -50,6 +52,27 @@ class CreateUserTest {
               externalId = jeff.id.value,
             ),
           )
+        }
+      }
+    }
+  }
+
+  @Test
+  fun `Email address already in use`(
+    stytch: Stytch,
+    userService: UserService,
+  ) {
+    runTest {
+      val stytchUsers = stytch.users
+      setup {
+        coEvery { stytchUsers.create(any()) } returns StytchResult.Success(mockk())
+      }
+      val jeff = setup {
+        userService.create(UserModel.Creator.jeffFixture())
+      }
+      test {
+        shouldThrow(EmailAddressAlreadyInUse(jeff.emailAddress)) {
+          userService.create(UserModel.Creator.jeffFixture())
         }
       }
     }

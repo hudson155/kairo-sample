@@ -15,3 +15,6 @@ create trigger on_update__user_account
   on identity.user_account
   for each row
 execute procedure updated();
+
+create unique index uq__user_account__email_address
+  on identity.user_account (lower(email_address));

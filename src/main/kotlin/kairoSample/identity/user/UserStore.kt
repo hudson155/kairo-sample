@@ -2,6 +2,9 @@ package kairoSample.identity.user
 
 import kairo.coroutines.singleNullOrThrow
 import kairo.optional.ifSpecified
+import kairo.sql.postgres.uniqueViolation
+import kairo.sql.postgres.withExceptionMappers
+import kairoSample.identity.user.exception.EmailAddressAlreadyInUse
 import kairoSample.identity.user.exception.UserNotFound
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.single
@@ -39,16 +42,20 @@ class UserStore(
     }
 
   suspend fun create(creator: UserModel.Creator): UserModel =
-    suspendTransaction(db = database) {
-      UserTable
-        .insertReturning { statement ->
-          statement[this.id] = UserId.random()
-          statement[this.firstName] = creator.firstName
-          statement[this.lastName] = creator.lastName
-          statement[this.emailAddress] = creator.emailAddress
-        }
-        .map(UserModel::fromRow)
-        .single()
+    withExceptionMappers(
+      uniqueViolation("uq__user_account__email_address") { throw EmailAddressAlreadyInUse(creator.emailAddress) },
+    ) {
+      suspendTransaction(db = database) {
+        UserTable
+          .insertReturning { statement ->
+            statement[this.id] = UserId.random()
+            statement[this.firstName] = creator.firstName
+            statement[this.lastName] = creator.lastName
+            statement[this.emailAddress] = creator.emailAddress
+          }
+          .map(UserModel::fromRow)
+          .single()
+      }
     }
 
   suspend fun update(id: UserId, update: UserModel.Update): UserModel {
