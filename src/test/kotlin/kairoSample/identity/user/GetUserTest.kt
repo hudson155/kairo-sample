@@ -27,7 +27,7 @@ class GetUserTest {
         coEvery { stytchUsers.create(any()) } returns StytchResult.Success(mockk())
       }
       setup {
-        userService.create(UserModel.Creator.fixture())
+        userService.create(UserModel.Creator.jeffFixture())
       }
       test {
         userService.get(UserId.zero)
@@ -46,12 +46,12 @@ class GetUserTest {
       setup {
         coEvery { stytchUsers.create(any()) } returns StytchResult.Success(mockk())
       }
-      val user = setup {
-        userService.create(UserModel.Creator.fixture())
+      val jeff = setup {
+        userService.create(UserModel.Creator.jeffFixture())
       }
       test {
-        userService.get(user.id)
-          .shouldBe(user)
+        userService.get(jeff.id)
+          .shouldBe(jeff)
       }
     }
   }

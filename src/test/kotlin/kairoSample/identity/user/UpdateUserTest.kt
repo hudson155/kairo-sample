@@ -33,7 +33,7 @@ class UpdateUserTest {
         coEvery { stytchUsers.create(any()) } returns StytchResult.Success(mockk())
       }
       setup {
-        userService.create(UserModel.Creator.fixture())
+        userService.create(UserModel.Creator.jeffFixture())
       }
       test {
         shouldThrow(UserNotFound.unprocessable(UserId.zero)) {
@@ -56,25 +56,25 @@ class UpdateUserTest {
         coEvery { stytchUsers.create(any()) } returns StytchResult.Success(mockk())
         coEvery { stytchUsers.update(any()) } returns StytchResult.Success(mockk())
       }
-      val user = setup {
-        userService.create(UserModel.Creator.fixture())
+      val jeff = setup {
+        userService.create(UserModel.Creator.jeffFixture())
       }
       test {
-        userService.update(user.id, UserModel.Update())
-          .shouldBe(user)
+        userService.update(jeff.id, UserModel.Update())
+          .shouldBe(jeff)
       }
       postcondition {
-        userService.get(user.id)
-          .shouldBe(user)
+        userService.get(jeff.id)
+          .shouldBe(jeff)
       }
       postcondition {
         coVerify(exactly = 1) {
           stytchUsers.update(
             UserUpdateRequest(
-              userId = user.id.value,
+              userId = jeff.id.value,
               name = UserName(
-                firstName = user.firstName,
-                lastName = user.lastName,
+                firstName = jeff.firstName,
+                lastName = jeff.lastName,
               ),
             ),
           )
@@ -93,18 +93,18 @@ class UpdateUserTest {
         coEvery { stytchUsers.create(any()) } returns StytchResult.Success(mockk())
         coEvery { stytchUsers.update(any()) } returns StytchResult.Success(mockk())
       }
-      val user = setup {
-        userService.create(UserModel.Creator.fixture())
+      val jeff = setup {
+        userService.create(UserModel.Creator.jeffFixture())
       }
       test {
         userService.update(
-          id = user.id,
+          id = jeff.id,
           update = UserModel.Update(
             firstName = Required.Value("Noah"),
             lastName = Required.Value("Guld"),
           ),
         ).sanitized().shouldBe(
-          UserModel.fixture().copy(
+          UserModel.jeffFixture().copy(
             firstName = "Noah",
             lastName = "Guld",
           ),
@@ -114,7 +114,7 @@ class UpdateUserTest {
         coVerify(exactly = 1) {
           stytchUsers.update(
             UserUpdateRequest(
-              userId = user.id.value,
+              userId = jeff.id.value,
               name = UserName(
                 firstName = "Noah",
                 lastName = "Guld",
