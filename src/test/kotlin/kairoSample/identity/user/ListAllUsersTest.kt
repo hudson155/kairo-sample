@@ -39,14 +39,14 @@ class ListAllUsersTest {
         coEvery { stytchUsers.create(any()) } returns StytchResult.Success(mockk())
       }
       setup {
-        repeat(2) {
-          userService.create(UserModel.Creator.fixture())
-        }
+        userService.create(UserModel.Creator.jeffFixture())
+        userService.create(UserModel.Creator.noahFixture())
       }
       test {
         userService.listAll().map { it.sanitized() }
           .shouldContainExactlyInAnyOrder(
-            List(2) { UserModel.fixture() },
+            UserModel.jeffFixture(),
+            UserModel.noahFixture(),
           )
       }
     }

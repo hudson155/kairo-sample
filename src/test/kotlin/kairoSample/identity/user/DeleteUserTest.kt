@@ -32,7 +32,7 @@ class DeleteUserTest {
         coEvery { stytchUsers.create(any()) } returns StytchResult.Success(mockk())
       }
       setup {
-        userService.create(UserModel.Creator.fixture())
+        userService.create(UserModel.Creator.jeffFixture())
       }
       test {
         shouldThrow(UserNotFound.unprocessable(UserId.zero)) {
@@ -58,22 +58,22 @@ class DeleteUserTest {
         coEvery { stytchUsers.create(any()) } returns StytchResult.Success(mockk())
         coEvery { stytchUsers.delete(any()) } returns StytchResult.Success(mockk())
       }
-      val user = setup {
-        userService.create(UserModel.Creator.fixture())
+      val jeff = setup {
+        userService.create(UserModel.Creator.jeffFixture())
       }
       test {
-        userService.delete(user.id)
-          .shouldBe(user)
+        userService.delete(jeff.id)
+          .shouldBe(jeff)
       }
       postcondition {
-        userService.get(user.id)
+        userService.get(jeff.id)
           .shouldBeNull()
       }
       postcondition {
         coVerify(exactly = 1) {
           stytchUsers.delete(
             UserDeleteRequest(
-              userId = user.id.value,
+              userId = jeff.id.value,
             ),
           )
         }

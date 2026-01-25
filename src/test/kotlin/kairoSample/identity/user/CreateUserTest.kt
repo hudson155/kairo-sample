@@ -10,12 +10,12 @@ import kairo.stytch.Stytch
 import kairo.testing.postcondition
 import kairo.testing.setup
 import kairo.testing.test
+import com.stytch.java.consumer.models.users.CreateRequest as UserCreateRequest
+import com.stytch.java.consumer.models.users.Name as UserName
 import kairoSample.identity.IdentityFeatureTest
 import kotlinx.coroutines.test.runTest
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.extension.ExtendWith
-import com.stytch.java.consumer.models.users.CreateRequest as UserCreateRequest
-import com.stytch.java.consumer.models.users.Name as UserName
 
 @ExtendWith(PostgresExtension::class, IdentityFeatureTest::class)
 class CreateUserTest {
@@ -29,25 +29,25 @@ class CreateUserTest {
       setup {
         coEvery { stytchUsers.create(any()) } returns StytchResult.Success(mockk())
       }
-      val user = test {
-        val user = userService.create(UserModel.Creator.fixture())
-        user.sanitized().shouldBe(UserModel.fixture())
-        return@test user
+      val jeff = test {
+        val jeff = userService.create(UserModel.Creator.jeffFixture())
+        jeff.sanitized().shouldBe(UserModel.jeffFixture())
+        return@test jeff
       }
       postcondition {
-        userService.get(user.id)
-          .shouldBe(user)
+        userService.get(jeff.id)
+          .shouldBe(jeff)
       }
       postcondition {
         coVerify(exactly = 1) {
           stytchUsers.create(
             UserCreateRequest(
-              email = user.emailAddress,
+              email = jeff.emailAddress,
               name = UserName(
-                firstName = user.firstName,
-                lastName = user.lastName,
+                firstName = jeff.firstName,
+                lastName = jeff.lastName,
               ),
-              externalId = user.id.value,
+              externalId = jeff.id.value,
             ),
           )
         }
