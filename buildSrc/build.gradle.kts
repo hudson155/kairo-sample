@@ -19,6 +19,10 @@ dependencies {
   val kotlinVersion = "2.3.0"
   implementation(kotlin("gradle-plugin", kotlinVersion))
 
+  // https://github.com/Kotlin/dokka/releases
+  val dokkaVersion = "2.0.0"
+  implementation("org.jetbrains.dokka:dokka-gradle-plugin:$dokkaVersion")
+
   // https://github.com/google/ksp/releases
   val kspVersion = "2.3.4"
   implementation("com.google.devtools.ksp:com.google.devtools.ksp.gradle.plugin:$kspVersion")

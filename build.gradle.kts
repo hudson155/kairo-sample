@@ -1,11 +1,13 @@
 plugins {
   id("kairo-sample")
   id("kairo-sample-application")
+  id("kairo-sample-dokka")
   id("kairo-sample-ksp")
 }
 
 dependencies {
   runtimeOnly(libs.gcpSocketFactory.r2dbc)
+  api(libs.kairo.admin)
   api(libs.kairo.application)
   api(libs.kairo.config)
   api(libs.kairo.coroutines)
@@ -15,6 +17,7 @@ dependencies {
   api(libs.kairo.gcpSecretSupplier)
   api(libs.kairo.healthCheck.feature)
   api(libs.kairo.id)
+  api(libs.kairo.kdocs)
   api(libs.kairo.logging)
   api(libs.kairo.optional)
   api(libs.kairo.protectedString)

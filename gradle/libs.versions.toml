@@ -13,6 +13,7 @@ flyway-postgres = { module = "org.flywaydb:flyway-database-postgresql", version.
 gcpSocketFactory-jdbc = { module = "com.google.cloud.sql:postgres-socket-factory" }
 gcpSocketFactory-r2dbc = { module = "com.google.cloud.sql:cloud-sql-connector-r2dbc-postgres" }
 
+kairo-admin = { module = "software.airborne.kairo:kairo-admin" }
 kairo-application = { module = "software.airborne.kairo:kairo-application" }
 kairo-config = { module = "software.airborne.kairo:kairo-config" }
 kairo-coroutines = { module = "software.airborne.kairo:kairo-coroutines" }
@@ -25,6 +26,7 @@ kairo-healthCheck-feature = { module = "software.airborne.kairo:kairo-health-che
 kairo-id = { module = "software.airborne.kairo:kairo-id" }
 kairo-integrationTesting = { module = "software.airborne.kairo:kairo-integration-testing" }
 kairo-integrationTesting-postgres = { module = "software.airborne.kairo:kairo-integration-testing-postgres" }
+kairo-kdocs = { module = "software.airborne.kairo:kairo-kdocs" }
 kairo-logging = { module = "software.airborne.kairo:kairo-logging" }
 kairo-optional = { module = "software.airborne.kairo:kairo-optional" }
 kairo-protectedString = { module = "software.airborne.kairo:kairo-protected-string" }
