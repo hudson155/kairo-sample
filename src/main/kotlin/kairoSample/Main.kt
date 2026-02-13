@@ -1,5 +1,7 @@
 package kairoSample
 
+import kairo.admin.AdminDashboardConfig
+import kairo.admin.AdminDashboardFeature
 import kairo.application.kairo
 import kairo.config.ConfigResolver
 import kairo.config.loadConfig
@@ -8,6 +10,7 @@ import kairo.gcpSecretSupplier.DefaultGcpSecretSupplier
 import kairo.gcpSecretSupplier.GcpSecretSupplier
 import kairo.healthCheck.HealthCheck
 import kairo.healthCheck.HealthCheckFeature
+import kairo.kdocs.KdocsFeature
 import kairo.protectedString.ProtectedString
 import kairo.rest.RestFeature
 import kairo.rest.auth.koin
@@ -68,6 +71,14 @@ fun main() {
         },
       ),
       StytchFeature(config.stytch),
+      KdocsFeature(),
+      AdminDashboardFeature(
+        config = AdminDashboardConfig(
+          serverName = "Kairo Sample",
+          githubRepoUrl = "https://github.com/hudson155/kairo-sample",
+        ),
+        // TODO: Add auth to ensure the admin dashboard is only available to authorized parties.
+      ),
     )
 
     val server = Server(
