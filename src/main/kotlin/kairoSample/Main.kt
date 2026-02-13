@@ -77,6 +77,7 @@ fun main() {
           serverName = "Kairo Sample",
           githubRepoUrl = "https://github.com/hudson155/kairo-sample",
         ),
+        // TODO: Add auth to ensure the admin dashboard is only available to authorized parties.
       ),
     )
 
